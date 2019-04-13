@@ -103,4 +103,21 @@ public class BuyDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
+	public int update(BuyVo vo) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "update buy set buy_addr = ? where buy_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getBuy_addr());
+			pstmt.setInt(2, vo.getBuy_num());
+			return pstmt.executeUpdate();
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return -1;
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
+		}
+	}
 }

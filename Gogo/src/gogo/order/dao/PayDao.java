@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DB.JDBCUtil;
+import gogo.order.vo.PayVo;
 
 public class PayDao {
 	private static PayDao instance = new PayDao();
@@ -30,6 +31,26 @@ public class PayDao {
 			return -1;
 		}finally {
 			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
+	public int insert(PayVo vo) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JDBCUtil.getConn();
+			int num = getMaxNum() + 1;
+			String sql = "insert into pay values(?, ?, ?, ?, sysdate, 0)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setInt(2, vo.getBuy_num());
+			pstmt.setString(3, vo.getPay_how());
+			pstmt.setInt(4, vo.getPay_sum());
+			return pstmt.executeUpdate();
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return -1;
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
 		}
 	}
 }

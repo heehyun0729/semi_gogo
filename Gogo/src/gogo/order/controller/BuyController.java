@@ -22,11 +22,13 @@ public class BuyController extends HttpServlet{
 		
 		BuyDao dao = BuyDao.getInstance();
 		ArrayList<BuyListVo> list = dao.list(mem_id);
+		int buy_num = list.get(0).getBuy_num();
 		
 		MemDao mdao = MemDao.getInstance();
 		MemVo mvo = mdao.getinfo(mem_id);
 		
 		req.setAttribute("list", list);
+		req.setAttribute("buy_num", buy_num);
 		req.setAttribute("mvo", mvo);
 		req.setAttribute("spage", "/order/orderForm.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);

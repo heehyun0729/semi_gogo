@@ -45,6 +45,7 @@
 		<br>
 		<h3>배송정보</h3>
 		<form method="post" action="${cp }/order/payInsert" onsubmit="buyValidate()">
+			<input type = "hidden" name = "buy_num" value = "${buy_num }">
 			<table border = "1" style="width: 500px;">
 				<tr>
 					<td>배송지 선택</td>
@@ -81,13 +82,14 @@
 			</table>
 			<br>
 			<h3>결제수단</h3>
+			<input type = "hidden" name = "pay_sum" value = "${sum }">
 			<table border = "1" style="width: 500px;">
 				<tr>
 					<td colspan = "2">
-						<input type = "radio" name = "payhow" checked="checked" onclick = "setPayHow()">무통장입금
-						<input type = "radio" name = "payhow"  onclick = "setPayHow()">계좌이체
-						<input type = "radio" name = "payhow" onclick = "setPayHow()">카드결제
-						<input type = "radio" name = "payhow" onclick = "setPayHow()">휴대폰 결제
+						<input type = "radio" name = "payhow" value = "무통장" checked="checked" onclick = "setPayHow()">무통장입금
+						<input type = "radio" name = "payhow"  value = "계좌이체" onclick = "setPayHow()">계좌이체
+						<input type = "radio" name = "payhow" value = "카드결제" onclick = "setPayHow()">카드결제
+						<input type = "radio" name = "payhow" value = "휴대폰결제" onclick = "setPayHow()">휴대폰 결제
 					</td>
 				</tr>
 				<tr>
