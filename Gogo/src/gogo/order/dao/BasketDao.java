@@ -66,8 +66,8 @@ public class BasketDao {
 			String sql = "select AA.*, (price * cnt) tot from " + 
 					"    ( " + 
 					"        select b.basket_num basket_num, b.prod_num prod_num, p.menu_num menu_num, i.img_saveimg img_saveimg, " + 
-					"            p.prod_name prod_name, b.op_num op_num, o.op_name op_name, " + 
-					"            b.detailop_num detailop_num, d.detailop_name detailop_name, d.detailop_price detailop_price, " + 
+					"            p.prod_name prod_name, o.op_name op_name, " + 
+					"            d.detailop_name detailop_name, d.detailop_price detailop_price, " + 
 					"            (p.prod_price + d.detailop_price) price, b.basket_cnt cnt " + 
 					"        from basket b, product p, image i, op o, detailop d " + 
 					"        where b.prod_num = p.prod_num and p.prod_stat = 0 " + 
@@ -88,9 +88,7 @@ public class BasketDao {
 							rs.getInt("menu_num"),
 							rs.getString("img_saveimg"),
 							rs.getString("prod_name"),
-							rs.getInt("op_num"),
 							rs.getString("op_name"),
-							rs.getInt("detailOp_num"),
 							rs.getString("detailOp_name"),
 							rs.getInt("detailOp_price"),
 							rs.getInt("price"),

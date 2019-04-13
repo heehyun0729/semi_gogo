@@ -1,42 +1,40 @@
 package gogo.order.vo;
 
-public class BasketListVo {
-	private int basket_num;
+public class BuyListVo {
+	private int buy_num;
 	private int prod_num;
 	private int menu_num;
 	private String img_saveImg;
 	private String prod_name;
 	private String op_name;
 	private String detailOp_name;
-	private int detailOp_price;
 	private int price;
 	private int cnt;
 	private int tot;
 	
-	public BasketListVo() {}
+	public BuyListVo() {}
 
-	public BasketListVo(int basket_num, int prod_num, int menu_num, String img_saveImg, String prod_name, 
-			String op_name, String detailOp_name, int detailOp_price, int price, int cnt, int tot) {
+	public BuyListVo(int buy_num, int prod_num, int menu_num, String img_saveImg, String prod_name, String op_name,
+			String detailOp_name, int price, int cnt, int tot) {
 		super();
-		this.basket_num = basket_num;
+		this.buy_num = buy_num;
 		this.prod_num = prod_num;
 		this.menu_num = menu_num;
 		this.img_saveImg = img_saveImg;
 		this.prod_name = prod_name;
 		this.op_name = op_name;
 		this.detailOp_name = detailOp_name;
-		this.detailOp_price = detailOp_price;
 		this.price = price;
 		this.cnt = cnt;
 		this.tot = tot;
 	}
 
-	public int getBasket_num() {
-		return basket_num;
+	public int getBuy_num() {
+		return buy_num;
 	}
 
-	public void setBasket_num(int basket_num) {
-		this.basket_num = basket_num;
+	public void setBuy_num(int buy_num) {
+		this.buy_num = buy_num;
 	}
 
 	public int getProd_num() {
@@ -85,14 +83,6 @@ public class BasketListVo {
 
 	public void setDetailOp_name(String detailOp_name) {
 		this.detailOp_name = detailOp_name;
-	}
-
-	public int getDetailOp_price() {
-		return detailOp_price;
-	}
-
-	public void setDetailOp_price(int detailOp_price) {
-		this.detailOp_price = detailOp_price;
 	}
 
 	public int getPrice() {
