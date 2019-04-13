@@ -22,10 +22,15 @@ public class UpdateController extends HttpServlet{
 		//req.setAttribute("mem_id", mem_id);
 		req.setAttribute("vo", vo);
 		String mem_bday=vo.getMem_bday();
-		String year=mem_bday.split("/")[0];
-		String month=mem_bday.split("/")[1];
-		String day=mem_bday.split("/")[2];
-		System.out.println(year+month+day);
+		if(mem_bday != null && !mem_bday.equals("")) {
+			String year=mem_bday.split("/")[0];
+			String month=mem_bday.split("/")[1];
+			String day=mem_bday.split("/")[2];
+			System.out.println(year+month+day);
+			req.setAttribute("year", year);
+			req.setAttribute("month", month);
+			req.setAttribute("day", day);
+		}
 		req.setAttribute("spage", "/mem/memUpdate.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}

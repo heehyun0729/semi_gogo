@@ -11,6 +11,7 @@
 <script type="text/javascript" src = "${cp }/js/checkbox.js"></script>
 <script type="text/javascript" src = "${cp }/js/basket.js"></script>
 <script type="text/javascript" src = "${cp }/js/product.js"></script>
+<script type="text/javascript" src = "${cp }/js/buy.js"></script>
 </head>
 <body>
 <div id = "wrap">

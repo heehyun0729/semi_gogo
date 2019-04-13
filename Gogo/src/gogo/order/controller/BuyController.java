@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import gogo.mem.dao.MemDao;
+import gogo.mem.vo.MemVo;
 import gogo.order.dao.BuyDao;
 import gogo.order.vo.BuyListVo;
 
@@ -21,7 +23,11 @@ public class BuyController extends HttpServlet{
 		BuyDao dao = BuyDao.getInstance();
 		ArrayList<BuyListVo> list = dao.list(mem_id);
 		
+		MemDao mdao = MemDao.getInstance();
+		MemVo mvo = mdao.getinfo(mem_id);
+		
 		req.setAttribute("list", list);
+		req.setAttribute("mvo", mvo);
 		req.setAttribute("spage", "/order/orderForm.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}

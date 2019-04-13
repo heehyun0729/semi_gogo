@@ -8,6 +8,7 @@ public class BuyListVo {
 	private String prod_name;
 	private String op_name;
 	private String detailOp_name;
+	private int detailOp_price;
 	private int price;
 	private int cnt;
 	private int tot;
@@ -15,7 +16,7 @@ public class BuyListVo {
 	public BuyListVo() {}
 
 	public BuyListVo(int buy_num, int prod_num, int menu_num, String img_saveImg, String prod_name, String op_name,
-			String detailOp_name, int price, int cnt, int tot) {
+			String detailOp_name, int detailOp_price, int price, int cnt, int tot) {
 		super();
 		this.buy_num = buy_num;
 		this.prod_num = prod_num;
@@ -24,10 +25,12 @@ public class BuyListVo {
 		this.prod_name = prod_name;
 		this.op_name = op_name;
 		this.detailOp_name = detailOp_name;
+		this.detailOp_price = detailOp_price;
 		this.price = price;
 		this.cnt = cnt;
 		this.tot = tot;
 	}
+
 
 	public int getBuy_num() {
 		return buy_num;
@@ -83,6 +86,14 @@ public class BuyListVo {
 
 	public void setDetailOp_name(String detailOp_name) {
 		this.detailOp_name = detailOp_name;
+	}
+
+	public int getDetailOp_price() {
+		return detailOp_price;
+	}
+
+	public void setDetailOp_price(int detailOp_price) {
+		this.detailOp_price = detailOp_price;
 	}
 
 	public int getPrice() {

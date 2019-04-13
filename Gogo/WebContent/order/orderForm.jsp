@@ -32,12 +32,7 @@
 						</c:if>
 					</td>
 					<td>${vo.price }원</td>
-					<td>
-						<input type="button" value="▲" onclick="basketCntUp('cnt${i}')">
-						<input type="text" id="cnt${i }" value="${vo.cnt }" readonly="readonly" style="width: 20px;">
-						<input type="button" value="▼" onclick="basketCntDown('cnt${i}')"><br>
-						<input type = "button" value = "수정" onclick="changeCnt('${cp}', 'cnt${i}','${vo.basket_num }')">
-					</td>
+					<td>${vo.cnt }</td>
 					<td>${vo.tot }원</td>
 				</tr>
 				<c:set var = "sum" value = "${sum + vo.tot}"/>
@@ -49,74 +44,67 @@
 		</table>
 		<br>
 		<h3>배송정보</h3>
-		<form method="post" action="${cp }/order/payInsert">
+		<form method="post" action="${cp }/order/payInsert" onsubmit="buyValidate()">
 			<table border = "1" style="width: 500px;">
 				<tr>
 					<td>배송지 선택</td>
 					<td>
-						<input type = "radio" id = "same" value = "same" checked="checked">회원 정보와 동일
-						<input type = "radio" id = "new" value = "new">새로운 배송지
+						<input type = "radio" name = "ship" checked="checked" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">회원 정보와 동일
+						<input type = "radio" name = "ship" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">새로운 배송지
 					</td>
 				</tr>
 				<tr>
 					<td>받으시는 분<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></td>
-					<td><input type = "text" id = "name" name = "name" value = ""></td>
+					<td><input type = "text" id = "name" name = "name" value = "${mvo.mem_name }"></td>
 				</tr>
 				<tr>
 					<td>주소 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></td>
-					<td><textarea rows="3" cols="50" name="addr" id = "addr"></textarea></td>
+					<td><textarea rows="3" cols="50" name="addr" id = "addr">${mvo.mem_addr }</textarea></td>
 				</tr>
 				<tr>
 					<td>전화번호<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></td>
 					<td>
-						<select name="phone" id="phone" size="1">
-							<option value="02">02</option>
-							<option value="031">031</option>
-							<option value="070">070</option>
-							<option value="010">010</option>
-							<option value="011">011</option>
-						</select>
-						<input type="text" name="phonetext" id = "phonetext">(- 없이 입력)
+						<input type="text" name="phone" id = "phone" value = "${mvo.mem_phone }">(- 없이 입력)
 					</td>
 				</tr>
 				<tr>
 					<td>이메일 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></td>
-					<td><input type="text" name="email" id = "email" value = ""></td>
+					<td><input type="text" name="email" id = "email" value = "${mvo.mem_email }"></td>
 				</tr>
 				<tr>
 					<td>배송메시지</td>
 					<td><textarea rows="3" cols="50" name="addr" id = "addr"></textarea></td>
 				</tr>
+				<tr>
+					<td><div id = "msg" style="color: red;font-size: 12px;"></div></td>
+				</tr>
 			</table>
-			<br>
-			<h3>결제예정금액</h3>
-			<h4>${sum }원</h4>
 			<br>
 			<h3>결제수단</h3>
 			<table border = "1" style="width: 500px;">
 				<tr>
 					<td colspan = "2">
-						<input type = "radio" id = "noaccount" checked="checked">무통장입금
-						<input type = "radio" id = "account">계좌이체
-						<input type = "radio" id = "card">카드결제
-						<input type = "radio" id = "phonepay">휴대폰 결제
+						<input type = "radio" name = "payhow" checked="checked" onclick = "setPayHow()">무통장입금
+						<input type = "radio" name = "payhow"  onclick = "setPayHow()">계좌이체
+						<input type = "radio" name = "payhow" onclick = "setPayHow()">카드결제
+						<input type = "radio" name = "payhow" onclick = "setPayHow()">휴대폰 결제
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<table border = "1" style="width: 300px;">
+						<table id = "noaccount" border = "1" style="width: 300px;">
 							<tr>
 								<td>입금자명</td>
 								<td><input type = "text" id = "payname"></td>
 							</tr>
 						</table>
-						<table border = "1" style="width: 300px;position: none;">
+						<table id = "account" border = "1" style="width: 300px;display: none;">
 							<tr>
 								<td>예금주명</td>
 								<td><input type = "text" id = "accountname"></td>
 							</tr>
 						</table>
-						<div id = "paymsg" style="position: none;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</div>
+						<div id = "paymsg" style="display: none;">소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</div>
 					</td>
 				</tr>
 			</table>

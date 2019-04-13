@@ -61,7 +61,7 @@ public class BuyDao {
 			con = JDBCUtil.getConn();
 			String sql = "select AA.*, (price * cnt) tot from " + 
 					"( " + 
-					"    select b.buy_num buy_num, d.prod_num prod_num, p.menu_num menu_num, i.img_saveImg img_sageImg, " + 
+					"    select b.buy_num buy_num, d.prod_num prod_num, p.menu_num menu_num, i.img_saveImg img_saveImg, " + 
 					"         p.prod_name prod_name, d.op_num op_num, o.op_name op_name, " + 
 					"            d.detailop_num detailop_num, do.detailop_name detailop_name, do.detailop_price detailop_price, " + 
 					"            (p.prod_price + do.detailop_price) price, d.detailBuy_cnt cnt " + 
@@ -88,6 +88,7 @@ public class BuyDao {
 							rs.getString("prod_name"),
 							rs.getString("op_name"),
 							rs.getString("detailOp_name"),
+							rs.getInt("detailOp_price"),
 							rs.getInt("price"),
 							rs.getInt("cnt"),
 							rs.getInt("tot")
