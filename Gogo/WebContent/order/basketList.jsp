@@ -54,7 +54,7 @@
 		</table>
 		<input type = "submit" value = "선택상품삭제" onclick="javascript: form.action='${cp }/order/basketDelete.do?select=ck'"><br>
 		<input type = "submit" value = "전체상품주문" onclick="javascript: form.action='${cp }/order/buyInsert?select=all'"><br>
-		<input type = "submit" value = "선택상품주문" onclick="javascript: form.action='${cp }/order/'"><br>
+		<input type = "submit" value = "선택상품주문" onclick="javascript: form.action='${cp }/order/buyInsert?select=ck'"><br>
 		<a href = "${cp }/order/basketDelete.do?select=all">장바구니 비우기</a><br>
 		<a href = "javascript:history.go(-1)">쇼핑계속하기</a>
 	</form>

@@ -135,6 +135,35 @@ public class BasketDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
+	public BasketVo detail(int basket_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "select * from basket where basket_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, basket_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				BasketVo vo = new BasketVo(
+							basket_num,
+							rs.getString("mem_id"),
+							rs.getInt("prod_num"),
+							rs.getInt("op_num"),
+							rs.getInt("detailop_num"),
+							rs.getInt("basket_cnt")
+						);
+				return vo;
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
 	public int isAdded(BasketVo vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;

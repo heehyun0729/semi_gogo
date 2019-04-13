@@ -6,6 +6,7 @@
 	<h1>ORDER</h1>
 	<h3>주문서작성</h3>
 	<br>
+	<input type = "button" value = "이전페이지" onclick="javascript:history.go(-1)">
 	<h3>주문내역</h3>
 	<table border = "1" style="width: 700px;">
 			<tr>
