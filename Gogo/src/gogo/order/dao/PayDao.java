@@ -39,12 +39,13 @@ public class PayDao {
 		try {
 			con = JDBCUtil.getConn();
 			int num = getMaxNum() + 1;
-			String sql = "insert into pay values(?, ?, ?, ?, sysdate, 0)";
+			String sql = "insert into pay values(?, ?, ?, ?, sysdate, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setInt(2, vo.getBuy_num());
 			pstmt.setString(3, vo.getPay_how());
 			pstmt.setInt(4, vo.getPay_sum());
+			pstmt.setInt(5, vo.getPay_stat());
 			return pstmt.executeUpdate();
 		}catch(SQLException se) {
 			se.printStackTrace();

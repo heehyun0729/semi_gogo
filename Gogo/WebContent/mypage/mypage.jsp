@@ -6,7 +6,7 @@
 	<div>[${sessionScope.mem_id }]님 환영합니다.</div>
 	<ul> 
 		<li><a href = "${cp }/mypage/myInfo.do">회원정보</a></li>
-		<li><a href = "">주문내역</a></li>
+		<li><a href = "${cp }/mypage/orderList">주문내역</a></li>
 		<li><a href = "${cp }/mypage/interList.do">관심상품</a></li>
 		<li><a href = "${cp }/mypage/myboard">게시물관리</a></li>
 	</ul>

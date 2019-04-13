@@ -7,7 +7,7 @@
 	<h3>주문서작성</h3>
 	<br>
 	<input type = "button" value = "이전페이지" onclick="javascript:history.go(-1)">
-	<h3>주문내역</h3>
+	<h3>주문상품목록</h3>
 	<table border = "1" style="width: 700px;">
 			<tr>
 				<th>이미지</th>
@@ -16,7 +16,6 @@
 				<th>수량</th>
 				<th>합계</th>
 			</tr>
-			<c:set var = "i" value = "1"/>
 			<c:forEach var = "vo" items = "${list }">
 				<tr>
 					<td>
@@ -37,7 +36,6 @@
 					<td>${vo.tot }원</td>
 				</tr>
 				<c:set var = "sum" value = "${sum + vo.tot}"/>
-				<c:set var = "i" value = "${i + 1 }"/>
 			</c:forEach>
 			<tr>
 				<td colspan = "8">합계: ${sum }원</td>

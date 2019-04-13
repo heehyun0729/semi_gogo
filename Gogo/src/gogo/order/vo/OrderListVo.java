@@ -2,8 +2,9 @@ package gogo.order.vo;
 
 import java.sql.Date;
 
-public class BuyListVo {
+public class OrderListVo {
 	private int buy_num;
+	private Date buy_bdate;
 	private int prod_num;
 	private int menu_num;
 	private String img_saveImg;
@@ -14,13 +15,15 @@ public class BuyListVo {
 	private int price;
 	private int cnt;
 	private int tot;
+	private int length;
 	
-	public BuyListVo() {}
+	public OrderListVo() {}
 
-	public BuyListVo(int buy_num, int prod_num, int menu_num, String img_saveImg, String prod_name,
-			String op_name, String detailOp_name, int detailOp_price, int price, int cnt, int tot) {
+	public OrderListVo(int buy_num, Date buy_bdate, int prod_num, int menu_num, String img_saveImg, String prod_name,
+			String op_name, String detailOp_name, int detailOp_price, int price, int cnt, int tot, int lenth) {
 		super();
 		this.buy_num = buy_num;
+		this.buy_bdate = buy_bdate;
 		this.prod_num = prod_num;
 		this.menu_num = menu_num;
 		this.img_saveImg = img_saveImg;
@@ -31,7 +34,9 @@ public class BuyListVo {
 		this.price = price;
 		this.cnt = cnt;
 		this.tot = tot;
+		this.length = lenth;
 	}
+
 
 	public int getBuy_num() {
 		return buy_num;
@@ -39,6 +44,14 @@ public class BuyListVo {
 
 	public void setBuy_num(int buy_num) {
 		this.buy_num = buy_num;
+	}
+
+	public Date getBuy_bdate() {
+		return buy_bdate;
+	}
+
+	public void setBuy_bdate(Date buy_bdate) {
+		this.buy_bdate = buy_bdate;
 	}
 
 	public int getProd_num() {
@@ -119,6 +132,14 @@ public class BuyListVo {
 
 	public void setTot(int tot) {
 		this.tot = tot;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
 	}
 	
 }

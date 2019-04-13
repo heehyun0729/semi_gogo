@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import DB.JDBCUtil;
 import gogo.order.vo.BuyListVo;
 import gogo.order.vo.BuyVo;
+import gogo.order.vo.OrderListVo;
 
 public class BuyDao {
 	private static BuyDao instance = new BuyDao();
