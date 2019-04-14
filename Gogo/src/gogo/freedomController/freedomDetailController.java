@@ -5,5 +5,5 @@ import javax.servlet.http.HttpServlet;
 
 @WebServlet("/freedom/freedomDetail")
 public class freedomDetailController extends HttpServlet{
-	
+	//
 }
