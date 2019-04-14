@@ -36,3 +36,4 @@ public class freedomUpdateController extends HttpServlet{
 		FreedomDao dao=new FreedomDao();
 	}
 }
+//
