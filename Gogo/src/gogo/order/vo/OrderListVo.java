@@ -5,6 +5,7 @@ import java.sql.Date;
 public class OrderListVo {
 	private int buy_num;
 	private Date buy_bdate;
+	private int detailBuy_num;
 	private int prod_num;
 	private int menu_num;
 	private String img_saveImg;
@@ -12,6 +13,7 @@ public class OrderListVo {
 	private String op_name;
 	private String detailOp_name;
 	private int detailOp_price;
+	private int detailBuy_review;
 	private int price;
 	private int cnt;
 	private int tot;
@@ -19,11 +21,13 @@ public class OrderListVo {
 	
 	public OrderListVo() {}
 
-	public OrderListVo(int buy_num, Date buy_bdate, int prod_num, int menu_num, String img_saveImg, String prod_name,
-			String op_name, String detailOp_name, int detailOp_price, int price, int cnt, int tot, int lenth) {
+	public OrderListVo(int buy_num, Date buy_bdate, int detailBuy_num, int prod_num, int menu_num, String img_saveImg,
+			String prod_name, String op_name, String detailOp_name, int detailOp_price, int detailBuy_review, 
+			int price, int cnt, int tot, int length) {
 		super();
 		this.buy_num = buy_num;
 		this.buy_bdate = buy_bdate;
+		this.detailBuy_num = detailBuy_num;
 		this.prod_num = prod_num;
 		this.menu_num = menu_num;
 		this.img_saveImg = img_saveImg;
@@ -34,9 +38,9 @@ public class OrderListVo {
 		this.price = price;
 		this.cnt = cnt;
 		this.tot = tot;
-		this.length = lenth;
+		this.detailBuy_review = detailBuy_review;
+		this.length = length;
 	}
-
 
 	public int getBuy_num() {
 		return buy_num;
@@ -52,6 +56,14 @@ public class OrderListVo {
 
 	public void setBuy_bdate(Date buy_bdate) {
 		this.buy_bdate = buy_bdate;
+	}
+
+	public int getDetailBuy_num() {
+		return detailBuy_num;
+	}
+
+	public void setDetailBuy_num(int detailBuy_num) {
+		this.detailBuy_num = detailBuy_num;
 	}
 
 	public int getProd_num() {
@@ -132,6 +144,14 @@ public class OrderListVo {
 
 	public void setTot(int tot) {
 		this.tot = tot;
+	}
+
+	public int getDetailBuy_review() {
+		return detailBuy_review;
+	}
+
+	public void setDetailBuy_review(int detailBuy_review) {
+		this.detailBuy_review = detailBuy_review;
 	}
 
 	public int getLength() {

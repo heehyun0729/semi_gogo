@@ -98,10 +98,11 @@ public class DetailBuyDao {
 					"( " + 
 					"    select AA.*, (price * cnt) tot, rownum rnum from " + 
 					"    ( " + 
-					"        select b.buy_num buy_num, b.buy_bdate buy_bdate, d.prod_num prod_num, p.menu_num menu_num, i.img_saveImg img_saveImg, " + 
+					"        select b.buy_num buy_num, b.buy_bdate buy_bdate, d.detailBuy_num detailBuy_num, "
+					+ "	 	 d.prod_num prod_num, p.menu_num menu_num, i.img_saveImg img_saveImg, " + 
 					"             p.prod_name prod_name, d.op_num op_num, o.op_name op_name,  " + 
 					"                d.detailop_num detailop_num, do.detailop_name detailop_name, do.detailop_price detailop_price, " + 
-					"                (p.prod_price + do.detailop_price) price, d.detailBuy_cnt cnt " + 
+					"                d.detailBuy_review detailBuy_review, (p.prod_price + do.detailop_price) price, d.detailBuy_cnt cnt " + 
 					"        from buy b, detailBuy d, product p, image i, op o, detailOp do, pay p " + 
 					"        where b.buy_num = d.buy_num  " + 
 					"            and d.prod_num = p.prod_num " + 
@@ -135,6 +136,7 @@ public class DetailBuyDao {
 				OrderListVo vo = new OrderListVo(
 							rs.getInt("buy_num"),
 							rs.getDate("buy_bdate"),
+							rs.getInt("detailBuy_num"),
 							rs.getInt("prod_num"),
 							rs.getInt("menu_num"),
 							rs.getString("img_saveImg"),
@@ -142,6 +144,7 @@ public class DetailBuyDao {
 							rs.getString("op_name"),
 							rs.getString("detailOp_name"),
 							rs.getInt("detailOp_price"),
+							rs.getInt("detailBuy_review"),
 							rs.getInt("price"),
 							rs.getInt("cnt"),
 							rs.getInt("tot"),
@@ -199,6 +202,23 @@ public class DetailBuyDao {
 			return null;
 		}finally {
 			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
+	public int update(int detailBuy_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "update detailBuy set detailBuy_review = 1 where detailBuy_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, detailBuy_num);
+			int n= pstmt.executeUpdate();
+			return n;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return -1;
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
 		}
 	}
 }
