@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import gogo.board.dao.QnaDao;
 import gogo.board.dao.ReviewDao;
+import gogo.board.vo.ReviewVo;
 import gogo.image.dao.ImageDao;
 import gogo.image.vo.ImageVo;
+import gogo.order.dao.DetailBuyDao;
 
 @WebServlet("/board/reviewDelete")
 public class ReviewDeleteController extends HttpServlet{
@@ -39,9 +41,9 @@ public class ReviewDeleteController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int menu_num = Integer.parseInt(req.getParameter("menu_num"));
-		
 		ImageDao idao = ImageDao.getInstance();
 		ReviewDao rdao = ReviewDao.getInstance();
+		DetailBuyDao ddao = DetailBuyDao.getInstance();
 		
 		int review_num = Integer.parseInt(req.getParameter("review_num"));
 		// 저장된 이미지 삭제
@@ -65,7 +67,15 @@ public class ReviewDeleteController extends HttpServlet{
 		int n1 = rdao.delete(review_num);
 		if(n1 <= 0) {
 			// 오류 처리
-			System.out.println("qna DB 삭제 실패");
+			System.out.println("review DB 삭제 실패");
+		}
+		// detailBuy 테이블 DB 수정
+		ReviewVo rvo = rdao.getReview(review_num);
+		int detailBuy_num = rvo.getDetailBuy_num();
+		int n2 = ddao.update(detailBuy_num, 0);
+		if(n2 <= 0) {
+			// 오류 처리
+			System.out.println("detailBuy DB 수정 실패");
 		}else {
 			resp.sendRedirect(req.getContextPath() + "/board/review?menu_num=" + menu_num);
 		}

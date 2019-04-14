@@ -239,4 +239,55 @@ public class ReviewDao {
 			JDBCUtil.close(con, pstmt, null);
 		}
 	}
+	public int update(ReviewVo vo) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "update review set review_title = ?, review_content = ?, review_star = ? "
+					+ "	where review_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getReview_title());
+			pstmt.setString(2, vo.getReview_content());
+			pstmt.setInt(3, vo.getReview_star());
+			pstmt.setInt(4, vo.getReview_num());
+			return pstmt.executeUpdate();
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return -1;
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
+		}
+	}
+	public ReviewVo getReview(int review_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "select * from review where review_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, review_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				ReviewVo vo = new ReviewVo(
+							review_num,
+							rs.getString("mem_id"),
+							rs.getInt("detailBuy_num"),
+							rs.getString("review_title"),
+							rs.getString("review_content"),
+							rs.getInt("review_star"),
+							rs.getDate("review_wdate"),
+							rs.getInt("review_like")
+						);
+				return vo;
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
 }
