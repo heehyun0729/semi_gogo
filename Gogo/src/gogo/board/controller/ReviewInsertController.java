@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import gogo.board.dao.ReviewDao;
+import gogo.board.vo.ReviewVo;
 import gogo.order.dao.DetailBuyDao;
 import gogo.order.vo.ReviewProdListVo;
 
@@ -28,6 +30,19 @@ public class ReviewInsertController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String mem_id = (String)req.getSession().getAttribute("mem_id");
+		int detailBuy_num = Integer.parseInt(req.getParameter("prod"));
+		String review_title = req.getParameter("title");
+		String review_content = req.getParameter("content");
+		int review_star = Integer.parseInt(req.getParameter("star"));
 		
+		ReviewVo vo = new ReviewVo(0, mem_id, detailBuy_num, review_title, review_content, review_star, null, 0);
+		ReviewDao dao = ReviewDao.getInstance();
+		int n = dao.insert(vo);
+		if(n > 0) {
+			resp.sendRedirect(req.getContextPath() + "/home.jsp/board/review");
+		}else {
+			// 오류 처리
+			System.out.println("review DB 추가 실패");
+		}
 	}
 }

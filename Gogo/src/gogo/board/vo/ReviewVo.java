@@ -6,7 +6,7 @@ public class ReviewVo {
 	
 	private int review_num;
 	private String mem_id;
-	private int prod_num;
+	private int detailBuy_num;
 	private String review_title;
 	private String review_content;
 	private int review_star;
@@ -15,18 +15,19 @@ public class ReviewVo {
 	
 	public ReviewVo() {}
 
-	public ReviewVo(int review_num, String mem_id, int prod_num, String review_title, String review_content,
+	public ReviewVo(int review_num, String mem_id, int detailBuy_num, String review_title, String review_content,
 			int review_star, Date review_wdate, int review_like) {
 		super();
 		this.review_num = review_num;
 		this.mem_id = mem_id;
-		this.prod_num = prod_num;
+		this.detailBuy_num = detailBuy_num;
 		this.review_title = review_title;
 		this.review_content = review_content;
 		this.review_star = review_star;
 		this.review_wdate = review_wdate;
 		this.review_like = review_like;
 	}
+
 
 	public int getReview_num() {
 		return review_num;
@@ -44,12 +45,12 @@ public class ReviewVo {
 		this.mem_id = mem_id;
 	}
 
-	public int getProd_num() {
-		return prod_num;
+	public int getDetailBuy_num() {
+		return detailBuy_num;
 	}
 
-	public void setProd_num(int prod_num) {
-		this.prod_num = prod_num;
+	public void setDetailBuy_num(int detailBuy_num) {
+		this.detailBuy_num = detailBuy_num;
 	}
 
 	public String getReview_title() {

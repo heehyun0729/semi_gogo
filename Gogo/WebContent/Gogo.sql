@@ -107,7 +107,7 @@ drop table detailBuy cascade constraints;
 create table detailBuy
 (
     detailBuy_num number(7,0) primary key,
-    buy_num number(7,0) references buy(buy_num),
+    detailBuy_num number(7,0) REFERENCES detailBuy(detailBuy_num),
     prod_num number(7,0) references product(prod_num),
     op_num number(2,0) references op(op_num),
     detailOp_num number(2,0) references detailOp(detailOp_num),
