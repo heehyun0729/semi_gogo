@@ -16,6 +16,7 @@
 <script type="text/javascript" src = "${cp }/js/basket.js"></script>
 <script type="text/javascript" src = "${cp }/js/product.js"></script>
 <script type="text/javascript" src = "${cp }/js/buy.js"></script>
+<script type="text/javascript" src = "${cp }/js/review.js"></script>
 </head>
 <body>
 <div id = "wrap">
