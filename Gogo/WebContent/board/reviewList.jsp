@@ -4,6 +4,13 @@
 <div id = "board">
 	<h1>REVIEW</h1>
 	<h3>후기</h3>
+	<div id = "search">
+		<form method="post" action="${cp }/board/review?menu_num=${menu_num}">
+			상품명
+			<input type = "text" name = "keyword" value = "${keyword }">
+			<input type = "submit" value = "조회">
+		</form>
+	</div>
 	<a href = "${cp }/board/reviewInsert?menu_num=11">글쓰기</a>
 	<table border = "1" style = "width: 700px;">
 		<tr>
@@ -27,4 +34,32 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div id = "pages">
+		<c:choose>
+			<c:when test="${startPage > 10 }">
+				<a href = "${cp }/board/review?pageNum=${startPage - 1}">◀</a>
+			</c:when>
+			<c:otherwise>
+				◀
+			</c:otherwise>
+		</c:choose>
+		<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
+			<c:choose>
+				<c:when test="${pageNum == i }">
+					<a href = "${cp }/board/review?menu_num=${menu_num}&pageNum=${i}"><span style = "color: pink;">[${i }]</span></a>
+				</c:when>
+				<c:otherwise>
+					<a href = "${cp }/board/review?menu_num=${menu_num}&pageNum=${i}"><span style = "color: gray;">[${i }]</span></a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:choose>
+			<c:when test="${endPage < pageCnt }">
+				<a href = "${cp }/board/review?menu_num=${menu_num}&pageNum=${endPage + 1}">▶</a>
+			</c:when>
+			<c:otherwise>
+				▶
+			</c:otherwise>
+		</c:choose>
+	</div>
 </div>

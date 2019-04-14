@@ -74,13 +74,24 @@ public class QnaDao {
 		try {
 			con = JDBCUtil.getConn();
 			String sql = "select NVL(count(qna_num), 0) from qna ";
-			if(cate != null && !cate.equals("")) {
-				sql += "where qna_cate like '" + cate + "' ";
+			if((mem_id != null && !mem_id.equals(""))
+					|| (field != null && !field.equals("") && keyword != null && keyword.equals(""))
+					|| (cate != null && !cate.equals(""))) {
+				sql += "where ";
 				if(mem_id != null && !mem_id.equals("")) {
-					sql += "and mem_id = '" + mem_id + "'";
+					sql += "mem_id = '" + mem_id + "' and ";
 				}
-			}else if(mem_id != null && !mem_id.equals("")) {
-				sql += "where mem_id = '" + mem_id + "'";
+				if(field != null && !field.equals("") && keyword != null && keyword.equals("")) {
+					if(field.equals("all")) {
+						sql += "(qna_title like '%" + keyword + "%' or qna_content like '%" + keyword + "%') and ";
+					}else {
+						sql += field + "like '%" + keyword + "%' and ";
+					}
+				}
+				if(cate != null && !cate.equals("")) {
+					sql += "qna_cate like '%" + cate + "%' and ";
+				}
+				sql += "qna_num is not null";
 			}
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -203,7 +214,7 @@ public class QnaDao {
 						"     )BB " + 
 						")AA " + 
 						"where rnum >= ? and rnum <= ? ";
-			}else {
+			}else if(field != null && !field.equals("") && keyword != null && !keyword.equals("")){
 				sql = "select AA.*, rpad(substr(mem_id, 1, 3), length(mem_id), '*') id from " + 
 						"( " + 
 						"	 select BB.*, rownum rnum from " + 

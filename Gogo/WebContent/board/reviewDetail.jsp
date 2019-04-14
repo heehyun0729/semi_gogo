@@ -49,4 +49,5 @@
 			<input type = "button" value = "추천" onclick="setLike('${cp}', '${vo.review_num }')"></td>
 		</tr>
 	</table>
+	<input type = "button" value = "목록" onclick="javascript:history.go(-1)">
 </div>
