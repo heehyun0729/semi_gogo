@@ -204,14 +204,15 @@ public class DetailBuyDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
-	public int update(int detailBuy_num) {
+	public int update(int detailBuy_num, int detailBuy_review) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = JDBCUtil.getConn();
-			String sql = "update detailBuy set detailBuy_review = 1 where detailBuy_num = ?";
+			String sql = "update detailBuy set detailBuy_review = ? where detailBuy_num = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, detailBuy_num);
+			pstmt.setInt(1, detailBuy_review);
+			pstmt.setInt(2, detailBuy_num);
 			int n= pstmt.executeUpdate();
 			return n;
 		}catch(SQLException se) {

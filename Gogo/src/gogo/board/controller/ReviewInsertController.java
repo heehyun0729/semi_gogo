@@ -87,7 +87,7 @@ public class ReviewInsertController extends HttpServlet{
 		}
 		// detailBuy 테이블 review 상태 수정
 		DetailBuyDao ddao = DetailBuyDao.getInstance();
-		int n1 = ddao.update(detailBuy_num);
+		int n1 = ddao.update(detailBuy_num, 1);
 		if(n1 <= 0) {
 			// 오류처리
 			System.out.println("detailBuy DB 수정 실패");
