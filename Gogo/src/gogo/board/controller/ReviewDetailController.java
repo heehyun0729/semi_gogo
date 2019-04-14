@@ -28,6 +28,7 @@ public class ReviewDetailController extends HttpServlet{
 		
 		req.setAttribute("vo", vo);
 		req.setAttribute("ilist", ilist);
+		req.setAttribute("menu_num", 11);
 		req.setAttribute("spage", "/board/reviewDetail.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}

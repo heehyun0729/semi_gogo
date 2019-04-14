@@ -94,7 +94,7 @@ public class ReviewDao {
 						"("
 							+ "select r.review_num review_num, p.prod_num prod_num, p.menu_num menu_num, " + 
 							"    i.img_saveImg img_saveImg, p.prod_name prod_name, o.op_name op_name, "
-							+ "	do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, rpad(substr(r.mem_id, 1, 3), length(r.mem_id), '*') mem_id, " + 
+							+ "	do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, r.mem_id mem_id, " + 
 							"    r.review_title review_title, r.review_content review_content, r.review_star review_star, " + 
 							"    r.review_like review_like, r.review_wdate review_wdate, rownum rnum " + 
 							"from review r, detailBuy d, product p, op o, detailOp do, image i " + 
@@ -111,7 +111,7 @@ public class ReviewDao {
 						"("
 							+ "select r.review_num review_num, p.prod_num prod_num, p.menu_num menu_num, " + 
 							"    i.img_saveImg img_saveImg, p.prod_name prod_name, o.op_name op_name, "
-							+ "	do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, rpad(substr(r.mem_id, 1, 3), length(r.mem_id), '*') mem_id, " + 
+							+ "	do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, r.mem_id mem_id, " + 
 							"    r.review_title review_title, r.review_content review_content, r.review_star review_star, " + 
 							"    r.review_like review_like, r.review_wdate review_wdate, rownum rnum " + 
 							"from review r, detailBuy d, product p, op o, detailOp do, image i " + 
@@ -213,6 +213,22 @@ public class ReviewDao {
 		try {
 			con = JDBCUtil.getConn();
 			String sql = "update review set review_like = review_like + 1 where review_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, review_num);
+			return pstmt.executeUpdate();
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return -1;
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
+		}
+	}
+	public int delete(int review_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "delete from review where review_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, review_num);
 			return pstmt.executeUpdate();

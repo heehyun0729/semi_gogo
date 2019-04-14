@@ -49,5 +49,9 @@
 			<input type = "button" value = "추천" onclick="setLike('${cp}', '${vo.review_num }')"></td>
 		</tr>
 	</table>
-	<input type = "button" value = "목록" onclick="javascript:history.go(-1)">
+	<a href = "javascript:history.go(-1)">목록</a>
+	<c:if test="${sessionScope.mem_id == vo.mem_id }">
+		<a href = "${cp }/board/reviewUpdate?menu_num=${menu_num}&review_num=${vo.review_num}">수정</a>
+		<a href = "${cp }/board/reviewDelete?menu_num=${menu_num}&review_num=${vo.review_num}">삭제</a>
+	</c:if>
 </div>

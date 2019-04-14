@@ -42,6 +42,7 @@ public class QnaDeleteController extends HttpServlet{
 		String select = req.getParameter("select");
 		
 		ImageDao idao = ImageDao.getInstance();
+		QnaDao qdao = QnaDao.getInstance();
 		
 		if(select != null) {	// 삭제할 데이터를 체크박스로 선택한 경우
 			String[] qna_nums = req.getParameterValues("check");
@@ -65,7 +66,6 @@ public class QnaDeleteController extends HttpServlet{
 						System.out.println("image DB 삭제 실패");
 					}
 					// qna 테이블 DB 삭제
-					QnaDao qdao = QnaDao.getInstance();
 					int n1 = qdao.delete(qn);
 					if(n1 <= 0) {
 						// 오류 처리
@@ -94,7 +94,6 @@ public class QnaDeleteController extends HttpServlet{
 				System.out.println("image DB 삭제 실패");
 			}
 			// qna 테이블 DB 삭제
-			QnaDao qdao = QnaDao.getInstance();
 			int n1 = qdao.delete(qna_num);
 			if(n1 <= 0) {
 				// 오류 처리
