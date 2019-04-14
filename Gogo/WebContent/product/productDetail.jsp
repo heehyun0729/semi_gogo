@@ -114,7 +114,8 @@
 		var opt_price=parseInt(opt_value[1]);//가격
 		
 		opt.value=1;
-		parent.removeChild(child); ////////////부모의 자식의 자식을 삭제할 것.
+//		parent.firstChild.removeChild(child); ////////////부모의 자식의 자식을 삭제할 것.
+		parent.removeChild(child.parentNode);
 		
 		total_value=parseInt(total.innerHTML);
 		total_value-=optotaldiv;
