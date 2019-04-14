@@ -6,5 +6,5 @@
    <h1>게시글 수정하기</h1>
 	</div>
  	<for method="post" action="${pageContext.request.contextPath }
- </div>  
+ </div>  //
   
