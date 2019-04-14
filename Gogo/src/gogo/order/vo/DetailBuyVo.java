@@ -7,10 +7,12 @@ public class DetailBuyVo {
 	private int op_num;
 	private int detailOp_num;
 	private int detailBuy_cnt;
+	private int detailBuy_review;
 	
 	public DetailBuyVo() {}
 
-	public DetailBuyVo(int detailBuy_num, int buy_num, int prod_num, int op_num, int detailOp_num, int detailBuy_cnt) {
+	public DetailBuyVo(int detailBuy_num, int buy_num, int prod_num, int op_num, int detailOp_num, int detailBuy_cnt,
+			int detailBuy_review) {
 		super();
 		this.detailBuy_num = detailBuy_num;
 		this.buy_num = buy_num;
@@ -18,7 +20,9 @@ public class DetailBuyVo {
 		this.op_num = op_num;
 		this.detailOp_num = detailOp_num;
 		this.detailBuy_cnt = detailBuy_cnt;
+		this.detailBuy_review = detailBuy_review;
 	}
+
 
 	public int getDetailBuy_num() {
 		return detailBuy_num;
@@ -66,6 +70,14 @@ public class DetailBuyVo {
 
 	public void setDetailBuy_cnt(int detailBuy_cnt) {
 		this.detailBuy_cnt = detailBuy_cnt;
+	}
+
+	public int getDetailBuy_review() {
+		return detailBuy_review;
+	}
+
+	public void setDetailBuy_review(int detailBuy_review) {
+		this.detailBuy_review = detailBuy_review;
 	}
 
 	@Override

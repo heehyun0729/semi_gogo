@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id = "board">
 	<h1>REVIEW</h1>
 	<h3>후기</h3>
@@ -7,7 +8,18 @@
 		<table border = "1" style = "width: 500px;">
 			<tr>
 				<td>구매한 상품</td>
-				<td><select name = "prod" onclick="getProd('${cp}')"></select></td>
+				<td>
+					<select name = "prod">
+						<option value = "">- [필수]선택 -</option>
+						<c:forEach var = "vo" items = "${list }">
+							<option value = "${vo.detailBuy_num }">${vo.prod_name }
+								<c:if test="${vo.prod_name != vo.op_name }">
+									[옵션: ${vo.op_name } - ${vo.detailOp_name }(+${vo.detailOp_price })]
+								</c:if>
+							</option>
+						</c:forEach>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>제목</td>

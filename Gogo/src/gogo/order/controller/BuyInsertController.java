@@ -50,7 +50,8 @@ public class BuyInsertController extends HttpServlet{
 							vo.getProd_num(),
 							vo.getOp_num(),
 							vo.getDetailop_num(),
-							vo.getBasket_cnt()
+							vo.getBasket_cnt(),
+							0
 						);
 				int n1 = ddao.insert(dvo);
 				if(n1 <= 0) {
@@ -72,7 +73,8 @@ public class BuyInsertController extends HttpServlet{
 							vo.getProd_num(),
 							vo.getOp_num(),
 							vo.getDetailop_num(),
-							vo.getBasket_cnt()
+							vo.getBasket_cnt(),
+							0
 						);
 					int n1 = ddao.insert(dvo);
 					if(n1 <= 0) {
@@ -100,7 +102,8 @@ public class BuyInsertController extends HttpServlet{
 								prod_num,
 								op_num,
 								detailOp_num,
-								basket_cnt
+								basket_cnt,
+								0
 							);
 					int n1 = ddao.insert(dvo);
 					if(n1 <= 0) {
