@@ -111,7 +111,8 @@ create table detailBuy
     prod_num number(7,0) references product(prod_num),
     op_num number(2,0) references op(op_num),
     detailOp_num number(2,0) references detailOp(detailOp_num),
-    detailBuy_cnt number(7,0)
+    detailBuy_cnt number(7,0),
+    detailBuy_review number(2,0) default(0)
 );
 
 

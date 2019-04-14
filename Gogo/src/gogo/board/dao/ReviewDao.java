@@ -1,5 +1,7 @@
 package gogo.board.dao;
 
+import java.util.ArrayList;
+
 public class ReviewDao {
 	private static ReviewDao instance = new ReviewDao();
 	private ReviewDao() {}
