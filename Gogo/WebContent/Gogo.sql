@@ -174,6 +174,7 @@ CREATE TABLE review
 	review_like number(7,0) NOT NULL
 );
 
+create sequence fre;
 DROP TABLE freedom CASCADE CONSTRAINTS;
 CREATE TABLE freedom
 (

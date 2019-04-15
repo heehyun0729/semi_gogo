@@ -7,10 +7,10 @@
 			<h1>Notice</h1><h3>공지사항</h3>
 		</div>
 		<div>
-		<table border = "1" style = "width: 500px;">
+		<table style = "width: 500px;">
 			<tr>
-				<td>번호</td>
-				<td>${nvo.notice_num }</td>
+				<td style = "width: 100px;">번호</td>
+				<td style = "width: 400px;">${nvo.notice_num }</td>
 			</tr>
 			<tr>
 				<td>카테고리</td>
@@ -28,7 +28,7 @@
 				<td>${nvo.notice_title }</td>
 			</tr>
 		</table>
-		<table border = "1" style = "width: 500px;">
+		<table style = "width: 500px;">
 			<tr>
 				<td>작성일 | ${nvo.notice_wdate } &nbsp; &nbsp; &nbsp; &nbsp; 조회수 | ${nvo.notice_hit }</td>
 			</tr>
