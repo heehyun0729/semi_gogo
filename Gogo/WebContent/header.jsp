@@ -32,7 +32,7 @@
 						<li><a href="${cp}/mem/logout"><span class="fas fa-sign-out-alt"></span></a></li>
 					</c:otherwise>
 				</c:choose>
-				<c:if test="${!empty sessionScope.mem_id }">
+				<c:if test="${!empty sessionScope.mem_id}">
 					<li><a href = "${cp }/mypage/home"><span class="icon icon-person"></span></a></li>
 					<li><a href = "${cp }/order/basketList.do"><span class="icon icon-shopping_cart"></span></a></li>
 				</c:if>
