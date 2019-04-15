@@ -49,9 +49,11 @@ public class ProductListController extends HttpServlet {
 		// 메뉴 이름 얻어오기
 		MenuDao mdao = MenuDao.getInstance();
 		String menu_name = mdao.getMenuName(menu_num);
+		String cate_name = mdao.getCateName(menu_num);
 		
 		req.setAttribute("menu_num", menu_num);
 		req.setAttribute("menu_name", menu_name);
+		req.setAttribute("cate_name", cate_name);
 		req.setAttribute("list", list);
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("startPage", startPageNum);

@@ -5,7 +5,12 @@
 	<div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong></div>
+          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+          	<c:if test="${menu_num > 0 }">
+          		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
+          	</c:if> 
+          	<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+          </div>
         </div>
       </div>
     </div>		

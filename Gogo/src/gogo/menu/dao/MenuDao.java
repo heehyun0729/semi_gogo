@@ -65,4 +65,28 @@ public class MenuDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
+	public String getCateName(int menu_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "select c.cate_name " + 
+					"from cate c, menu m " + 
+					"where c.cate_num = m.cate_num " + 
+					"    and m.menu_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, menu_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				return rs.getString(1);
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
 }
