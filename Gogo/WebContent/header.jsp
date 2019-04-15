@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
  <div class="site-navbar-top">
   <div class="container">
     <div class="row align-items-center">
@@ -43,41 +44,41 @@
  </div>
 </div> 
   <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
-          <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li><a href="${cp }/product/productList.do?menu_num=0">CLOTHING</a></li>
-            <li class="has-children">
-              <a>FOOD</a>
-              <ul class="dropdown">
-                <li><a href="${cp }/product/productList.do?menu_num=1">사료</a></li>
-                <li><a href="${cp }/product/productList.do?menu_num=2">간식</a></li>
-              </ul>
-            </li>
-             <li class="has-children">
-              <a>TOY</a>
-              <ul class="dropdown">
-				<li><a href = "${cp }/product/productList.do?menu_num=3">낚싯대</a></li>
-				<li><a href = "${cp }/product/productList.do?menu_num=4">터널</a></li>
-				<li><a href = "${cp }/product/productList.do?menu_num=5">인형</a></li>
-              </ul>
-            </li>
-             <li class="has-children">
-              <a>ETC</a>
-              <ul class="dropdown">
-				<li><a href = "${cp }/product/productList.do?menu_num=6">모래</a></li>
-				<li><a href = "${cp }/product/productList.do?menu_num=7">정수기</a></li>
-				<li><a href = "${cp }/product/productList.do?menu_num=8">스크래쳐</a></li>
-              </ul>
-            </li>
-             <li class="has-children">
-              <a>COMMUNITY</a>
-              <ul class="dropdown">
-				<li><a href = "${cp }/board/noticeList.do?menu_num=9">공지</a></li>
-				<li><a href = "${cp }/board/qna?menu_num=10">문의</a></li>
-				<li><a href = "${cp }/board/review?menu_num=11">후기</a></li>
-				<li><a href = "${cp }/board/freedomList.do?menu_num=12">자유게시판</a></li>
-              </ul>
-            </li>
+  <div class="container">
+    <ul class="site-menu js-clone-nav d-none d-md-block">
+      <li><a href="${cp }/product/productList.do?menu_num=0">CLOTHING</a></li>
+      <li class="has-children">
+        <a>FOOD</a>
+        <ul class="dropdown">
+          <li><a href="${cp }/product/productList.do?menu_num=1">사료</a></li>
+          <li><a href="${cp }/product/productList.do?menu_num=2">간식</a></li>
           </ul>
-        </div>
-      </nav>
+        </li>
+         <li class="has-children">
+          <a>TOY</a>
+          <ul class="dropdown">
+			<li><a href = "${cp }/product/productList.do?menu_num=3">낚싯대</a></li>
+			<li><a href = "${cp }/product/productList.do?menu_num=4">터널</a></li>
+			<li><a href = "${cp }/product/productList.do?menu_num=5">인형</a></li>
+          </ul>
+        </li>
+         <li class="has-children">
+          <a>ETC</a>
+          <ul class="dropdown">
+			<li><a href = "${cp }/product/productList.do?menu_num=6">모래</a></li>
+			<li><a href = "${cp }/product/productList.do?menu_num=7">정수기</a></li>
+			<li><a href = "${cp }/product/productList.do?menu_num=8">스크래쳐</a></li>
+          </ul>
+        </li>
+         <li class="has-children">
+          <a>COMMUNITY</a>
+          <ul class="dropdown">
+			<li><a href = "${cp }/board/noticeList.do?menu_num=9">공지</a></li>
+			<li><a href = "${cp }/board/qna?menu_num=10">문의</a></li>
+			<li><a href = "${cp }/board/review?menu_num=11">후기</a></li>
+			<li><a href = "${cp }/freedom/freedomList.do?menu_num=12">자유게시판</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

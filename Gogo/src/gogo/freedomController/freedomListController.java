@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import gogo.freedom.FreedomDao;
 import gogo.freedom.FreedomVo;
 
-@WebServlet("/board/freedomList.do")
+@WebServlet("/freedom/freedomList.do")
 public class freedomListController extends HttpServlet {
 @Override
 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

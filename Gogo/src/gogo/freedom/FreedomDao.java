@@ -189,6 +189,7 @@ public class FreedomDao {
 			rs=pstmt.executeQuery();
 			rs.next();
 			int cnt=rs.getInt(1);
+			System.out.println("cnt:" + cnt);
 			return cnt;
 		}catch(SQLException se){
 			System.out.println(se.getMessage());
