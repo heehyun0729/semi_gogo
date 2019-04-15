@@ -62,16 +62,6 @@
 				<tr>
 					<td colspan = "2"><div id = "addrcheck" style="color: red; font-size: 12px;"></div><td>
 				</tr>
-				<tr>
-					<th>생년월일</th>
-					<td>
-						<input type="text" name="year" id = "year" style="width:70px" onkeyup = "bdaycheck()">년 
-						<input type="text" name="month" id = "month" style="width:40px" onkeyup = "bdaycheck()">월 
-						<input type="text" name="day" id = "day" style="width:40px" onkeyup = "bdaycheck()">일<td>
-				</tr>
-				<tr>
-					<td colspan = "2"><div id = "bdaycheck" style="color: red; font-size: 12px;"></div><td>
-				</tr>
 			</table>
 			<div id = "msg" style="color: red; font-size: 12px;"></div>
 			<input  TYPE="submit" value="가입">

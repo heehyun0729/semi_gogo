@@ -20,7 +20,7 @@
 			</div>
 			<div id="tag">
 				<a href="${cp }/mem/join">회원가입</a><br>
-				<a href="${cp }/mem/findId.do">아이디찾기</a> <a href="${cp }/mem/findPwd.jsp">비밀번호찾기</a>
+				<a href="${cp }/mem/findId.do">아이디찾기 |</a> <a href="${cp }/mem/findPwd.jsp">비밀번호찾기</a>
 			</div>
 		</form> 
 </div>

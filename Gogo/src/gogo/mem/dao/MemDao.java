@@ -44,12 +44,36 @@ public class MemDao {
 			}
 			return result;//결과값 리턴
 		}
+////[회원페이지] 비밀번호찾기
+		public String findPwd(String mem_id, String mem_email) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			String result=null;
+			try {
+				con=JDBCUtil.getConn();
+				String sql="select mem_pwd from members where mem_id=? and mem_email=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, mem_id);
+				pstmt.setString(2, mem_email);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					result=rs.getString("mem_pwd");
+					return result;
+				}
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}finally {
+				JDBCUtil.close(con, pstmt, rs);
+			}
+			return result;
+		}
 	////[회원페이지] ID찾기
 		public String findId(String mem_name, String mem_email) {
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
-			String  result=null;
+			String result=null;
 			try {
 				con=JDBCUtil.getConn();
 				String sql="select mem_id from members where mem_name=? and mem_email=?";
@@ -87,7 +111,6 @@ public class MemDao {
 							rs.getString("mem_phone"),
 							rs.getString("mem_email"),
 							rs.getString("mem_addr"),
-							rs.getString("mem_bday"),
 							rs.getInt("mem_stat")
 							);
 				return vo;
@@ -107,16 +130,15 @@ public class MemDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JDBCUtil.getConn();
-			String sql="update members set mem_id=?,mem_pwd=?mem_name=?,mem_phone=?,mem_email=?,mem_addr=?,mem_bday=?,mem_stat=? where mem_id=?";
+			String sql="update members set mem_pwd=?,mem_name=?,mem_phone=?,mem_email=?,mem_addr=?,mem_stat=? where mem_id=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, vo.getMem_id());
-			pstmt.setString(2, vo.getMem_pwd());
-			pstmt.setString(3, vo.getMem_name());
-			pstmt.setString(4, vo.getMem_phone());
-			pstmt.setString(5, vo.getMem_email());
-			pstmt.setString(6, vo.getMem_addr());
-			pstmt.setString(7, vo.getMem_bday());
-			pstmt.setInt(8, vo.getMem_stat());
+			pstmt.setString(1, vo.getMem_pwd());
+			pstmt.setString(2, vo.getMem_name());
+			pstmt.setString(3, vo.getMem_phone());
+			pstmt.setString(4, vo.getMem_email());
+			pstmt.setString(5, vo.getMem_addr());
+			pstmt.setInt(6, vo.getMem_stat());
+			pstmt.setString(7, vo.getMem_id());
 			return pstmt.executeUpdate();
 		}catch(SQLException se) {
 			se.printStackTrace();
@@ -153,7 +175,6 @@ public class MemDao {
 							rs.getString("mem_phone"),
 							rs.getString("mem_email"),
 							rs.getString("mem_addr"),
-							rs.getString("mem_bday"),
 							rs.getInt("mem_stat")
 						);
 				list.add(vo);
@@ -185,7 +206,6 @@ public class MemDao {
 							rs.getString("mem_phone"),
 							rs.getString("mem_email"),
 							rs.getString("mem_addr"),
-							rs.getString("mem_bday"),
 							rs.getInt("mem_stat")
 						);
 				list.add(vo);
@@ -226,7 +246,7 @@ public class MemDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JDBCUtil.getConn();
-			String sql="insert into members values(?,?,?,?,?,?,?,?)";
+			String sql="insert into members values(?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getMem_id());
 			pstmt.setString(2, vo.getMem_pwd());
@@ -234,8 +254,7 @@ public class MemDao {
 			pstmt.setString(4,vo.getMem_phone());
 			pstmt.setString(5, vo.getMem_email());
 			pstmt.setString(6, vo.getMem_addr());
-			pstmt.setString(7, vo.getMem_bday());
-			pstmt.setInt(8, vo.getMem_stat());
+			pstmt.setInt(7, vo.getMem_stat());
 			return pstmt.executeUpdate();
 		}catch(SQLException se) {
 			se.printStackTrace();

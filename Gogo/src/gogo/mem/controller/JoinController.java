@@ -26,19 +26,12 @@ public class JoinController extends HttpServlet{
 		String mem_id=req.getParameter("mem_id");
 		String mem_pwd=req.getParameter("mem_pwd");
 		String mem_name=req.getParameter("mem_name");
-		String mem_addr=req.getParameter("mem_addr");
 		String mem_phone=req.getParameter("mem_phone");
 		String phonetext=req.getParameter("phonetext");
 		mem_phone += phonetext;
 		String mem_email=req.getParameter("mem_email");
-		String year=req.getParameter("year");
-		String month=req.getParameter("month");
-		String day=req.getParameter("day");
-		String mem_bday = null;//생년월일
-		if(year != null  && !year.equals("")) {
-			mem_bday = year +  "/" + month + "/" + day;
-		}
-		MemVo vo = new MemVo(mem_id, mem_pwd, mem_name, mem_phone, mem_email, mem_addr, mem_bday, 0);
+		String mem_addr=req.getParameter("mem_addr");
+		MemVo vo = new MemVo(mem_id, mem_pwd, mem_name, mem_phone, mem_email, mem_addr, 0);
 		MemDao dao = new MemDao();
 		int n=dao.insert(vo);
 		if(n>0) {

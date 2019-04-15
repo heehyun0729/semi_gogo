@@ -7,9 +7,9 @@ CREATE TABLE members
 	mem_phone varchar2(15) NOT NULL,
 	mem_email varchar2(30) NOT NULL,
 	mem_addr varchar2(200) NOT NULL,
-	mem_bday date,
 	mem_stat number(2,0) NOT NULL
 );
+
 
 DROP TABLE CATE CASCADE CONSTRAINTS;
 CREATE TABLE cate

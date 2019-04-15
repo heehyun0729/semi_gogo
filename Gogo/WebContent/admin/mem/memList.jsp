@@ -5,7 +5,7 @@
 <h1>gogo's 회원 목록</h1>
 	<table border="1">
 		<tr>
-			<th>아이디</th><th>회원이름</th><th>연락처</th><th>Email</th><th>주소</th><th>생년월일</th><th>회원상태</th><th>정보관리</th>
+			<th>아이디</th><th>회원이름</th><th>연락처</th><th>Email</th><th>주소</th><th>회원상태</th><th>정보관리</th>
 		</tr>
 		<c:forEach var="vo" items="${requestScope.list }">
 			<tr>
@@ -14,7 +14,6 @@
 				<td>${vo.mem_phone }</td>
 				<td>${vo.mem_email }</td>
 				<td>${vo.mem_addr }</td>
-				<td>${vo.mem_bday }</td>
 				<td>${vo.mem_stat }</td>
 				<td><a href="${pageContext.request.contextPath }/admin/memsUpdate.do?mem_id=${vo.mem_id}">수정</a></td>
 			</tr>

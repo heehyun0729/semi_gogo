@@ -7,7 +7,7 @@
 	<td><input type="text" name="mem_id" value="${vo.mem_id }"></td>
 </tr>
 <tr>
-	<td><a href="${cp }/mem/login">Login</a></td>
+	<td><a href="${cp }/mem/login">로그인하기</a></td>
 </tr>
 </table>
 </div>

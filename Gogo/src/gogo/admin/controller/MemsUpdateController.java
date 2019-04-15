@@ -20,18 +20,8 @@ public class MemsUpdateController extends HttpServlet{
 		MemVo vo=dao.getinfo(mem_id);
 		//req.setAttribute("mem_id", mem_id);
 		req.setAttribute("vo", vo);
-		String mem_bday=vo.getMem_bday();
-		String[] bday=mem_bday.split("-");
-		//if(mem_bday != null && !mem_bday.equals("")) {
-			String year=bday[0];
-			String month=bday[1];
-			String day=bday[2];
-			//System.out.println(year+month+day);	
-			req.setAttribute("year", year);
-			req.setAttribute("month", month);
-			req.setAttribute("day", day);	
-			req.setAttribute("spage", "/mem/memUpdate.jsp");
-			req.getRequestDispatcher("/home.jsp").forward(req, resp);
+		req.setAttribute("spage", "/mem/memUpdate.jsp");
+		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
 		
 	
@@ -47,14 +37,7 @@ public class MemsUpdateController extends HttpServlet{
 		mem_phone += phonetext;
 		String mem_email=req.getParameter("mem_email");
 		String mem_addr=req.getParameter("mem_addr");
-		String year=req.getParameter("year");
-		String month=req.getParameter("month");
-		String day=req.getParameter("day");
-		String mem_bday=null;
-		if(year != null  && !year.equals("")) {
-			mem_bday = year +  "/" + month + "/" + day;
-		}
-		MemVo vo=new MemVo(mem_id,mem_pwd, mem_name, mem_phone, mem_email, mem_addr, mem_bday,0);
+		MemVo vo=new MemVo(mem_id,mem_pwd, mem_name, mem_phone, mem_email, mem_addr,0);
 		MemDao dao=new MemDao();
 		int n=dao.update(vo);
 		if(n>0) {

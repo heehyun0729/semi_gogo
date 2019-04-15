@@ -27,14 +27,10 @@
 			<th>주소</th><td><input type="text" name="mem_addr" value="${vo.mem_addr }"></td>
 		</tr>
 		<tr>
-			<th>생년월일</th>
-		<td>
-			<input type="text" name="year" id = "year" style="width:70px" value="${vo.mem_bday}">년 
-			<input type="text" name="month" id ="month" style="width:40px"value="${vo.mem_bday }">월 
-			<input type="text" name="day" id = "day" style="width:40px"value="${vo.mem_bday }">일<td>
+			<td><input type="submit" value="저장"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="저장"><a href="${cp }/mem/memDelete.jsp">회원탈퇴</a></td>
+			<td><a href="${cp }/mem/memDelete.jsp">회원탈퇴</a></td>
 		</tr>
 	</table>
 </form>

@@ -185,20 +185,3 @@ function addrcheck() {
 	div.innerHTML = msg;
 }
 
-function bdaycheck() {
-	var year = document.getElementById("year").value;
-	var month = document.getElementById("month").value;
-	var day = document.getElementById("day").value;
-	var div = document.getElementById("bdaycheck");
-	var check = true;
-	var msg = "";
-	if(!(year >= '0' && year <= '9') || !(month >= '0' && month <= '9') || !(day >= '0' && day <= '9')){
-		check = false;
-		msg = "생년월일은 숫자로만 이루어져야 합니다.";
-	}
-	if(check){
-		msg = "";
-	}
-	div.innerHTML = msg;
-}
-

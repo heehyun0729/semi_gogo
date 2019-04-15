@@ -9,11 +9,10 @@ public class MemVo {
 	private String mem_phone;
 	private String mem_email;
 	private String mem_addr;
-	private String mem_bday;
 	private int mem_stat;
 	public MemVo() {}
 	public MemVo(String mem_id, String mem_pwd, String mem_name, String mem_phone, String mem_email, String mem_addr,
-			String mem_bday, int mem_stat) {
+			int mem_stat) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
@@ -21,7 +20,6 @@ public class MemVo {
 		this.mem_phone = mem_phone;
 		this.mem_email = mem_email;
 		this.mem_addr = mem_addr;
-		this.mem_bday = mem_bday;
 		this.mem_stat = mem_stat;
 	}
 	
@@ -43,9 +41,6 @@ public class MemVo {
 	public String getMem_addr() {
 		return mem_addr;
 	}
-	public String getMem_bday() {
-		return mem_bday;
-	}
 	public int getMem_stat() {
 		return mem_stat;
 	}
@@ -66,9 +61,6 @@ public class MemVo {
 	}
 	public void setMem_addr(String mem_addr) {
 		this.mem_addr = mem_addr;
-	}
-	public void setMem_bday(String mem_bday) {
-		this.mem_bday = mem_bday;
 	}
 	public void setMem_stat(int mem_stat) {
 		this.mem_stat = mem_stat;

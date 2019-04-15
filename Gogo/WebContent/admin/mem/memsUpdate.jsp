@@ -21,9 +21,6 @@
 			<th>주소</th><td><input type="text" name="mem_addr" value=${vo.mem_addr }></td>
 		</tr>
 		<tr>
-			<th>생년월일</th><td><input type="text" name="mem_bday" value=${vo.mem_bday }></td>
-		</tr>
-		<tr>
 			<th>적립금</th><td><input type="text" name="mem_point" value=${vo.mem_point }></td>
 		</tr>
 		<tr>
