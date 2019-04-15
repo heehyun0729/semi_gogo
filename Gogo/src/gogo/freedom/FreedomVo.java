@@ -7,7 +7,7 @@ public class FreedomVo {
 	private String freedom_title;
 	private String freedom_content;
 	private Date freedom_wdate;
-	private int freedaom_hit;
+	private int freedom_hit;
 	
 	public FreedomVo(){}
 
@@ -18,7 +18,7 @@ public class FreedomVo {
 		this.freedom_title = freedom_title;
 		this.freedom_content = freedom_content;
 		this.freedom_wdate = freedom_wdate;
-		this.freedaom_hit = freedaom_hit;
+		this.freedom_hit = freedaom_hit;
 	}
 
 	public int getFreedom_num() {
@@ -54,17 +54,17 @@ public class FreedomVo {
 	}
 
 	public int getFreedaom_hit() {
-		return freedaom_hit;
+		return freedom_hit;
 	}
 
 	public void setFreedaom_hit(int freedaom_hit) {
-		this.freedaom_hit = freedaom_hit;
+		this.freedom_hit = freedaom_hit;
 	}
 
 	@Override
 	public String toString() {
 		return "FreedomVo [freedom_num=" + freedom_num + ", freedom_title=" + freedom_title + ", freedom_content="
-				+ freedom_content + ", freedom_wdate=" + freedom_wdate + ", freedaom_hit=" + freedaom_hit + "]";
+				+ freedom_content + ", freedom_wdate=" + freedom_wdate + ", freedaom_hit=" + freedom_hit + "]";
 	}
 
 	
