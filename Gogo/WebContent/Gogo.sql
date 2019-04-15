@@ -107,15 +107,13 @@ drop table detailBuy cascade constraints;
 create table detailBuy
 (
     detailBuy_num number(7,0) primary key,
-    detailBuy_num number(7,0) REFERENCES detailBuy(detailBuy_num),
+    buy_num number(7,0) references buy(buy_num),
     prod_num number(7,0) references product(prod_num),
     op_num number(2,0) references op(op_num),
     detailOp_num number(2,0) references detailOp(detailOp_num),
     detailBuy_cnt number(7,0),
     detailBuy_review number(2,0) default(0)
 );
-
-
 
 DROP TABLE PAY CASCADE CONSTRAINTS;
 CREATE TABLE pay
@@ -127,7 +125,6 @@ CREATE TABLE pay
 	pay_date date NOT NULL,
 	pay_stat number(2,0) default(0)
 );
-
 
 DROP TABLE INTER CASCADE CONSTRAINTS;
 CREATE TABLE inter
@@ -169,22 +166,12 @@ CREATE TABLE review
 (
 	review_num number(7,0) PRIMARY KEY,
 	mem_id varchar2(15) REFERENCES MEMBERS(MEM_ID),
-	prod_num number(7,0) REFERENCES PRODUCT(PROD_NUM),
+	detailBuy_num number(7,0) REFERENCES detailBuy(detailBuy_num),
 	review_title varchar2(200) NOT NULL,
 	review_content varchar2(2000),
 	review_star number(2,0) NOT NULL,
 	review_wdate date NOT NULL,
 	review_like number(7,0) NOT NULL
-);
-
-DROP TABLE COMMENTS CASCADE CONSTRAINTS;
-CREATE TABLE comments
-(
-	comm_num number(7,0) PRIMARY KEY,
-	review_num number(7,0) REFERENCES REVIEW(REVIEW_NUM),
-	comm_content varchar2(2000) NOT NULL,
-	mem_id varchar2(15) NOT NULL UNIQUE,
-	comm_wdate date NOT NULL
 );
 
 DROP TABLE freedom CASCADE CONSTRAINTS;
