@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id = "board">
-	<h1>My Board</h1>
-	<h3>게시물관리</h3>
+	<h1>MY Q&A</h1>
+	<h3>나의 문의</h3>
 	<br>
 	<select name = "cate" onchange="getQnaList(this.value)">
 		<option value = "">전체</option>

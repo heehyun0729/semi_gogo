@@ -193,7 +193,7 @@ public class QnaDao {
 		try {
 			con = JDBCUtil.getConn();
 			String sql = "";
-			if(field == null && keyword == null) {
+			if(field == null || field.equals("") || keyword == null || keyword.equals("")) {
 				sql = "select AA.*, rpad(substr(mem_id, 1, 3), length(mem_id), '*') id from " + 
 						"( " + 
 						"	 select BB.*, rownum rnum from " + 
@@ -265,7 +265,7 @@ public class QnaDao {
 		try {
 			con = JDBCUtil.getConn();
 			String sql = "";
-			if(field == null && keyword == null) {
+			if(field == null || field.equals("") || keyword == null || keyword.equals("")) {
 				sql = "select AA.* from " + 
 						"( " + 
 						"	 select BB.*, rownum rnum from " + 
@@ -274,7 +274,7 @@ public class QnaDao {
 						"        order by qna_ref desc, qna_step asc" + 
 						"     )BB " + 
 						")AA " + 
-						"where rnum >= ? and rnum <= ? and mem_id = '" + mem_id + "'";
+						"where rnum >= ? and rnum <= ? and mem_id = '" + mem_id + "' ";
 			}else if(field.equals("all")){
 				sql = "select AA.* from " + 
 						"( " + 
@@ -285,9 +285,9 @@ public class QnaDao {
 						"        order by qna_ref desc, qna_step asc " + 
 						"     )BB " + 
 						")AA " + 
-						"where rnum >= ? and rnum <= ?  and mem_id = '" + mem_id + "'";
+						"where rnum >= ? and rnum <= ?  and mem_id = '" + mem_id + "' ";
 			}else {
-				sql = "select AA.* " + 
+				sql = "select AA.* from " + 
 						"( " + 
 						"	 select BB.*, rownum rnum from " + 
 						"     ( " + 
@@ -296,10 +296,10 @@ public class QnaDao {
 						"        order by qna_ref desc, qna_step asc " + 
 						"     )BB " + 
 						")AA " + 
-						"where rnum >= ? and rnum <= ?  and mem_id = '" + mem_id + "'";
+						"where rnum >= ? and rnum <= ?  and mem_id = '" + mem_id + "' ";
 			}
 			if(cate != null && !cate.equals("")) {
-				sql += "and qna_cate like '" + cate + "' ";
+				sql += "and qna_cate = '" + cate + "' ";
 			}
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);

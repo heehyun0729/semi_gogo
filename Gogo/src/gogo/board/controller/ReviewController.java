@@ -17,7 +17,6 @@ public class ReviewController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String spageNum = req.getParameter("pageNum");
-		
 		String keyword = req.getParameter("keyword");
 		
 		int pageNum = 1; 

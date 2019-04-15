@@ -8,7 +8,7 @@
 		<li><a href = "${cp }/mypage/myInfo.do">회원정보</a></li>
 		<li><a href = "${cp }/mypage/orderList">주문내역</a></li>
 		<li><a href = "${cp }/mypage/interList.do">관심상품</a></li>
-		<li><a href = "${cp }/mypage/myqna">내가쓴문의</a></li>
-		<li><a href = "${cp }/mypage/myreview">내가쓴후기</a></li>
+		<li><a href = "${cp }/mypage/myqna">나의 문의</a></li>
+		<li><a href = "${cp }/mypage/myreview">나의 후기</a></li>
 	</ul>
 </div>

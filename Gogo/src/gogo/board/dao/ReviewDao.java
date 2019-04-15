@@ -158,6 +158,82 @@ public class ReviewDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
+	public ArrayList<ReviewListVo> list(String mem_id, int startRow, int endRow, String keyword){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "";
+			if(keyword == null || keyword.equals("")) {
+				sql = "select AA.* from " + 
+						"("
+							+ "select r.review_num review_num, p.prod_num prod_num, p.menu_num menu_num, " + 
+							"    i.img_saveImg img_saveImg, p.prod_name prod_name, o.op_name op_name, "
+							+ "	do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, r.mem_id mem_id, " + 
+							"    r.review_title review_title, r.review_content review_content, r.review_star review_star, " + 
+							"    r.review_like review_like, r.review_wdate review_wdate, rownum rnum " + 
+							"from review r, detailBuy d, product p, op o, detailOp do, image i " + 
+							"where r.detailBuy_num = d.detailBuy_num " + 
+							"    and d.prod_num = p.prod_num " + 
+							"    and d.op_num = o.op_num " + 
+							"    and d.detailOp_num = do.detailOp_num " + 
+							"    and p.menu_num = i.menu_num and p.prod_num = i.img_bnum and i.img_type = 0 " + 
+							"order by r.review_num desc "
+						+ ")AA " + 
+						"where rnum >= ? and rnum <= ? and mem_id = '" + mem_id + "' ";
+			}else{
+				sql = "select AA.* from " + 
+						"( " + 
+						"    select r.review_num review_num, p.prod_num prod_num, p.menu_num menu_num, " + 
+						"        i.img_saveImg img_saveImg, p.prod_name prod_name, o.op_name op_name,  " + 
+						"        do.detailOp_name detailOp_name, do.detailOp_price detailOp_price, r.mem_id mem_id, " + 
+						"        r.review_title review_title, r.review_content review_content, r.review_star review_star, " + 
+						"        r.review_like review_like, r.review_wdate review_wdate, rownum rnum " + 
+						"    from review r, detailBuy d, product p, op o, detailOp do, image i " + 
+						"    where r.detailBuy_num = d.detailBuy_num " + 
+						"        and d.prod_num = p.prod_num " + 
+						"        and d.op_num = o.op_num " + 
+						"        and d.detailOp_num = do.detailOp_num " + 
+						"        and p.menu_num = i.menu_num and p.prod_num = i.img_bnum and i.img_type = 0 " + 
+						"        and p.prod_name like '%" + keyword + "%' " + 
+						"    order by r.review_num desc " + 
+						")AA\r\n" + 
+						"where rnum >= ? and rnum <= ? and mem_id = '" + mem_id + "'";
+			}
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			ArrayList<ReviewListVo> list = new ArrayList<ReviewListVo>();
+			while(rs.next()) {
+				ReviewListVo vo = new ReviewListVo(
+							rs.getInt("review_num"),
+							rs.getInt("prod_num"),
+							rs.getInt("menu_num"),
+							rs.getString("img_saveImg"),
+							rs.getString("prod_name"),
+							rs.getString("op_name"),
+							rs.getString("detailOp_name"),
+							rs.getInt("detailOp_price"),
+							rs.getString("mem_id"),
+							rs.getString("review_title"),
+							rs.getString("review_content"),
+							rs.getInt("review_star"),
+							rs.getInt("review_like"),
+							rs.getDate("review_wdate")
+						);
+				list.add(vo);
+			}
+			return list;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
 	public ReviewListVo detail(int review_num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
