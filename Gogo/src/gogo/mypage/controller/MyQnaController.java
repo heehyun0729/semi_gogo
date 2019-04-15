@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import gogo.board.dao.QnaDao;
 import gogo.board.vo.QnaVo;
 
-@WebServlet("/mypage/myboard")
-public class MyBoardController extends HttpServlet{
+@WebServlet("/mypage/myqna")
+public class MyQnaController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String mem_id = (String)req.getSession().getAttribute("mem_id");
@@ -54,7 +54,7 @@ public class MyBoardController extends HttpServlet{
 		req.setAttribute("cate", cate);
 		req.setAttribute("id", mem_id);
 		
-		req.setAttribute("spage", "/mypage/myboardList.jsp?menu_num=10");
+		req.setAttribute("spage", "/mypage/myqnaList.jsp?menu_num=10");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
 }

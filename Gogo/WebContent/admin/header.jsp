@@ -14,10 +14,7 @@
 		<li><a>게시글관리</a></li>
 		<li><a href = "${cp }/board/noticeList.do?menu_num=9">공지사항</a></li>
 		<li><a href = "${cp }/board/qna?menu_num=10">Q&A</a></li>
-		<li><a href = "${cp }">리뷰</a></li>
-		<li><a>통계</a></li>
-		<li><a href = "${cp }">회원</a></li>
-		<li><a href = "${cp }">매출</a></li>
+		<li><a href = "${cp }/board/review?menu_num=11">리뷰</a></li>
 	</ul>
 	<ul>
 		<li><a href="${cp}/mem/logout">LOGOUT</a></li>

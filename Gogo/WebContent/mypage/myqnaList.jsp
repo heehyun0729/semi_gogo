@@ -5,7 +5,6 @@
 	<h1>My Board</h1>
 	<h3>게시물관리</h3>
 	<br>
-	<h3>Q&A | 문의</h3>
 	<select name = "cate" onchange="getQnaList(this.value)">
 		<option value = "">전체</option>
 		<option value = "prod"
@@ -37,7 +36,7 @@
 	</select>
 	<script type="text/javascript">
 		function getQnaList(value) {
-			location.href = "${cp}/mypage/myboard?menu_num=10&cate=" + value + "&field=${field}&keyword=${keyword}";
+			location.href = "${cp}/mypage/myqna?menu_num=10&cate=" + value + "&field=${field}&keyword=${keyword}";
 		}
 	</script>
 	<a href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}">글쓰기</a>
@@ -84,7 +83,7 @@
 	<div id = "pages">
 		<c:choose>
 			<c:when test="${startPage > 10 }">
-				<a href = "${cp }/mypage/myboard?menu_num=${param.menu_num}&pageNum=${startPage - 1}">◀</a>
+				<a href = "${cp }/mypage/myqna?menu_num=${param.menu_num}&pageNum=${startPage - 1}">◀</a>
 			</c:when>
 			<c:otherwise>
 				◀
@@ -93,16 +92,16 @@
 		<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
 			<c:choose>
 				<c:when test="${pageNum == i }">
-					<a href = "${cp }/mypage/myboard?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: pink;">[${i }]</span></a>
+					<a href = "${cp }/mypage/myqna?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: pink;">[${i }]</span></a>
 				</c:when>
 				<c:otherwise>
-					<a href = "${cp }/mypage/myboard?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: gray;">[${i }]</span></a>
+					<a href = "${cp }/mypage/myqna?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: gray;">[${i }]</span></a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		<c:choose>
 			<c:when test="${endPage < pageCnt }">
-				<a href = "${cp }/mypage/myboard?menu_num=${param.menu_num}&pageNum=${endPage + 1}">▶</a>
+				<a href = "${cp }/mypage/myqna?menu_num=${param.menu_num}&pageNum=${endPage + 1}">▶</a>
 			</c:when>
 			<c:otherwise>
 				▶
@@ -110,7 +109,7 @@
 		</c:choose>
 	</div>
 	<div id = "search">
-		<form method="post" action="${cp }/mypage/myboard?menu_num=${param.menu_num}">
+		<form method="post" action="${cp }/mypage/myqna?menu_num=${param.menu_num}">
 			<select name = "field">
 				<option value = "all"
 					<c:if test = "${field == 'all' }">

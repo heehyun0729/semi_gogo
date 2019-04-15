@@ -46,7 +46,14 @@ public class ReviewController extends HttpServlet{
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("keyword", keyword);
-		req.setAttribute("spage", "/board/reviewList.jsp");
-		req.getRequestDispatcher("/home.jsp").forward(req, resp);
+		
+		String id = (String)req.getSession().getAttribute("mem_id");
+		if(id.equals("admin")) {
+			req.setAttribute("spage", "/admin/board/reviewList.jsp");
+			req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
+		}else {
+			req.setAttribute("spage", "/board/reviewList.jsp");
+			req.getRequestDispatcher("/home.jsp").forward(req, resp);
+		}
 	}
 }
