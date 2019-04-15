@@ -124,11 +124,11 @@ public class MemDao {
 			}
 			
 		}
-		//[관리자페이지]->[회원관리]->[수정]->회원정보 업데이트기능
+		//[관리자페이지]->[회원관리]->[수정]->회원정보 업데이트기능/
 	public int update(MemVo vo) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
-		try {
+		try { 
 			con=JDBCUtil.getConn();
 			String sql="update members set mem_pwd=?,mem_name=?,mem_phone=?,mem_email=?,mem_addr=?,mem_stat=? where mem_id=?";
 			pstmt=con.prepareStatement(sql);
