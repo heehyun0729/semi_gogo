@@ -5,7 +5,7 @@
 	<div id="title">
 		<h1>Notice | 공지사항</h1>
 	</div>
-	<input type="button" value="목록" onclick="location.href='${cp }/board/noticeList.do'">
+	<input type="button" value="목록" class="btn btn-primary btn-sm" onclick="location.href='${cp }/board/noticeList.do'">
 	<form name="cate" method="post">
 	<select onchange="getCate(this.value)"> 
 		<option value="">전체</option>
@@ -28,32 +28,32 @@
 	</script>
 	
 	<div id="noticeList">
-		<table border="1">
-			<tr>
-				<td>번호</td>
-				<td>카테고리</td>
-				<td>제목</td>
-				<td>조회수</td>
+		<table border="1" class="table table-hover">
+			<tr class="danger">
+				<td class="text-center">번호</td>
+				<td class="text-center">카테고리</td>
+				<td class="text-center">제목</td>
+				<td class="text-center">조회수</td>
 			</tr>
 			<c:forEach var="vo" items="${list }">
 				<c:choose>
 					<c:when test="${vo.notice_step==0 }">
-						<tr>
-							<td><b>${vo.notice_num }</b></td>
+						<tr class="text-center">
+							<td><strong>${vo.notice_num }</strong></td>
 							<c:choose>
 								<c:when test="${vo.notice_cate==0 }">
-									<td><b>공지사항</b></td>
+									<td><strong>공지사항</strong></td>
 								</c:when>
 								<c:when test="${vo.notice_cate==1 }">
-									<td><b>이벤트</b></td>
+									<td><strong>이벤트</strong></td>
 								</c:when>
 							</c:choose>
-							<td><b><a href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></b></td>
-							<td><b>${vo.notice_hit }</b></td>
+							<td><strong><a href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></strong></td>
+							<td><strong>${vo.notice_hit }</strong></td>
 						</tr>
 					</c:when>
 					<c:when test="${vo.notice_step==1 }">
-						<tr>
+						<tr class="text-center">
 							<td>${vo.notice_num }</td>
 							<c:choose>
 								<c:when test="${vo.notice_cate==0 }">
