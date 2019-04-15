@@ -4,6 +4,7 @@
 <div id = "board">
 	<h1>REVIEW</h1>
 	<h3>후기</h3>
+	<p>관리자페이지</p>
 	<form method="post" action="${cp }/board/reviewUpdate" enctype="multipart/form-data">
 		<input type = "hidden" name = "review_num" value = "${review_num }">
 		<input type = "hidden" name = "menu_num" value = "${menu_num }">

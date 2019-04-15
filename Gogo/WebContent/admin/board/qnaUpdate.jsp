@@ -4,6 +4,7 @@
 <div id = "board">
 	<h1>Q&A</h1>
 	<h3>문의</h3>
+	<p>관리자페이지</p>
 	<form method="post" action="${cp }/board/qnaUpdate" enctype="multipart/form-data">
 		<input type = "hidden" name = "menu_num" value = "${menu_num }">
 		<input type = "hidden" name = "qna_num" value = "${vo.qna_num }">
@@ -61,7 +62,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type = "password" name = "pwd"></td>
+				<td><input type = "password" name = "pwd" disabled="disabled"></td>
 			</tr>
 			<tr>
 				<td colspan = "2">
