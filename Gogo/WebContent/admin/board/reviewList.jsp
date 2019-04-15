@@ -23,9 +23,13 @@
 			<c:forEach var = "vo" items = "${list }">
 				<tr>
 					<td><input type = "checkbox" name = "check" value = "${vo.review_num }" onclick="isChecked()"></td>
-					<td><img src = "${cp }/upload/product/${vo.img_saveImg}" style = "width: 100px;height: 100px;"></td>
 					<td>
-						${vo.prod_name }
+						<a href = "${cp }/product/productDetail.do?menu_num=${vo.menu_num}&prod_num=${vo.prod_num}">
+							<img src = "${cp }/upload/product/${vo.img_saveImg}" style = "width: 100px;height: 100px;">
+						</a>
+					</td>
+					<td>
+						<a href = "${cp }/product/productDetail.do?menu_num=${vo.menu_num}&prod_num=${vo.prod_num}">${vo.prod_name }</a>
 						<c:if test="${vo.prod_name != vo.op_name }">
 							[옵션: ${vo.op_name } - ${vo.detailOp_name }(+${vo.detailOp_price })]
 						</c:if>
