@@ -8,7 +8,9 @@
           	<c:if test="${menu_num > 0 }">
           		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
           	</c:if> 
-          	<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+          	<c:if test = "${!empty menu_num }">
+          		<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+          	</c:if>
           </div>
         </div>
       </div>
@@ -33,6 +35,7 @@
 	                  </figure>
 	                  <div class="block-4-text p-4">
 	                    <h3><a href="${cp }/product/productDetail.do?prod_num=${vo.prod_num}&menu_num=${vo.menu_num }">${vo.prod_name}</a></h3>
+	                    <br>
 	                    <p class="text-primary font-weight-bold">${vo.prod_price }</p>
 	                  </div>
 	                </div>

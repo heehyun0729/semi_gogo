@@ -14,6 +14,7 @@ import gogo.board.vo.NoticeVo;
 import gogo.image.dao.ImageDao;
 import gogo.image.vo.ImageVo;
 import gogo.image.vo.ProdImgVo;
+import gogo.menu.dao.MenuDao;
 import gogo.op.dao.DetailOpDao;
 import gogo.op.dao.OpDao;
 import gogo.op.vo.DetailOpVo;
@@ -40,7 +41,15 @@ public class ProductDetailController extends HttpServlet{
 		OpVo opvo = odao.getOp(prod_num);
 		DetailOpDao ddao=DetailOpDao.getInstance();
 		ArrayList<DetailOpVo> doplist=ddao.list(opvo.getOp_num());
+		
+		// 메뉴 이름 얻어오기
+		MenuDao mdao = MenuDao.getInstance();
+		String menu_name = mdao.getMenuName(menu_num);
+		String cate_name = mdao.getCateName(menu_num);
+		
 		req.setAttribute("menu_num", menu_num);
+		req.setAttribute("menu_name", menu_name);
+		req.setAttribute("cate_name", cate_name);
 		req.setAttribute("pvo", pvo);
 		req.setAttribute("sumlist", sumlist);
 		req.setAttribute("ilist", ilist);
