@@ -17,7 +17,7 @@ public class freedomUpdateController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int freedom_num=Integer.parseInt(req.getParameter("freedom_num"));
 		FreedomDao dao=FreedomDao.getInstance();
-		int vo=dao.detail(freedom_num);
+		FreedomVo vo=dao.detail(freedom_num);
 		
 		System.out.println(freedom_num);
 		req.setAttribute("freedom_num", freedom_num);
