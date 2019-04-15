@@ -8,11 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DB.JDBCUtil;
+import gogo.board.dao.ReviewDao;
 import gogo.board.vo.NoticeVo;
 
 
 //
 public class FreedomDao {
+	private static FreedomDao instance = new FreedomDao();
+	private FreedomDao() {}
+	public static FreedomDao getInstance() {
+		return instance;
+	}
 	
 	public ArrayList<FreedomVo> list(int startRow,int endRow,String field,String keyword){
 		Connection con=null;
@@ -146,8 +152,10 @@ public class FreedomDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JDBCUtil.getConn();
+			System.out.println("con:" + con);
 			String sql="delete from freedom where freedom_num=?";
 			pstmt=con.prepareStatement(sql);
+			System.out.println("pstmt:" + pstmt);
 			pstmt.setInt(1, freedom_num);
 			return pstmt.executeUpdate();
 			
@@ -199,11 +207,6 @@ public class FreedomDao {
 		}finally{
 		JDBCUtil.close(con,pstmt,rs);
 		}
-	}
-
-	public static FreedomDao getInstance() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
 //
