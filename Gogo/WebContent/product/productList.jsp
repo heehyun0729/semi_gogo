@@ -2,8 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="board">
-	<h1>상품</h1>
-	<h3>상품 목록</h3>				
+	<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong></div>
+        </div>
+      </div>
+    </div>		
 	<c:forEach var = "vo" items = "${list }">
 		<div style="display: inline-block; float: left;">
 			<a href = "${cp }/product/productDetail.do?prod_num=${vo.prod_num}&menu_num=${vo.menu_num }">

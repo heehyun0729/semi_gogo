@@ -48,7 +48,11 @@ public class ReviewController extends HttpServlet{
 		req.setAttribute("keyword", keyword);
 		
 		String id = (String)req.getSession().getAttribute("mem_id");
-		if(id.equals("admin")) {
+		if(id == null || id.equals("")) {
+			req.setAttribute("spage", "/board/reviewList.jsp");
+			req.getRequestDispatcher("/home.jsp").forward(req, resp);
+		}
+		else if(id.equals("admin")) {
 			req.setAttribute("spage", "/admin/board/reviewList.jsp");
 			req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
 		}else {

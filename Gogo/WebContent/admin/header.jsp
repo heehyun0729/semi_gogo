@@ -11,9 +11,8 @@
           <input type="text" class="form-control border-0" name = "find_prod_name" placeholder="Search">
         </form>
       </div>
-
       <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-        <div>
+        <div class="site-logo">
           <a href="${cp }/home"><img src = "${cp }/images/logo_violet.png"></a><br>
           <p>관리자페이지</p>
         </div>

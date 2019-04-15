@@ -44,4 +44,25 @@ public class MenuDao {
 			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
+	public String getMenuName(int menu_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "select * from menu where menu_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, menu_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				return rs.getString("menu_name");
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
 }

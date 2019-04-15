@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import gogo.image.dao.ImageDao;
 import gogo.image.vo.ImageVo;
 import gogo.image.vo.ProdImgVo;
+import gogo.menu.dao.MenuDao;
 import gogo.product.ProductDao;
 import gogo.product.ProductVo;
 
@@ -45,7 +46,12 @@ public class ProductListController extends HttpServlet {
 			endPageNum=pageCount;
 		}
 		
+		// 메뉴 이름 얻어오기
+		MenuDao mdao = MenuDao.getInstance();
+		String menu_name = mdao.getMenuName(menu_num);
+		
 		req.setAttribute("menu_num", menu_num);
+		req.setAttribute("menu_name", menu_name);
 		req.setAttribute("list", list);
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("startPage", startPageNum);
