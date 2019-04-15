@@ -28,7 +28,7 @@
 			<td>${vo.mem_id }</td>
 		</tr>
 		<tr>
-			<td colspan = "2">${vo.review_wdate } | ${vo.review_star }</td>
+			<td colspan = "2">${vo.review_wdate } | <img src = "${cp }/images/star${vo.review_star }.png" style = "width: 100px"></td>
 		</tr>
 		<tr>
 			<td>³»¿ë</td>

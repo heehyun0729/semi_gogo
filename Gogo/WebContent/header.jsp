@@ -41,5 +41,6 @@
 			<li><a href = "${cp }/mypage/home">MYPAGE</a></li>
 			<li><a href = "${cp }/order/basketList.do">BASKET</a></li>
 		</c:if>
+		<li><form action="${cp }/product/findProduct.do"><input type="text" name="find_prod_name"><input type="submit" value="상품검색"></form></li>
 	</ul>
 </div>

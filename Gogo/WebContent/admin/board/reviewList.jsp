@@ -37,7 +37,7 @@
 					</td>
 					<td><a href = "${cp }/board/reviewDetail?review_num=${vo.review_num}">${vo.review_title }</a></td>
 					<td>${vo.mem_id }</td>
-					<td>${vo.review_star }</td>
+					<td><img src = "${cp }/images/star${vo.review_star }.png" style = "width: 100px"></td>
 					<td>${vo.review_like }</td>
 					<td>${vo.review_wdate }</td>
 					<td><a href = "${cp }/board/reviewUpdate?menu_num=${menu_num}&review_num=${vo.review_num}">수정</a></td>
