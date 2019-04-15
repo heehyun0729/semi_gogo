@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DB.JDBCUtil;
+import gogo.board.vo.NoticeVo;
 
 
 //
@@ -59,21 +60,64 @@ public class FreedomDao {
 		}
 	}
 	
-	public int detail(int freedom_num) {
+	public int getMaxHit(int num) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		try {
 			con=JDBCUtil.getConn();
-		String sql="select * from freedom where freedom_num=?";
+			String sql="select NVL(max(freedom_hit),0) HITNUM from freedom where freedom_num=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, freedom_num);
-			return pstmt.executeUpdate();
-		}catch(SQLException se){
-			se.printStackTrace();
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			rs.next();
+			int hitnum=rs.getInt("HITNUM");
+			return hitnum;
+		}catch(SQLException se) {
+			System.out.println(se.getMessage());
 			return -1;
-			}finally{
-				JDBCUtil.close(con,pstmt,rs);
+		}finally {
+			JDBCUtil.close(con,pstmt,rs);
+		}
+	}
+	
+	public FreedomVo detail(int freedom_num) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		PreparedStatement pstmt1 = null;
+		ResultSet rs=null;
+		
+		int hitnum=getMaxHit(freedom_num)+1;
+		String sql1="update freedom set freedom_hit=? where freedom_num=?";
+		String sql="select *from freedom where freedom_num=?";
+		try {
+			con = JDBCUtil.getConn();
+			
+			pstmt1=con.prepareStatement(sql1);
+			pstmt1.setInt(1,hitnum);
+			pstmt1.setInt(2,freedom_num);
+			int n=pstmt1.executeUpdate();
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, freedom_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				FreedomVo vo = new FreedomVo(
+							freedom_num,
+							rs.getString("freedom_title"),
+							rs.getString("notice_content"),
+							rs.getDate("freedom_wdate"),
+							rs.getInt("freedom_step")
+							
+						);
+				return vo;
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
 		}
 	}
 	
@@ -121,7 +165,7 @@ public class FreedomDao {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,vo.getFreedom_title());
 			 pstmt.setString(2, vo.getFreedom_content());
-			pstmt.setInt(3,vo.getFreedaom_hit());
+			pstmt.setInt(3,vo.getFreedom_hit());
 			return pstmt.executeUpdate();
 		}catch(SQLException se){
 			se.printStackTrace();
@@ -159,3 +203,4 @@ public class FreedomDao {
 		return null;
 	}
 }
+//

@@ -23,11 +23,10 @@
 	<c:forEach var="vo" items="${list }">
 		<tr>
 			<td>${vo.freedom_num }</td>
-			<td>${vo.freedom_title }</td>
-			<td>${vo.freedom_wdate }</td>
+			<td><a href="${pageContext.request.contextPath }/freedom/freedomDetail.do?freedom_num=${vo.freedom_num}&field=${field}&keyword=${keyword}&pageNum=${pageNum}">${vo.freedom_title }</a></td>
+			<td>${vo.freedom_content }</td>
+			<td>${vo.freedom_wdate }
 			<td>${vo.freedom_hit }</td>
-			<td><a href="${pageContext.request.contextPath }/freedom/freedomDetail.do?freedom_num=${vo.freedom_num}&field=${field}&keyword=${keyword}&pageNum=${pageNum}">${vo.freedom_title }& ${vo.freedom_wdate }& ${vo.freedom_hit }></a></td>
-			<td>
 		</tr>
 	</c:forEach>
 </table>
@@ -41,18 +40,18 @@
 				◀
 			</c:otherwise>
 		</c:choose>
-		<c:forEach var = "i" begin="${startPage }" end ="${sendPage }">
+		<c:forEach var = "i" begin="${startPage }" end ="${endPage }">
 			<c:choose>
-				<c:when test="${pageNum == i }">
-					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
+				<c:when test="${i==pageNum }">
+					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?${freedom_num }pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
 				</c:when>
 				<c:otherwise>
-					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
+					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?${freedom_num }pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
 				</c:otherwise>
 		</c:choose>	
 		</c:forEach>
 		<c:choose>
-			<c:when test="${endPage < pageCnt }">
+			<c:when test="${endPage < pageCount }">
 				<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${endPage+1 }">▶</a>
 			</c:when>
 			<c:otherwise>
