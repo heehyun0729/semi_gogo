@@ -25,10 +25,6 @@ public class QnaDeleteController extends HttpServlet{
 		if(id == null || id.equals("")) {
 			req.setAttribute("spage", "/mem/login");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
-		}
-		if(id.equals("admin")) {
-			req.setAttribute("spage", "/admin/board/qnaDelete.jsp");
-			req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
 		}else {
 			String qna_num = req.getParameter("qna_num");
 			req.setAttribute("qna_num", qna_num);
@@ -55,7 +51,7 @@ public class QnaDeleteController extends HttpServlet{
 							File f = new File(getServletContext().getRealPath("/upload/qna/" + vo.getImg_saveImg()));
 							if(!f.delete()) {
 								// 오류 처리
-								System.out.println("저장된 이미지 삭제 실패");
+								System.out.println("저장된 이미지 삭제 실패1");
 							}
 						}
 					}
@@ -63,13 +59,13 @@ public class QnaDeleteController extends HttpServlet{
 					int n = idao.delete(menu_num, qn);
 					if(n <= 0) {
 						// 오류 처리
-						System.out.println("image DB 삭제 실패");
+						System.out.println("image DB 삭제 실패1");
 					}
 					// qna 테이블 DB 삭제
 					int n1 = qdao.delete(qn);
 					if(n1 <= 0) {
 						// 오류 처리
-						System.out.println("qna DB 삭제 실패");
+						System.out.println("qna DB 삭제 실패1");
 					}
 				}
 			}
@@ -83,7 +79,7 @@ public class QnaDeleteController extends HttpServlet{
 					File f = new File(getServletContext().getRealPath("/upload/qna/" + vo.getImg_saveImg()));
 					if(!f.delete()) {
 						// 오류 처리
-						System.out.println("저장된 이미지 삭제 실패");
+						System.out.println("저장된 이미지 삭제 실패2");
 					}
 				}
 			}
@@ -91,13 +87,13 @@ public class QnaDeleteController extends HttpServlet{
 			int n = idao.delete(menu_num, qna_num);
 			if(n <= 0) {
 				// 오류 처리
-				System.out.println("image DB 삭제 실패");
+				System.out.println("image DB 삭제 실패2");
 			}
 			// qna 테이블 DB 삭제
 			int n1 = qdao.delete(qna_num);
 			if(n1 <= 0) {
 				// 오류 처리
-				System.out.println("qna DB 삭제 실패");
+				System.out.println("qna DB 삭제 실패2");
 			}else {
 				resp.sendRedirect(req.getContextPath() + "/board/qna?menu_num=" + menu_num);
 			}

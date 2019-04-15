@@ -35,7 +35,7 @@
 		>기타</option>
 	</select>
 	<a href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}">글쓰기</a>
-	<form method = "post" action="${cp }/board/qnaDelete?select=ck">
+	<form method = "post" action="${cp }/board/qnaDelete?select=ck&menu_num=${param.menu_num}">
 		<input type = "hidden" name = "menu_num" value = "${param.menu_num}">
 		<table border = "1" style="width: 500px;">
 			<tr>

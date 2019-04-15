@@ -37,7 +37,8 @@ public class ReviewUpdateController extends HttpServlet{
 			req.setAttribute("spage", "/mem/login.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}else if(id.equals("admin")) {
-			
+			req.setAttribute("spage", "/admin/board/reviewUpdate.jsp");
+			req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
 		}else {
 			req.setAttribute("spage", "/board/reviewUpdate.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
