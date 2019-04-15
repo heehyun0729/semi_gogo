@@ -1,7 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div class="bg-light py-3">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a> 
+       	<c:if test="${menu_num > 0 }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
+       	</c:if> 
+       	<c:if test = "${!empty menu_num }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+       	</c:if>
+       	 <span class="mx-2 mb-0">/</span> <strong class="text-black">${pvo.prod_name }</strong>
+      </div>
+    </div>
+  </div>
+</div>  
 
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+	    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	      <ol class="carousel-indicators">
+	      	<c:set var = "i" value = "1"/>
+	      	<c:forEach var = "vo" items = "${ilist }">
+	      		<c:choose>
+		    		<c:when test="${i % 2 == 1 }">
+		    			<li data-target="#carouselExampleIndicators" data-slide-to="${i }" class="active"></li>
+		    		</c:when>
+		    		<c:otherwise>
+		    			<li data-target="#carouselExampleIndicators" data-slide-to="${i }"></li>
+		    		</c:otherwise>
+		    	</c:choose>
+	      		<c:set var = "i" value = "${i + 1 }"/>
+			</c:forEach>
+		  </ol>
+		  
+		  <c:set var = "i" value = "1"/>
+		  <div class="carousel-inner">
+		    <c:forEach var = "vo" items = "${ilist }">
+		    	<c:choose>
+		    		<c:when test="${i % 2 == 1 }">
+		    			<div class="carousel-item active">
+		     				 <img class="d-block w-100" src="${cp }/upload/product/${vo.img_saveImg}" alt="First slide">
+		    			</div>
+		    		</c:when>
+		    		<c:otherwise>
+		    			<div class="carousel-item">
+		     				 <img class="d-block w-100" src="${cp }/upload/product/${vo.img_saveImg}" alt="First slide">
+		    			</div>
+		    		</c:otherwise>
+		    	</c:choose>
+		    	<c:set var = "i" value = "${i + 1 }"/>
+			</c:forEach>
+		  </div>
+		  
+		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+      </div>
+      
+<div class="col-md-6">
+<form method="post">
+	<input type = "hidden" name = "prod_num" value = "${pvo.prod_num }">
+	<input type = "hidden" name = "op_num" value = "${opvo.op_num }">
+	<h2 class="text-black">${pvo.prod_name }</h2>
+	<p><strong class="text-primary h4" id="price">${pvo.prod_price}원</strong></p>
+	<div>
+		<strong class="text-block">${opvo.op_name}</strong>
+		<select class="form-control col-sm-7" id='option' onchange="addOp(this.selectedIndex)">
+			<option value='' selected>-[필수] 옵션을 선택해주세요-</option>
+		  	<c:forEach var = "vo1" items = "${doplist }">
+		  		<option id="${vo1.detailOp_name}" value="${vo1.detailOp_num }">${vo1.detailOp_name}/${vo1.detailOp_price}</option>
+		  	</c:forEach>
+		</select>
+		<div id="op"></div>
+		<br>
+		<span class="text-black">TOTAL: </span><div id="total" class="text-primary h4" style="display: inline-block;">0</div><span class="text-black">원</span>
+	</div>
+	<input type="submit" value="바로 구매하기" onclick="javascript: form.action = '${cp}/order/buyInsert?select=one';">
+	<input type="submit" value="장바구니 담기" onclick="javascript: form.action = '${cp}/order/basketInsert.do';">
+	<input type="button" value="관심상품 담기" onclick="location.href='${cp }/mypage/interInsert.do?prod_num=${pvo.prod_num }'">
+</form>
+</div>
+     
+        <div class="mb-5">
+          <div class="input-group mb-3" style="max-width: 120px;">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+          </div>
+          <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+          </div>
+        </div>
+
+        </div>
+        <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+
+      </div>
+    </div>
+  </div>
+ 
+
+
+ 
 <div id="board">
 
 	<div>
