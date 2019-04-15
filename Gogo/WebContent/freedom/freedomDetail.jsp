@@ -29,7 +29,7 @@
 				<td>${vo.freedom_hit }</td>
 			</tr>		
 		</table>
-		<input type="button" value="목록" onclick="location.href='${cp }/freedom/freedomList.do?menu_num=${menu_num}&freedom_num=${vo.freedom_num }'">
+		<input type="button" value="목록" onclick="location.href='${cp }/freedom/freedomList.do'">
 		</div>
 	</div>
 </div>		
