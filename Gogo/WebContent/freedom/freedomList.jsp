@@ -9,7 +9,7 @@
 	
 	<div>
   		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/freedom/freedomInsert.do' ">
-  		<input type="button" value="목록"  onclick="Locateion.href='${cp}/freedom/freedomList.do?menu_num=${menu_num}&freedom_num=${pvo.freedom_num}'">
+  		<input type="button" value="목록"  onclick="Locateion.href='${cp}/freedom/freedomDetail.do?menu_num=${menu_num}&freedom_num=${pvo.freedom_num}'">
   	</div>
   <div id="freedomList">	
 <table border="1">
@@ -27,6 +27,8 @@
 			<td>${vo.freedom_content }</td>
 			<td>${vo.freedom_wdate }
 			<td>${vo.freedom_hit }</td>
+			
+			
 		</tr>
 	</c:forEach>
 </table>
@@ -43,10 +45,10 @@
 		<c:forEach var = "i" begin="${startPage }" end ="${endPage }">
 			<c:choose>
 				<c:when test="${i==pageNum }">
-					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?${freedom_num }pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
+					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
 				</c:when>
 				<c:otherwise>
-					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?${freedom_num }pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
+					<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
 				</c:otherwise>
 		</c:choose>	
 		</c:forEach>
