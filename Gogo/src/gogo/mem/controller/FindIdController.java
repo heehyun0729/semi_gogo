@@ -7,32 +7,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 import gogo.mem.dao.MemDao;
-@WebServlet("/mem/login")
-public class LoginController extends HttpServlet{
+import gogo.mem.vo.MemVo;
+@WebServlet("/mem/findId.do")
+public class FindIdController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("spage", "/mem/login.jsp");
+		req.setAttribute("spage", "/mem/findId.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String mem_id=req.getParameter("mem_id");
-		String mem_pwd=req.getParameter("mem_pwd");
-		MemDao dao=MemDao.getInstance(); 
-		boolean result=dao.isMem(mem_id, mem_pwd);
-		int blockNum=dao.blockMem(mem_id, mem_pwd);
-		if(result) {
-			HttpSession session=req.getSession();
-			session.setAttribute("mem_id", mem_id);
-			req.setAttribute("spage", "/main.jsp");
+		String mem_name=req.getParameter("mem_name");
+		String mem_email=req.getParameter("mem_email");
+		MemDao dao=MemDao.getInstance();
+		String result=dao.findId(mem_name, mem_email);
+		if(result==null) {
+			req.setAttribute("msg", "회원정보가 확인되지 않습니다. 올바른 정보를 입력해주세요.");
+			req.setAttribute("spage", "/mem/findId.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
-		}else if(blockNum>0) {
-			req.setAttribute("errMsg2", "회원권한이 없는 계정입니다");
 		}else {
-			req.setAttribute("errMsg","아이디 또는 비밀번호가 일치하지 않습니다.");
-			req.setAttribute("spage", "/mem/login.jsp");
+			req.setAttribute("spage", "/mem/findIdOk.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}
 	}

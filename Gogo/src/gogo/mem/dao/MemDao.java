@@ -44,6 +44,30 @@ public class MemDao {
 			}
 			return result;//결과값 리턴
 		}
+	////[회원페이지] ID찾기
+		public String findId(String mem_name, String mem_email) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			String  result=null;
+			try {
+				con=JDBCUtil.getConn();
+				String sql="select mem_id from members where mem_name=? and mem_email=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, mem_name);
+				pstmt.setString(2, mem_email);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					result=rs.getString("mem_id");
+					return result;
+				}
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}finally {
+				JDBCUtil.close(con, pstmt, rs);
+			}
+			return result;
+		}
 	////[회원전용]-[MYPAGE]- 회원정보보기
 		public MemVo getinfo(String mem_id) {
 			Connection con=null;
@@ -220,7 +244,6 @@ public class MemDao {
 			JDBCUtil.close(con, pstmt, null);
 		}
 	}
-	
 	////[회원페이지] login&pwd 회원검사
 	public boolean isMem(String mem_id,String mem_pwd) {
 		Connection con=null;

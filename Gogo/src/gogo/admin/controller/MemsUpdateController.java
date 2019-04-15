@@ -1,7 +1,6 @@
-package gogo.mem.controller;
-/////
+package gogo.admin.controller;
+
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,29 +10,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import gogo.mem.dao.MemDao;
 import gogo.mem.vo.MemVo;
-@WebServlet("/mypage/myInfo.do")
-public class UpdateController extends HttpServlet{
+@WebServlet("/admin/memsUpdate.do")
+public class MemsUpdateController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String mem_id=(String)req.getSession().getAttribute("mem_id");
-		
+		//String mem_id=(String)req.getSession().getAttribute("mem_id");
+		String mem_id=req.getParameter("mem_id");
 		MemDao dao=MemDao.getInstance();
 		MemVo vo=dao.getinfo(mem_id);
 		//req.setAttribute("mem_id", mem_id);
 		req.setAttribute("vo", vo);
 		String mem_bday=vo.getMem_bday();
-		if(mem_bday != null && !mem_bday.equals("")) {
-//			String year=mem_bday.split("/")[0];
-//			String month=mem_bday.split("/")[1];
-//			String day=mem_bday.split("/")[2];
-//			System.out.println(year+month+day);
-//			req.setAttribute("year", year);
-//			req.setAttribute("month", month);
-//			req.setAttribute("day", day);
-		}
-		req.setAttribute("spage", "/mem/memUpdate.jsp");
-		req.getRequestDispatcher("/home.jsp").forward(req, resp);
+		String[] bday=mem_bday.split("-");
+		//if(mem_bday != null && !mem_bday.equals("")) {
+			String year=bday[0];
+			String month=bday[1];
+			String day=bday[2];
+			//System.out.println(year+month+day);	
+			req.setAttribute("year", year);
+			req.setAttribute("month", month);
+			req.setAttribute("day", day);	
+			req.setAttribute("spage", "/mem/memUpdate.jsp");
+			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
+		
+	
 	
 	
 	@Override

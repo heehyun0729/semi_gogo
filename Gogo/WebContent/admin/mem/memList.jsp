@@ -16,7 +16,7 @@
 				<td>${vo.mem_addr }</td>
 				<td>${vo.mem_bday }</td>
 				<td>${vo.mem_stat }</td>
-				<td><a href="${pageContext.request.contextPath }/mypage/myInfo.do?mem_id=${vo.mem_id}">수정</a></td>
+				<td><a href="${pageContext.request.contextPath }/admin/memsUpdate.do?mem_id=${vo.mem_id}">수정</a></td>
 			</tr>
 		</c:forEach>
 	</table>

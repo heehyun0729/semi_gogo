@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div id="board">
 <h1>회원 정보수정</h1>
-<form method="post" action="${pageContext.request.contextPath }/mypage/myInfo.do">
+<form method="post" action="${cp }/mypage/myInfo.do">
 	<table>
 		<tr>
 			<th>아이디</th>
@@ -29,9 +29,9 @@
 		<tr>
 			<th>생년월일</th>
 		<td>
-			<input type="text" name="year" id = "year" style="width:70px" onkeyup = "bdaycheck()">년 
-			<input type="text" name="month" id ="month" style="width:40px" onkeyup = "bdaycheck()">월 
-			<input type="text" name="day" id = "day" style="width:40px" onkeyup = "bdaycheck()">일<td>
+			<input type="text" name="year" id = "year" style="width:70px" value="${vo.mem_bday}">년 
+			<input type="text" name="month" id ="month" style="width:40px"value="${vo.mem_bday }">월 
+			<input type="text" name="day" id = "day" style="width:40px"value="${vo.mem_bday }">일<td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="저장"><a href="${cp }/mem/memDelete.jsp">회원탈퇴</a></td>

@@ -3,13 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="board">
 <h1>회원정보</h1>
-	<form method="post" action="${cp }/memUpdate.do">
+	<form method="post" action="${cp }/memsUpdate.do">
 	<table>
 		<tr>
 			<th>아이디</th><td><input type="text" name="mem_id" value=${vo.mem_id }></td>
-		</tr>
-		<tr>
-			<th>비밀번호</th><td><input type="text" name="mem_pwd" value=${vo.mem_pwd }></td>
 		</tr>
 		<tr>
 			<th>이름</th><td><input type="text" name="mem_name" value=${vo.mem_name }></td>
