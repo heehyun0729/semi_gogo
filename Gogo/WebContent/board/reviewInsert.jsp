@@ -40,11 +40,13 @@
 			<tr>
 				<td>별점</td>
 				<td>
-					<input type = "radio" name = "star" value = "1">1
-					<input type = "radio" name = "star" value = "2">2
-					<input type = "radio" name = "star" value = "3">3
-					<input type = "radio" name = "star" value = "4">4
-					<input type = "radio" name = "star" value = "5" checked="checked">5
+					<fieldset class="rating">
+					    <input type="radio" id="star5" name="star" value="5" /><label class = "full" for="star5"></label>
+					    <input type="radio" id="star4" name="star" value="4" /><label class = "full" for="star4"></label>
+					    <input type="radio" id="star3" name="star" value="3" /><label class = "full" for="star3"></label>
+					    <input type="radio" id="star2" name="star" value="2" /><label class = "full" for="star2"></label>
+					    <input type="radio" id="star1" name="star" value="1" /><label class = "full" for="star1"></label>
+					</fieldset>
 				</td>
 			</tr>
 			<tr>

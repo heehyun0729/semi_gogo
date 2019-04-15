@@ -25,31 +25,29 @@
 			<tr>
 				<td>º°Á¡</td>
 				<td>
-					<input type = "radio" name = "star" value = "1"
-						<c:if test = "${vo.review_star == 1 }">
-							checked == "checked"
-						</c:if>
-					>1
-					<input type = "radio" name = "star" value = "2"
-						<c:if test = "${vo.review_star == 2 }">
-							checked == "checked"
-						</c:if>
-					>2
-					<input type = "radio" name = "star" value = "3"
-						<c:if test = "${vo.review_star == 3 }">
-							checked == "checked"
-						</c:if>
-					>3
-					<input type = "radio" name = "star" value = "4"
-						<c:if test = "${vo.review_star == 4 }">
-							checked == "checked"
-						</c:if>
-					>4
-					<input type = "radio" name = "star" value = "5"
-						<c:if test = "${vo.review_star == 5 }">
-							checked == "checked"
-						</c:if>
-					>5
+					<fieldset class="rating">
+					    <input type="radio" id="star5" name="star" value="5" 
+						    <c:if test = "${vo.review_star == 5 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star5"></label>
+					    <input type="radio" id="star4" name="star" value="4" 
+						    <c:if test = "${vo.review_star == 4 }">
+								checked == "checked"
+							</c:if>
+						/><label class = "full" for="star4"></label>
+					    <input type="radio" id="star3" name="star" value="3" 
+						    <c:if test = "${vo.review_star == 3 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star3"></label>
+					    <input type="radio" id="star2" name="star" value="2" 
+						    <c:if test = "${vo.review_star == 2 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star2"></label>
+					    <input type="radio" id="star1" name="star" value="1" 
+						    <c:if test = "${vo.review_star == 1 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star1"></label>
+					</fieldset>
 				</td>
 			</tr>
 			<tr>
