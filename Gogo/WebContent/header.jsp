@@ -23,7 +23,7 @@
 		<li><a href = "${cp }/board/noticeList.do?menu_num=9">공지</a></li>
 		<li><a href = "${cp }/board/qna?menu_num=10">문의</a></li>
 		<li><a href = "${cp }/board/review?menu_num=11">후기</a></li>
-		<li><a href = "${cp }/board/freedomList.do?menu_num=12">자유게시판</a></li>
+		<li><a href = "${cp }/freedom/freedomList.do?menu_num=12">자유게시판</a></li>
 	</ul>
 	<ul>
 		<c:if test="${sessionScope.mem_id == 'admin'}">
