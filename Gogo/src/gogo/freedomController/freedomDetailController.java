@@ -20,7 +20,7 @@ public class freedomDetailController extends HttpServlet{
 		int pageNum=Integer.parseInt(req.getParameter("pageNum"));
 		String keyword=req.getParameter("keyword");
 		String field=req.getParameter("field");
-		FreedomDao dao=new FreedomDao();
+		FreedomDao dao=FreedomDao.getInstance();
 		FreedomVo vo=dao.detail(freedom_num);
 		req.setAttribute("vo", vo);
 		req.setAttribute("pageNum",pageNum);

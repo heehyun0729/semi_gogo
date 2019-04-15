@@ -42,7 +42,7 @@ public class freedomInsertController extends HttpServlet {
 		String freedom_content=mr.getParameter("freedom_content");
 		System.out.println("freedom_content:" + freedom_content);
 		FreedomVo vo=new FreedomVo(0,freedom_title,freedom_content,null, 0);
-		FreedomDao dao=new FreedomDao();
+		FreedomDao dao=FreedomDao.getInstance();
 		int n=dao.insert(vo);
 		if(n>0) {
 			resp.sendRedirect(req.getContextPath() + "/freedom/freedomList.do");

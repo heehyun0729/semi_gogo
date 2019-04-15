@@ -28,7 +28,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 	}
 	int startRow=(pageNum-1)*10+1;
 	int endRow=startRow+9;
-	FreedomDao dao=new FreedomDao();
+	FreedomDao dao=FreedomDao.getInstance();
 	ArrayList<FreedomVo> list=dao.list(startRow, endRow,field,keyword);
 	System.out.println("list1....:" + list);
 	int pageCount=(int)Math.ceil(dao.getCount(field,keyword)/10.0);

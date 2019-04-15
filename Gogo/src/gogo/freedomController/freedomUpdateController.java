@@ -33,7 +33,7 @@ public class freedomUpdateController extends HttpServlet{
 		String freedom_title=req.getParameter("freedom_title ");
 		String freedom_content=req.getParameter("freedom_content ");
 		FreedomVo vo=new FreedomVo(freedom_num,freedom_title,freedom_content,null,0);
-		FreedomDao dao=new FreedomDao();
+		FreedomDao dao=FreedomDao.getInstance();
 	}
 }
 //

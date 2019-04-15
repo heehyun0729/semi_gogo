@@ -30,6 +30,7 @@
 			</tr>		
 		</table>
 		<input type="button" value="목록" onclick="location.href='${cp }/freedom/freedomList.do'">
+		<input type="button" value="삭제" onclick="location.href='${cp }/freedom/freedomDelete.do?freedom_num=${vo.freedom_num}'">
 		</div>
 	</div>
 </div>		
