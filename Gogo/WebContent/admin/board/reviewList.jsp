@@ -13,12 +13,13 @@
 		</form>
 	</div>
 	<a href = "${cp }/board/reviewInsert?menu_num=11">글쓰기</a>
-	<form method="post" action="${cp }/board/qnaDelete?select=ck">
+	<form method="post" action="${cp }/board/reviewDelete?select=ck&menu_num=${menu_num}">
 		<table border = "1" style = "width: 700px;">
 			<tr>
 				<th><input type = "checkbox" id = "ckAll" onclick="checkAll()"></th>
 				<th>상품사진</th><th>상품명</th><th>작성자</th><th>제목</th>
 				<th>별점</th><th>추천수</th><th>작성일</th>
+				<th>수정</th>
 			</tr>
 			<c:forEach var = "vo" items = "${list }">
 				<tr>
@@ -39,6 +40,7 @@
 					<td>${vo.review_star }</td>
 					<td>${vo.review_like }</td>
 					<td>${vo.review_wdate }</td>
+					<td><a href = "${cp }/board/reviewUpdate?menu_num=${menu_num}&review_num=${vo.review_num}">수정</a></td>
 				</tr>
 			</c:forEach>
 		</table>
