@@ -16,14 +16,6 @@
  				<tr>
  					<td colspan="2">내용<textarea rows="10" cols="80" name="freedom_content"></textarea></td>
  				</tr>
- 				<tr>	
- 					<td>첨부파일1</td>
- 					<td><input type="file" name="file1"></td>
- 				</tr>
- 				<tr>
- 					<td>첨부파일2</td>
- 					<td><input type="file" name="file2"></td>
- 				</tr>
  				<tr>
  					<td colspan="2">
 						<input type="submit" value="등록">

@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea cols="50" rows="5" disaleb="disabled">${vo.freedom_content }</textarea></td>
+				<td><textarea cols="50" rows="5" disabled="disabled">${vo.freedom_content }</textarea></td>
 			</tr>
 			<tr>
 				<td>작성일</td>
