@@ -82,6 +82,7 @@ public class FreedomDao {
 	}
 	
 	public FreedomVo detail(int freedom_num) {
+		System.out.println("freedom_num:"+ freedom_num);
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		PreparedStatement pstmt1 = null;
@@ -105,9 +106,9 @@ public class FreedomDao {
 				FreedomVo vo = new FreedomVo(
 							freedom_num,
 							rs.getString("freedom_title"),
-							rs.getString("notice_content"),
+							rs.getString("freedom_content"),
 							rs.getDate("freedom_wdate"),
-							rs.getInt("freedom_step")
+							rs.getInt("freedom_hit")
 							
 						);
 				return vo;
@@ -140,15 +141,16 @@ public class FreedomDao {
 		}
 	}
 	
-	public int delete(int Freedom_num) {
+	public int delete(int freedom_num) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		try {
 			con=JDBCUtil.getConn();
 			String sql="delete from freedom where freedom_num=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, Freedom_num);
+			pstmt.setInt(1, freedom_num);
 			return pstmt.executeUpdate();
+			
 			}catch(SQLException se){
 				se.printStackTrace();
 				return -1;

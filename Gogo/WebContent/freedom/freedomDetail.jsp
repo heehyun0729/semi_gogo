@@ -10,7 +10,7 @@
 		<table border="1" style="width:500px;">
 			<tr>
 				<td>작성번호</td>
-				<td>${vo.freedom_num }
+				<td>${vo.freedom_num } 
 			</tr>
 			<tr>
 				<td>제목</td>

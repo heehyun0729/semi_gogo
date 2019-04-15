@@ -45,6 +45,17 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 	req.setAttribute("pageNum", pageNum);
 	req.setAttribute("keyword", keyword);
 	req.setAttribute("pvo", pvo);
-	req.getRequestDispatcher("/freedom/freedomList.jsp").forward(req,resp);
+	
+	String id = (String)req.getSession().getAttribute("mem_id");
+	if(id == null || id.equals("")) {
+		req.setAttribute("spage", "/freedom/freedomList.jsp");
+		req.getRequestDispatcher("/home.jsp").forward(req, resp);
+	}else if(id.equals("admin")) {
+		req.setAttribute("spage", "/admin/freedom/freedomList.jsp");
+		req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
+	}else {
+		req.setAttribute("spage", "/freedom/freedomList.jsp");
+		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
+}
 }

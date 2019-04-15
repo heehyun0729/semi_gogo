@@ -20,8 +20,8 @@ public class freedomInsertController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("spage", "/admin/freedom/freedomInsert.jsp");
-		req.getRequestDispatcher("/admin/home.jsp").forward(req, resp);
+		req.setAttribute("spage", "/freedom/freedomInsert.jsp");
+		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,12 +45,10 @@ public class freedomInsertController extends HttpServlet {
 		FreedomDao dao=new FreedomDao();
 		int n=dao.insert(vo);
 		if(n>0) {
-			req.setAttribute("code","success");
+			resp.sendRedirect(req.getContextPath() + "/freedom/freedomList.do");
 		}else {
-			req.setAttribute("code","fail");
-		}
-		req.getRequestDispatcher("/freedom/freedomList.jsp").forward(req, resp);
 		
+		}
 	}
 }
 //
