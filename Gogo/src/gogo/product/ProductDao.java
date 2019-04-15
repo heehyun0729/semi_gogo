@@ -24,15 +24,28 @@ public class ProductDao {
 		try {
 			con=JDBCUtil.getConn();
 			String sql="select NVL(count(prod_num),0) cnt from product where menu_num = ?";
-//			if(!(field==null || field.equals(""))) {
-//				if(field.equals("prod_num") || field.equals("prod_name")) {
-//					sql += "where " + field + " like '%" + keyword + "%'";
-//				}else if(field.equals("product_all")) {
-//					sql += "where prod_name like '%" + keyword + "%' OR prod_num like '%" + keyword + "%'";
-//				}
-//			}
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, menu_num);
+			rs=pstmt.executeQuery();
+			rs.next();
+			int cnt=rs.getInt(1);
+			return cnt;
+		}catch(SQLException se) {
+			System.out.println(se.getMessage());
+			return -1;
+		}finally {
+			JDBCUtil.close(con,pstmt,rs);
+		}
+	}
+	
+	public int getFindCount(String keyword) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=JDBCUtil.getConn();
+			String sql="select NVL(count(prod_num),0) cnt from product where prod_stat = 0 and prod_name like '%"+keyword+"%'";
+			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			rs.next();
 			int cnt=rs.getInt(1);
@@ -77,6 +90,44 @@ public class ProductDao {
 					"        order by prod_num desc" + 
 					"    )AA" + 
 					" )" + 
+					"where rnum>=? and rnum<=? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProductVo vo= new ProductVo( 
+						rs.getInt("prod_num"),
+						rs.getInt("menu_num"),
+						rs.getString("prod_name"),
+						rs.getInt("prod_price"),
+						rs.getInt("prod_stat")
+						);
+				list.add(vo);
+			}
+			return list;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			DB.JDBCUtil.close(con, pstmt, rs);
+		}
+	}
+	public ArrayList<ProductVo> find_prod_list(int startRow, int endRow, String keyword){
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		ArrayList<ProductVo> list=new ArrayList<ProductVo>();
+		try {
+			con=DB.JDBCUtil.getConn();
+			String sql = "select * from ( " + 
+					"    select AA.*, rownum rnum from " + 
+					"    ( " + 
+					"        select * from product " +
+					"		 where prod_stat = 0 and prod_name like '%" + keyword + "%' " + 
+					"        order by prod_num desc " + 
+					"    )AA " + 
+					" ) " + 
 					"where rnum>=? and rnum<=? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);

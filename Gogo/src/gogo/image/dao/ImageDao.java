@@ -101,7 +101,51 @@ public class ImageDao {
 		}finally {
 			JDBCUtil.close(con, pstmt, rs);
 		}
-	}public ArrayList<ProdImgVo> getImg(int img_type, int menu_num, int startRow, int endRow) {
+	}
+	public ArrayList<ProdImgVo> getFindImg(int img_type, String keyword, int startRow, int endRow ) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = JDBCUtil.getConn();
+			String sql = "select * from " + 
+					"(" + 
+					"select AA.*, rownum rnum from " + 
+					"(" + 
+					"select p.prod_num, p.menu_num, p.prod_name, p.prod_price, i.img_type, i.img_orgImg, i.img_saveImg " + 
+					"from product p, image i " + 
+					"where p.prod_num = i.img_bnum and p.menu_num = i.menu_num " + 
+					"and i.img_type = ? and p.prod_name like '%"+keyword+"%' and p.prod_stat = 0" + 
+					")AA" + 
+					")" + 
+					"where rnum >= ? and rnum <= ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, img_type);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			rs = pstmt.executeQuery();
+			ArrayList<ProdImgVo> list = new ArrayList<ProdImgVo>();
+			while(rs.next()) {
+				ProdImgVo vo = new ProdImgVo(
+							rs.getInt(1), 
+							rs.getInt(2),
+							rs.getString(3),
+							rs.getInt(4),
+							img_type,
+							rs.getString(6),
+							rs.getString(7)
+						);
+				list.add(vo);
+			}
+			return list;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JDBCUtil.close(con, pstmt, rs);
+		}
+	}
+	public ArrayList<ProdImgVo> getImg(int img_type, int menu_num, int startRow, int endRow) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
