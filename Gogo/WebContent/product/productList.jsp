@@ -38,42 +38,46 @@
 	                </div>
 	              </div>
 				</c:forEach>
-
             </div>
-            <div class="row" data-aos="fade-up">
-              <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-                  <c:choose>
-					<c:when test="${startPage > 4 }">
-						<li><a href = "${cp }/product/productList.do?pageNum=${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
-					</c:when>
-					<c:otherwise>
-						<li><a>&lt;</a></li>
-					</c:otherwise>
-					</c:choose>
-						<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
-						<c:choose>
-							<c:when test="${pageNum == i }">
-								<li><a href = "${cp }/product/productList.do?pageNum=${i}&menu_num=${menu_num }">${i }</a></li>
+            
+            <c:choose>
+            	<c:when test="${startPage!=null}">
+		            <div class="row" data-aos="fade-up">
+		              <div class="col-md-12 text-center">
+		                <div class="site-block-27">
+		                  <ul>
+		                  <c:choose>
+							<c:when test="${startPage > 4 }">
+								<li><a href = "${cp }/product/productList.do?pageNum=${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href = "${cp }/product/productList.do?pageNum=${i}&menu_num=${menu_num }">${i }</a></li>
+								<li><a>&lt;</a></li>
 							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-					<c:choose>
-						<c:when test="${endPage < pageCnt }">
-							<li><a href = "${cp }/product/productList.do?pageNum=${endPage + 1}&menu_num=${menu_num }">&gt;</a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a>&gt;</a></li>
-						</c:otherwise>
-					</c:choose>
-                  </ul>
-                </div>
-              </div>
-            </div>
+							</c:choose>
+								<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
+								<c:choose>
+									<c:when test="${pageNum == i }">
+										<li><a href = "${cp }/product/productList.do?pageNum=${i}&menu_num=${menu_num }">${i }</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href = "${cp }/product/productList.do?pageNum=${i}&menu_num=${menu_num }">${i }</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${endPage < pageCnt }">
+									<li><a href = "${cp }/product/productList.do?pageNum=${endPage + 1}&menu_num=${menu_num }">&gt;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a>&gt;</a></li>
+								</c:otherwise>
+							</c:choose>
+		                  </ul>
+		                </div>
+		              </div>
+		            </div>
+	            </c:when>
+            </c:choose>
           </div>
          </div>
         </div>
