@@ -59,7 +59,7 @@
 						>기타</option>
 					</select>
 					<div style="width: 80%; text-align: right; display: inline-block;">
-		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "margin-bottom: 20px;margin-left: 5px;">글쓰기</a>
+		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "margin-bottom: 20px;">글쓰기</a>
 		            </div>
 		            <br>
 		            <!-- 테이블 -->

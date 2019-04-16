@@ -22,7 +22,7 @@
               </div>
             </div>
             
-            <select class="form-control col-sm-2" name = "menu" onchange="changeMenu(this.value, '${cp }')">
+            <select class="form-control col-sm-2" style = "display: inline-block;margin-bottom: 20px;" name = "menu" onchange="changeMenu(this.value, '${cp }')">
 				<option value = ""
 					<c:if test = "${menu_num == '0'}">
 						selected = "selected"
@@ -69,8 +69,7 @@
 					</c:if>
 				>스크래쳐</option>
 			</select>
-			<br>
-			<p><a class="btn btn-sm btn-primary" href = "${cp }/admin/product/productInsert">상품등록</a></p>
+			<a class="btn btn-sm btn-primary" href = "${cp }/admin/product/productInsert" style="float: right;">상품등록</a>
             
             <div class="row mb-5">
 			 <c:forEach var = "vo" items = "${list }">
