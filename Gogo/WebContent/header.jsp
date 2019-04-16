@@ -33,8 +33,8 @@
 					</c:otherwise>
 				</c:choose>
 				<c:if test="${!empty sessionScope.mem_id}">
-					<li><a href = "${cp }/mypage/home"><span class="icon icon-person"></span></a></li>
-					<li><a href = "${cp }/order/basketList.do"><span class="icon icon-shopping_cart"></span></a></li>
+					<li><a href = "${cp }/mypage/home"><span class="fas fa-user"></span></a></li>
+					<li><a href = "${cp }/order/basketList.do"><span class="fas fa-shopping-cart"></span></a></li>
 				</c:if>
 			</ul>
         </div> 
