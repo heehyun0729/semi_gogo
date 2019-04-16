@@ -90,18 +90,6 @@
 		<input type="button" value="관심상품 담기" class="buy-now btn btn-sm" onclick="location.href='${cp }/mypage/interInsert.do?prod_num=${pvo.prod_num }'">
 	</form>
 	</div>
-     
-      <div class="mb-5">
-        <div class="input-group mb-3" style="max-width: 120px;">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-primary js-btn-minus" type="button">-</button>
-        </div>
-        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        <div class="input-group-append">
-          <button class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-        </div>
-      </div>
-      </div>
     </div>
 	<div>
 		<c:forEach var = "divo" items = "${dilist }">

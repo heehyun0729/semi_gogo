@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  	<div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-          	<c:if test="${menu_num > 0 }">
-          		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
-          	</c:if> 
-          	<c:if test = "${!empty menu_num }">
-          		<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
-          	</c:if>
-          </div>
-        </div>
-      </div>
-    </div>	
+<div class="bg-light py-3">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+       	<c:if test="${menu_num > 0 }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
+       	</c:if> 
+       	<c:if test = "${!empty menu_num }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+       	</c:if>
+       </div>
+     </div>
+   </div>
+ </div>	
     
     <div class="site-section">
       <div class="container">
