@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="content_wrap" style="padding-top: 5%; padding-bottom: 5%">
-<div id="box" style="width: 40%; height: 50%; margin: auto;">
+<div id="box" style="width: 50%; height: 50%; margin: auto;">
 <h3>GOGO's Member List</h3>
 <table class="table">
   <thead class="thead-dark">
