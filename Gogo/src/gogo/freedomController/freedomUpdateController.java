@@ -21,12 +21,13 @@ public class freedomUpdateController extends HttpServlet{
 		FreedomDao dao=FreedomDao.getInstance();
 		FreedomVo vo=dao.detail(freedom_num);
 		
-		System.out.println(freedom_num);
+		System.out.println("freedom_num2"+freedom_num);
 		req.setAttribute("freedom_num", freedom_num);
 		req.setAttribute("vo",vo);
-		
-		req.setAttribute("spage","/admin/freedom/freedomUpdate.jsp");
+		System.out.println(vo);
+		req.setAttribute("spage","/freedom/freedomUpdate.jsp");
 		req.getRequestDispatcher("/home.jsp").forward(req,resp);
+	
 	}
 	
 	@Override
@@ -34,9 +35,11 @@ public class freedomUpdateController extends HttpServlet{
 		//값 얻어오기
 		req.setCharacterEncoding("utf-8");
 		int freedom_num=Integer.parseInt(req.getParameter("freedom_num"));
+//		String freedom_num=req.getParameter("freedom_num");
+//		System.out.println("freedom_num3:" + freedom_num);
 		System.out.println(freedom_num);
-		String freedom_title=req.getParameter("freedom_title ");
-		String freedom_content=req.getParameter("freedom_content ");
+		String freedom_title=req.getParameter("freedom_title");
+		String freedom_content=req.getParameter("freedom_content");
 		
 		//db저장
 		FreedomVo vo=new FreedomVo(freedom_num,freedom_title,freedom_content,null,0);
@@ -46,8 +49,8 @@ public class freedomUpdateController extends HttpServlet{
 			req.setAttribute("resultCode", "success");
 		}else{
 			req.setAttribute("resultCode", "fail");
+			
 		}
-		req.getRequestDispatcher("/freedom/freedomUpdate.jsp").forward(req, resp);
+		req.getRequestDispatcher("/freedom/result.jsp").forward(req, resp);
 		}
-
 }

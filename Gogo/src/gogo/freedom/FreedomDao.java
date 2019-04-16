@@ -134,11 +134,14 @@ public class FreedomDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JDBCUtil.getConn();
+			System.out.println("con2:"+ con);
 			String sql="update freedom set freedom_title=?,freedom_content=? where freedom_num=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1,vo.getFreedom_num());
-			pstmt.setString(2,vo.getFreedom_title());
-			pstmt.setString(3, vo.getFreedom_content());
+			
+			pstmt.setString(1,vo.getFreedom_title());
+			pstmt.setString(2, vo.getFreedom_content());
+			pstmt.setInt(3,vo.getFreedom_num());
+			System.out.println("pstmt3:"+ pstmt);
 			return pstmt.executeUpdate();
 		}catch(SQLException se){
 			se.printStackTrace();
