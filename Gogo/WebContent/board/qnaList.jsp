@@ -21,8 +21,8 @@
 					<div class="col-md-12 mb-5">
 		               <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 		            </div>
-		            <div style = "width: 100%;margin-bottom: 20px;">
 		            <!-- // 해당 사이트 제목 -->
+		            <div style = "width: 100%;margin-bottom: 20px;">
 		            <select name = "cate" onchange="getQnaList(this.value)" class="form-control col-sm-2" style = "float: left; display: inline-block;">
 						<option value = "">전체</option>
 						<option value = "prod"

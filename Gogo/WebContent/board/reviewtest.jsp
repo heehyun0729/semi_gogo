@@ -58,16 +58,16 @@
                     <textarea name="content" id="content" cols="30" rows="7" class="form-control"></textarea>
                   </div>
                 </div>
-                <div class="form-group row" >
-                  <div style = "width: 50%; margin-left: 25%; margin-right: 25%; padding-left: 12%;" >
-					<fieldset class="rating" >
-					    <input type="radio" id="star5" name="star" value="5" checked="checked"/><label class = "full" for="star5"></label>
+                <div class="form-group row">
+                  <div class="col-md-12 text-center">
+					<fieldset class="rating">
+					    <input type="radio" id="star5" name="star" value="5" /><label class = "full" for="star5"></label>
 					    <input type="radio" id="star4" name="star" value="4" /><label class = "full" for="star4"></label>
 					    <input type="radio" id="star3" name="star" value="3" /><label class = "full" for="star3"></label>
 					    <input type="radio" id="star2" name="star" value="2" /><label class = "full" for="star2"></label>
 					    <input type="radio" id="star1" name="star" value="1" /><label class = "full" for="star1"></label>
-					</fieldset>   
-					</div>     
+					</fieldset>                  
+					</div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
