@@ -31,6 +31,7 @@ public class NoticeInsertController extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String menu_num = req.getParameter("menu_num");
 		String dir = getServletContext().getRealPath("/upload/notice");
 		MultipartRequest mr = new MultipartRequest(
 					req,
@@ -69,7 +70,7 @@ public class NoticeInsertController extends HttpServlet{
 		NoticeVo vo=new NoticeVo(notice_num,notice_title,notice_content,null,notice_step,notice_cate,notice_hit);
 		int n=dao.insert(vo);
 		if(n>0) {
-			resp.sendRedirect(req.getContextPath() + "/board/noticeList.do");
+			resp.sendRedirect(req.getContextPath() + "/board/noticeList.do?menu_num="+menu_num);
 		}else {
 			// 오류처리
 		}
