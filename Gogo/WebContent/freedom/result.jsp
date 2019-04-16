@@ -13,11 +13,11 @@
 </div>
 <c:choose>
 	<c:when test="${resultCode=='success' }">
-		<strong class="text-black">글 수정을 성공했습니다. 리스트로 이동하시겠습니까?</strong><br>
-		<a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/freedom/freedomList.do">리스트 이동</a>
+		<div style="float:none; margin-left:40%" >글 수정을 성공했습니다. 리스트로 이동하시겠습니까?</div>
+		<a style="margin-left: 47%;" class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/freedom/freedomList.do">리스트 이동</a>
 	</c:when>
 	<c:otherwise>
-		<strong class="text-black">글 수정을 실패했습니다. 리스트로 이동하시겠습니까?</strong><br>
-		<a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/freedom/freedomList.do">리스트 이동</a>
+		<div style="float:none; margin-left:40%" >글 수정을 실패했습니다. 리스트로 이동하시겠습니까?</div><br>
+		<a style="margin-left: 47%;" class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/freedom/freedomList.do">리스트 이동</a>
 	</c:otherwise>
 </c:choose>
