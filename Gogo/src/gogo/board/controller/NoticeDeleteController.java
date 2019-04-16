@@ -14,14 +14,12 @@ import gogo.board.dao.NoticeDao;
 import gogo.board.dao.QnaDao;
 import gogo.image.dao.ImageDao;
 import gogo.image.vo.ImageVo;
-@WebServlet("/notice/noticeDelete.do")
+@WebServlet("/board/noticeDelete.do")
 public class NoticeDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String menu_num = req.getParameter("menu_num");
-		System.out.println("menu_num"+menu_num);
 		String notice_num = req.getParameter("notice_num");
-		System.out.println("notice_num"+notice_num);
 		req.setAttribute("menu_num", menu_num);
 		req.setAttribute("notice_num", notice_num);
 		req.setAttribute("spage", "/admin/board/noticeDelete.jsp");
@@ -30,9 +28,7 @@ public class NoticeDeleteController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int menu_num = Integer.parseInt(req.getParameter("menu_num"));
-		System.out.println("menu_num1"+menu_num);
 		int notice_num = Integer.parseInt(req.getParameter("notice_num"));
-		System.out.println("notice_num1"+notice_num);
 		// 저장된 이미지 삭제
 		ImageDao idao = ImageDao.getInstance();
 		ArrayList<ImageVo> list = idao.list(menu_num, notice_num);

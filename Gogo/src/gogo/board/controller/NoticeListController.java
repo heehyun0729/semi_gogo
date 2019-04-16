@@ -16,7 +16,7 @@ public class NoticeListController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String spageNum=req.getParameter("pageNum");
-		
+		int menu_num=Integer.parseInt(req.getParameter("menu_num"));
 		//검색조건
 		String cate=req.getParameter("cate");
 		String field=req.getParameter("field");
@@ -45,6 +45,7 @@ public class NoticeListController extends HttpServlet{
 		req.setAttribute("field", field);
 		req.setAttribute("keyword", keyword);
 		req.setAttribute("cate", cate);
+		req.setAttribute("menu_num", menu_num);
 		
 		String id = (String)req.getSession().getAttribute("mem_id");
 		if(id == null || id.equals("")) {

@@ -61,7 +61,7 @@
 												<td><strong class="text-black">이벤트</strong></td>
 											</c:when>
 										</c:choose>
-										<td><strong><a class="text-primary" href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></strong></td>
+										<td><strong><a class="text-primary" href = "${pageContext.request.contextPath }/board/noticeDetail.do?menu_num=${menu_num }&notice_num=${vo.notice_num}">${vo.notice_title }</a></strong></td>
 										<td><strong class="text-black">${vo.notice_hit }</strong></td>
 									</tr>
 								</c:when>
@@ -76,7 +76,7 @@
 												<td>이벤트</td>
 											</c:when>
 										</c:choose>
-										<td><a href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></td>
+										<td><a href = "${pageContext.request.contextPath }/board/noticeDetail.do?menu_num=${menu_num }&notice_num=${vo.notice_num}">${vo.notice_title }</a></td>
 										<td>${vo.notice_hit }</td>
 									</tr>
 								</c:when>
