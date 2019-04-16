@@ -28,6 +28,7 @@ public class FindIdController extends HttpServlet{
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}else {
 			req.setAttribute("spage", "/mem/findIdOk.jsp");
+			req.setAttribute("result", result);
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}
 	}

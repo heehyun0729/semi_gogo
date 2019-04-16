@@ -17,16 +17,17 @@ public class FindPwdController extends HttpServlet{
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String mem_name=req.getParameter("mem_name");
+		String mem_id=req.getParameter("mem_id");
 		String mem_email=req.getParameter("mem_email");
 		MemDao dao=MemDao.getInstance();
-		String result=dao.findId(mem_name, mem_email);
+		String result=dao.findPwd(mem_id, mem_email);
 		if(result==null) {
 			req.setAttribute("msg", "회원정보가 확인되지 않습니다. 올바른 정보를 입력해주세요.");
 			req.setAttribute("spage", "/mem/findPwd.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}else {
-			req.setAttribute("spage", "/mem/jsp");
+			req.setAttribute("result", result);
+			req.setAttribute("spage", "/mem/findPwdOk.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}
 	}
