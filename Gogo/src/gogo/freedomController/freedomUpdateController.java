@@ -51,6 +51,7 @@ public class freedomUpdateController extends HttpServlet{
 			req.setAttribute("resultCode", "fail");
 			
 		}
-		req.getRequestDispatcher("/freedom/result.jsp").forward(req, resp);
-		}
+		req.setAttribute("spage","/freedom/result.jsp");
+		req.getRequestDispatcher("/home.jsp").forward(req,resp);
+	}
 }

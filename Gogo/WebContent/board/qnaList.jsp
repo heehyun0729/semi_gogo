@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-</head>
-	<body>
-		
-		<!-- 카테고리명 -->
+	<!-- 카테고리명 -->
 		<div class="bg-light py-3">
 		     <div class="container">
 		       <div class="row">
@@ -205,5 +197,3 @@
 			location.href = "${cp}/board/qna?menu_num=10&cate=" + value + "&field=${field}&keyword=${keyword}";
 		}
 	</script>
-	</body>
-</html>
