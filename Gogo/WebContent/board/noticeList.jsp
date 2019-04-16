@@ -23,7 +23,7 @@
 	                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
 	              </div>
 	              <form name="cate" method="post">
-						<select onchange="getCate(this.value)" class="select"> 
+						<select onchange="getCate(this.value)" class="form-control col-sm-12"> 
 							<option value="">전체</option>
 							<option value="0"
 								<c:if test = "${cate == '0'}">
@@ -37,6 +37,7 @@
 							>이벤트</option>
 						</select>
 				  </form>
+				<br><br>
 				<table class="table table-hover">
 				 	<thead>
 				 		<tr>
@@ -51,17 +52,17 @@
 							<c:choose>
 								<c:when test="${vo.notice_step==0 }">
 									<tr class="text-center">
-										<td><strong>${vo.notice_num }</strong></td>
+										<td><strong class="text-black">${vo.notice_num }</strong></td>
 										<c:choose>
 											<c:when test="${vo.notice_cate==0 }">
-												<td><strong>공지사항</strong></td>
+												<td><strong class="text-black">공지사항</strong></td>
 											</c:when>
 											<c:when test="${vo.notice_cate==1 }">
-												<td><strong>이벤트</strong></td>
+												<td><strong class="text-black">이벤트</strong></td>
 											</c:when>
 										</c:choose>
-										<td><strong><a href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></strong></td>
-										<td><strong>${vo.notice_hit }</strong></td>
+										<td><strong><a class="text-primary" href = "${pageContext.request.contextPath }/board/noticeDetail.do?notice_num=${vo.notice_num}">${vo.notice_title }</a></strong></td>
+										<td><strong class="text-black">${vo.notice_hit }</strong></td>
 									</tr>
 								</c:when>
 								<c:when test="${vo.notice_step==1 }">
@@ -89,7 +90,7 @@
                     <div style="width: 50%; float:none; margin:0 auto" >
                     	<div id="noticeFind">
 							<form method="post" action="${cp }/board/noticeList.do">
-								<select name="field" style="padding: 1.5px 0px;">
+								<select name="field" class="form-control col-sm-3" style = "display: inline-block;">
 									<option value="notice_all">제목+내용</option>
 								  	<option value="notice_title"
 										<c:if test="${field=='notice_title' }">
@@ -102,7 +103,7 @@
 										</c:if>
 										>내용</option>
 								</select>
-								<input type="text" name="keyword">
+								<input type="text" name="keyword" class="form-control col-sm-5" style = "display: inline-block;">
 								<input type="submit" value="검색" class="btn btn-primary">
 							</form>	
 						</div>
