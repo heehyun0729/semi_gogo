@@ -11,6 +11,7 @@
 	      <div class="container">
 	        <div class="row">
 	          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+	          	<span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
 	          	<span class="mx-2 mb-0">/</span> <strong class="text-black">문의</strong>
 	          </div>
 	        </div>
@@ -19,46 +20,44 @@
 	    
 	    <div class="site-section">
 			<div class="container">
-				<div class="row">
+				<div class="row ">
 					<div class="col-md-12 mb-5">
-		                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
+		                <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 	          		</div>
-	          		<table class="table table-bordered">
+	          		<div style = "width: 100%; text-align: center;">
+	          		<table class="site-blocks-table">
 		          		<colgroup>
 		          			<col width=25%;></col>
 		          			<col width=25%;></col>
 		          		</colgroup>
-					 	<thead>
-					 		
-					 	</thead>
 					 	<tbody>
 					 		<tr class="text-center">
-					 			<td>제목</td>
+					 			<td class = "text-primary">제목</td>
 								<td>${qvo.qna_title }</td>
 					 		</tr>
 					 		<tr class="text-center">
-								<td>작성자</td>
+								<td class = "text-primary">작성자</td>
 								<td>${qvo.mem_id }</td>
 					 		</tr>
 					 		<tr class="text-center">
-								<td>작성일</td>
+								<td class = "text-primary">작성일</td>
 								<td>${qvo.qna_wdate }</td>
 					 		</tr>
 					 		<tr>
-					 			<td colspan = "2"><textarea style="width:100%;" rows = "10" cols = "80" readonly="readonly">${qvo.qna_content }</textarea></td>
+					 			<td colspan = "2"><textarea class="form-control" style="width:100%;" rows = "10" cols = "80" readonly="readonly">${qvo.qna_content }</textarea></td>
 					 		</tr>
 					 		<c:if test="${!empty ilist }">
 								<tr>
 									<td colspan = "2">
 										<c:forEach var = "vo" items = "${ilist }">
-											<img src = "${cp }/upload/qna/${vo.img_saveImg}" style = "width: 100px; height: 100px;">
+											<img src = "${cp }/upload/qna/${vo.img_saveImg}" class="img-fluid" style="max-width: 300px;">
 										</c:forEach>
 									</td>
 								</tr>
 							</c:if>
 					 	</tbody>
 	          		</table>
-	          		
+	          		</div>
 	          		<div class="row text-center" style="width: 100%;margin-top:50px;">
 	                    <div style="width: 30%; float:none; margin:0 auto" >
 	                    	<a class="btn btn-primary" href = "javascript:history.go(-2)">목록</a>
