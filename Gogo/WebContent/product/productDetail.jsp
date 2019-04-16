@@ -91,6 +91,7 @@
 	</form>
 	</div>
     </div>
+    <br><br>
 	<div>
 		<c:forEach var = "divo" items = "${dilist }">
 			<img src = "${cp }/upload/product/${divo.img_saveImg}" class="img-fluid">
