@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div id="board">
-<table>
-<th>해당 비밀번호정보</th>
-<tr>
-	<td><input type="text" name="mem_pwd" value="${result }"></td>
-</tr>
-<tr>
-	<td><a href="${cp }/mem/login">로그인하기</a></td>
-</tr>
-</table>
+	<div class="box" style="width:40%;height:50%;text-align:center;margin:auto;padding-top:5%;padding-bottom:5%;" >
+		<h5>Your Password is</h5>
+			<input class="form-control" type="text" name="mem_pwd" value="${result}" style="width:15%;margin:auto;text-align:center;color:black;font-weight:bold;">
+			<a href="${cp }/mem/login">Go to Login</a>
+	</div>
 </div>
