@@ -68,7 +68,7 @@
 							<tr>
 								<td colspan = "4">
 									<c:forEach var = "vo" items = "${ilist }">
-										<img src = "${cp }/upload/notice/${vo.img_saveImg}" style = "width: 100px; height: 100px;">
+										<img src = "${cp }/upload/notice/${vo.img_saveImg}">
 									</c:forEach>
 								</td>
 							</tr>
