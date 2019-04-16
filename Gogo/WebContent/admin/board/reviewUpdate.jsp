@@ -1,76 +1,107 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id = "board">
-	<h1>REVIEW</h1>
-	<h3>»ƒ±‚</h3>
-	<p>∞¸∏Æ¿⁄∆‰¿Ã¡ˆ</p>
-	<form method="post" action="${cp }/board/reviewUpdate" enctype="multipart/form-data">
-		<input type = "hidden" name = "review_num" value = "${review_num }">
-		<input type = "hidden" name = "menu_num" value = "${menu_num }">
-		<table border = "1" style = "width: 500px;">
-			<tr>
-				<td>±∏∏≈«— ªÛ«∞</td>
-				<td>
-					${vo.prod_name } [ø…º«: ${vo.op_name } - ${vo.detailOp_name }(+${vo.detailOp_price })]
-				</td>
-			</tr>
-			<tr>
-				<td>¡¶∏Ò</td>
-				<td><input type = "text" name = "title" value = "${vo.review_title }"></td>
-			</tr>
-			<tr>
-				<td>≥ªøÎ</td>
-				<td><textarea rows = "5" cols = "50" name = "content">${vo.review_content }</textarea></td>
-			</tr>
-			<tr>
-				<td>∫∞¡°</td>
-				<td>
-					<input type = "radio" name = "star" value = "1"
-						<c:if test = "${vo.review_star == 1 }">
-							checked == "checked"
-						</c:if>
-					>1
-					<input type = "radio" name = "star" value = "2"
-						<c:if test = "${vo.review_star == 2 }">
-							checked == "checked"
-						</c:if>
-					>2
-					<input type = "radio" name = "star" value = "3"
-						<c:if test = "${vo.review_star == 3 }">
-							checked == "checked"
-						</c:if>
-					>3
-					<input type = "radio" name = "star" value = "4"
-						<c:if test = "${vo.review_star == 4 }">
-							checked == "checked"
-						</c:if>
-					>4
-					<input type = "radio" name = "star" value = "5"
-						<c:if test = "${vo.review_star == 5 }">
-							checked == "checked"
-						</c:if>
-					>5
-				</td>
-			</tr>
-			<tr>
-				<td>√∑∫Œ∆ƒ¿œ1</td>
-				<td><input type = "file" name = "file1"></td>
-			</tr>
-			<tr>
-				<td>√∑∫Œ∆ƒ¿œ2</td>
-				<td><input type = "file" name = "file2"></td>
-			</tr>
-			<tr>
-				<td>√∑∫Œ∆ƒ¿œ3</td>
-				<td><input type = "file" name = "file3"></td>
-			</tr>
-			<tr>
-				<td colspan = "2">
-					<input type = "submit" value = "ºˆ¡§">
-					<input type = "button" value = "√Îº“" onclick="javascript:history.go(-1)">
-				</td>
-			</tr>
-		</table>
-	</form>
-</div>
+<!-- Ïπ¥ÌÖåÍ≥†Î¶¨Î™Ö -->
+<div class="bg-light py-3">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+         	<span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
+         	<span class="mx-2 mb-0">/</span> <strong class="text-black">ÌõÑÍ∏∞</strong>
+         </div>
+       </div>
+     </div>
+   </div>
+<!-- // Ïπ¥ÌÖåÍ≥†Î¶¨Î™Ö -->
+<div class="site-section">
+	<div class="container">
+		<div class="row" >
+			<!-- Ìï¥Îãπ ÏÇ¨Ïù¥Ìä∏ Ï†úÎ™© -->
+			<div class="col-md-12 mb-6">
+               <div class="float-md-left mb-4">
+               <h2 class="text-black h5">ÌõÑÍ∏∞</h2>
+               <p style="margin-left: 0px;">Í¥ÄÎ¶¨ÏûêÌéòÏù¥ÏßÄ<p>
+               </div>
+            </div>
+             <div style = "width: 60%; margin-left: 20%; margin-right: 20%; margin-top: 50px;">
+            <form method="post" action="${cp }/board/reviewUpdate" enctype="multipart/form-data">
+              <input type = "hidden" name = "review_num" value = "${review_num }">
+			  <input type = "hidden" name = "menu_num" value = "${menu_num }">
+              <div class="p-5 p-lg-5 border">
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="prod" class="text-black">Íµ¨Îß§Ìïú ÏÉÅÌíà </label>
+                    <input type = "text" readonly="readonly" id = "prod" class="form-control" value = "${vo.prod_name } [ÏòµÏÖò: ${vo.op_name } - ${vo.detailOp_name }(+${vo.detailOp_price })]">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="title" class="text-black">Ï†úÎ™©</label>
+                    <input type = "text" name = "title" id = "title" class="form-control" value = "${vo.review_title }">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="content" class="text-black">ÎÇ¥Ïö© </label>
+                    <textarea name="content" id="content" cols="30" rows="7" class="form-control">${vo.review_content }</textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12 text-center">
+					<fieldset class="rating">
+					    <input type="radio" id="star5" name="star" value="5" 
+						    <c:if test = "${vo.review_star == 5 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star5"></label>
+					    <input type="radio" id="star4" name="star" value="4" 
+						    <c:if test = "${vo.review_star == 4 }">
+								checked == "checked"
+							</c:if>
+						/><label class = "full" for="star4"></label>
+					    <input type="radio" id="star3" name="star" value="3" 
+						    <c:if test = "${vo.review_star == 3 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star3"></label>
+					    <input type="radio" id="star2" name="star" value="2" 
+						    <c:if test = "${vo.review_star == 2 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star2"></label>
+					    <input type="radio" id="star1" name="star" value="1" 
+						    <c:if test = "${vo.review_star == 1 }">
+								checked == "checked"
+							</c:if>/><label class = "full" for="star1"></label>
+					</fieldset>             
+					</div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="file1" class="text-black">Ï≤®Î∂ÄÌååÏùº1</label>
+                    <input type = "file" name = "file1" id = "file1" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="file2" class="text-black">Ï≤®Î∂ÄÌååÏùº2</label>
+                    <input type = "file" name = "file2" id = "file2" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="file3" class="text-black">Ï≤®Î∂ÄÌååÏùº3</label>
+                    <input type = "file" name = "file3" id = "file3" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-lg-6">
+                    <input type="submit" class="btn btn-primary btn-block" value="ÏàòÏ†ï">
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="button" class="btn btn-primary btn-block" value="Ï∑®ÏÜå" onclick="javascript:history.go(-1)">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+       </div> <!-- // row -->
+   </div> <!-- // container -->
+</div> <!-- //site-section -->

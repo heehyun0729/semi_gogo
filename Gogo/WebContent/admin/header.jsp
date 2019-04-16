@@ -47,7 +47,7 @@
        <a>게시글관리</a>
         <ul class="dropdown">
 	        <li><a href = "${cp }/board/noticeList.do?menu_num=9">공지사항</a></li>
-			<li><a href = "${cp }/board/qna?menu_num=10">Q&A</a></li>
+			<li><a href = "${cp }/board/qna?menu_num=10">후기</a></li>
 			<li><a href = "${cp }/board/review?menu_num=11">리뷰</a></li>
         </ul>
        </li>
