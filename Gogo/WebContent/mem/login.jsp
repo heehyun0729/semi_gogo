@@ -15,7 +15,7 @@
 						<br>
 						<input type="submit" value="로그인" class="btn btn-primary signup">
 			<div id="tag">
-				<p>아직 회원이 아니신가요?<a href="${cp }/mem/join">회원가입하기</a></p>
+				<p>아직 회원이 아니신가요?   <a href="${cp }/mem/join">회원가입하기</a></p>
 				<a href="${cp }/mem/findId.do">아이디·</a> <a href="${cp }/mem/findPwd.do">비밀번호찾기</a>
 			</div>
 				</form> 

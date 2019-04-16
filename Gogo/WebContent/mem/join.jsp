@@ -18,7 +18,7 @@
 					name="mem_pwd" id="pwd" placeholder="비밀번호" onkeyup="pwdcheck()"></span>
 					(영문소문자/숫자, 8자~16자) <span><input class="form-control"
 					type="password" name="repwd" id="repwd" placeholder="비밀번호 재확인"
-					onkeyup="pwdcheck()"></span><br>
+					onkeyup="pwdcheck()"></span>
 				<div id="pwdcheck" style="color: red; font-size: 12px;"></div>
 				<label for="name" style="color: black; font-weight: bold;">이름</label>
 				<input class="form-control" type="text" name="mem_name" id="name"
@@ -47,7 +47,7 @@
 				<br>
 				<div id="msg" style="color: red; font-size: 12px;"></div>
 				<div id="button" style="text-align: center">
-					<input class="btn btn-primary signup" type="submit" value="Sign up">
+					<input class="btn btn-primary signup" type="submit" value="가입">
 				</div>
 			</form>
 		</div>
