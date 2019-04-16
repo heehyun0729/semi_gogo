@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col-md-12 text-center">
+                  <div style = "width: 50%; margin-left: 25%; margin-right: 25%; padding-left: 12%;" >
 					<fieldset class="rating">
 					    <input type="radio" id="star5" name="star" value="5" 
 						    <c:if test = "${vo.review_star == 5 }">
@@ -90,10 +90,10 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-lg-6">
-                    <input type="submit" class="btn btn-primary btn-block" value="수정">
+                    <input type="submit" class="btn btn-sm btn-primary btn-block" value="수정">
                   </div>
                   <div class="col-lg-6">
-                    <input type="button" class="btn btn-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
+                    <input type="button" class="btn btn-sm btn-outline-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
                   </div>
                 </div>
               </div>

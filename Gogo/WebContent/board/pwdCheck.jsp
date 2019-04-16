@@ -37,8 +37,8 @@
 								<br/>
 								<div style="color: red; font-size: 12px;">${msg }</div>
 								<br/>
-								<input type = "submit" class="btn btn-primary" value = "확인">
-								<input type = "button" class="btn btn-primary" value = "취소" onclick = "javascript:history.go(-1)">
+								<input type = "submit" class="btn btn-sm btn-primary" value = "확인">
+								<input type = "button" class="btn btn-sm btn-outline-primary" value = "취소" onclick = "javascript:history.go(-1)">
 							</form>
 						</div>
 	                    </div>

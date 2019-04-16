@@ -24,8 +24,8 @@
             <form method="post" action="${cp }/board/reviewInsert" enctype="multipart/form-data">
               <div class="p-5 p-lg-5 border">
                 <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="prod" class="text-black">구매한 상품 </label>
+                  <div class="col-md-12">
+                    <label for="prod" class="text-black">구매한 상품 &nbsp;&nbsp;&nbsp;</label>
                     <c:choose>
 						<c:when test="${!empty detailBuy_num }">
 							<input type = "hidden" name = "prod" value = "${detailBuy_num }">
@@ -89,10 +89,10 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-lg-6">
-                    <input type="submit" class="btn btn-primary btn-block" value="등록">
+                    <input type="submit" class="btn btn-sm btn-primary btn-block" value="등록">
                   </div>
                   <div class="col-lg-6">
-                    <input type="button" class="btn btn-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
+                    <input type="button" class="btn btn-sm btn-outline-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
                   </div>
                 </div>
               </div>

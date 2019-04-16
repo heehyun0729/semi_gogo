@@ -52,7 +52,7 @@
 							</c:if>
 						>기타</option>
 					</select>
-		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "float: right;">글쓰기</a>
+		            <a class="btn btn-sm btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "float: right;">글쓰기</a>
 		            </div>
 		            <!-- 테이블 -->
 		            <table class="table table-hover">
@@ -135,7 +135,7 @@
 										>내용</option>
 									</select>
 									<input type = "text" name = "keyword" value = "${keyword }" class="form-control col-sm-5" style = "display: inline-block;">
-									<input type = "submit" class="btn btn-primary" value = "검색">
+									<input type = "submit" class="btn btn-sm btn-primary" value = "검색">
 								</form>
 							</div>
 	                    </div>

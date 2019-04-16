@@ -79,9 +79,15 @@
               <div class="p-5 p-lg-5 border">
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label class="text-black">배송지 선택 </label>
-                    <input type = "radio" name = "ship" checked="checked" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">회원 정보와 동일
-					<input type = "radio" name = "ship" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">새로운 배송지
+                    <label class="text-black">배송지 선택 </label><br>
+                    <div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="ship" checked="checked" id="inlineRadio1" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">
+					  <label class="form-check-label" for="inlineRadio1">회원 정보와 동일</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="ship" id="inlineRadio2" value="option1" onclick="setShip('${mvo.mem_name }', '${mvo.mem_addr }', '${mvo.mem_phone }', '${mvo.mem_email }')">
+					  <label class="form-check-label" for="inlineRadio2">새로운 배송지</label>
+					</div>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -123,10 +129,22 @@
             <div class="p-5 p-lg-5 border">
                 <div class="form-group row">
                   <div class="col-md-12">
-                  		<input type = "radio" name = "payhow" value = "무통장" checked="checked" onclick = "setPayHow()">무통장입금
-						<input type = "radio" name = "payhow"  value = "계좌이체" onclick = "setPayHow()">계좌이체
-						<input type = "radio" name = "payhow" value = "카드결제" onclick = "setPayHow()">카드결제
-						<input type = "radio" name = "payhow" value = "휴대폰결제" onclick = "setPayHow()">휴대폰 결제
+                  	<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" value = "무통장" name="payhow" checked="checked" id="inlineRadio1" onclick = "setPayHow()">
+					  <label class="form-check-label" for="inlineRadio1">무통장입금</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" value = "계좌이체" name="payhow" id="inlineRadio2" value="option1" onclick = "setPayHow()">
+					  <label class="form-check-label" for="inlineRadio2">계좌이체</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" value = "카드결제" name="payhow" id="inlineRadio3" onclick = "setPayHow()">
+					  <label class="form-check-label" for="inlineRadio3">카드결제</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" value = "휴대폰결제" name="payhow" id="inlineRadio4" value="option1"onclick = "setPayHow()">
+					  <label class="form-check-label" for="inlineRadio4">휴대폰 결제</label>
+					</div>
                   </div>
                 </div>
                 <div id = "noaccount" class="form-group row">

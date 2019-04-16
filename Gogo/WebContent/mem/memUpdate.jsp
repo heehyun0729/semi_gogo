@@ -14,7 +14,7 @@
    </div>
 <!-- // 카테고리명 -->
 <!-- // 카테고리명 -->
-<div class="site-section">
+<div class="site-section" style = "padding-bottom: 20px;">
 	<div class="container">
 		<!-- 해당 사이트 제목 -->
 		<div class="col-md-12 mb-5">

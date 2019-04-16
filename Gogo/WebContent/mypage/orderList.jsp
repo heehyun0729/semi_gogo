@@ -75,7 +75,7 @@
 						<td>${vo.cnt }</td>
 						<td>${vo.price }원</td>
 						<td>
-							결제완료<br>
+							결제완료<br><br>
 							<c:if test="${vo.detailBuy_review == 0}">
 								<a class= "btn btn-outline-primary" href = "${cp }/board/reviewInsert?detailBuy_num=${vo.detailBuy_num}&prod_name=${vo.prod_name}&op_name=${vo.op_name}&detailOp_name=${vo.detailOp_name}&detailOp_price=${vo.detailOp_price}">구매후기</a>
 							</c:if>

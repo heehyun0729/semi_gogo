@@ -71,7 +71,7 @@
 					</c:if>
 					<tr class="text-center">
 			 			<td colspan = "4">
-			 				추천 <h3 id = "like" class = "text-primary">${vo.review_like }</h3>
+			 				 <h3 id = "like" class = "text-primary">${vo.review_like }</h3>
 							<a href = "javascript:setLike('${cp}', '${vo.review_num }')"><i class="far fa-thumbs-up" style = "font-size: 3em;"></i></a>
 			 			</td>
 			 		</tr>
@@ -79,10 +79,10 @@
          		</table>
          		<div class="row text-center" style="width: 100%;margin-top:50px;">
                    <div style="width: 30%; float:none; margin:0 auto" >
-                   		<a class="btn btn-primary" href = "javascript:history.go(-1)">목록</a>
+                   		<a class="btn btn-sm btn-outline-primary" href = "javascript:history.go(-1)">목록</a>
 					<c:if test="${sessionScope.mem_id == vo.mem_id }">
-						<a class="btn btn-primary" href = "${cp }/board/reviewUpdate?menu_num=${menu_num}&review_num=${vo.review_num}">수정</a>
-						<a class="btn btn-primary" href = "${cp }/board/reviewDelete?menu_num=${menu_num}&review_num=${vo.review_num}">삭제</a>
+						<a class="btn btn-sm btn-primary" href = "${cp }/board/reviewUpdate?menu_num=${menu_num}&review_num=${vo.review_num}">수정</a>
+						<a class="btn btn-sm btn-primary" href = "${cp }/board/reviewDelete?menu_num=${menu_num}&review_num=${vo.review_num}">삭제</a>
 					</c:if>
                    </div>
                   </div>

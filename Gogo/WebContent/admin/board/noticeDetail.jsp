@@ -10,7 +10,8 @@
 	<div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+          <div class="col-md-12 mb-0"><a href="${cp }/admin/home">Home</a>
+          	<span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
           	<span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong>
           </div>
         </div>

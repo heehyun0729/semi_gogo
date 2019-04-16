@@ -80,18 +80,18 @@
                    <div style="width: 30%; float:none; margin:0 auto" >
                    	<c:choose>
                    		<c:when test="${sessionScope.mem_id == 'admin' }">
-                   			<a class="btn btn-primary" href = "javascript:history.go(-1)">목록</a>
+                   			<a class="btn btn-sm btn-outline-primary" href = "javascript:history.go(-1)">목록</a>
                    		</c:when>
                    		<c:otherwise>
-                   			<a class="btn btn-primary" href = "javascript:history.go(-2)">목록</a>
+                   			<a class="btn btn-sm btn-outline-primary" href = "javascript:history.go(-2)">목록</a>
                    		</c:otherwise>
                    	</c:choose>
 					<c:if test="${sessionScope.mem_id == qvo.mem_id }">
-						<a class="btn btn-primary" href = "${cp }/board/qnaUpdate?menu_num=${menu_num}&qna_num=${qvo.qna_num}">수정</a>
-						<a class="btn btn-primary" href = "${cp }/board/qnaDelete?menu_num=${menu_num}&qna_num=${qvo.qna_num}">삭제</a>
+						<a class="btn btn-sm btn-primary" href = "${cp }/board/qnaUpdate?menu_num=${menu_num}&qna_num=${qvo.qna_num}">수정</a>
+						<a class="btn btn-sm btn-primary" href = "${cp }/board/qnaDelete?menu_num=${menu_num}&qna_num=${qvo.qna_num}">삭제</a>
 					</c:if>
 					<c:if test="${sessionScope.mem_id == 'admin'}">
-						<a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${menu_num}&qna_num=${qvo.qna_num}">답글</a>
+						<a class="btn btn-sm btn-primary" href = "${cp }/board/qnaInsert?menu_num=${menu_num}&qna_num=${qvo.qna_num}">답글</a>
 					</c:if>
                    </div>
                   </div>

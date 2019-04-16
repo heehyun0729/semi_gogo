@@ -25,9 +25,10 @@
 						<form method="post" action="${cp }/board/qnaDelete">
 							<input type = "hidden" name = "menu_num" value = "${menu_num }">
 							<input type = "hidden" name = "qna_num" value = "${qna_num }">
-							<p>글을 정말로 삭제할까요?</p>
-							<input type = "submit" class="btn btn-primary" value = "삭제">
-							<input type = "button" class="btn btn-primary" value = "취소" onclick="javascript:history.go(-1);">
+							<h3>글을 정말로 삭제할까요?</h3>
+							<br>
+							<input type = "submit" class="btn btn-sm btn-primary" value = "삭제">
+							<input type = "button" class="btn btn-sm btn-outline-primary" value = "취소" onclick="javascript:history.go(-1);">
 						</form>
 					</div>
                    </div>

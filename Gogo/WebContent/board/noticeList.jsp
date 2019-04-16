@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-          	<span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
+          	<span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
           	<span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong>
           </div>
         </div>
@@ -107,7 +107,7 @@
 										>내용</option>
 								</select>
 								<input type="text" name="keyword" class="form-control col-sm-5" style = "display: inline-block;">
-								<input type="submit" value="검색" class="btn btn-primary">
+								<input type="submit" value="검색" class="btn btn-sm btn-primary">
 							</form>	
 						</div>
                     </div>

@@ -98,10 +98,10 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-lg-6">
-                    <input type="submit" class="btn btn-primary btn-block" value="등록">
+                    <input type="submit" class="btn btn-sm btn-primary btn-block" value="등록">
                   </div>
                   <div class="col-lg-6">
-                    <input type="button" class="btn btn-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
+                    <input type="button" class="btn btn-sm btn-outline-primary btn-block" value="취소" onclick="javascript:history.go(-1)">
                   </div>
                 </div>
               </div>
