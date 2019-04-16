@@ -112,39 +112,45 @@
 				<!-- // 검색창 -->
 				
 				<!-- 페이징처리 -->
-				 <div class="row text-center" style="width: 100%;margin-top:50px;">
-                    <div style="width: 30%; float:none; margin:0 auto" >
-                    	<div id="noticePageNum">
+				<c:choose>
+            	<c:when test="${startPage!=null}">
+		            <div class="row text-center" style="width: 100%;margin-top:50px;" data-aos="fade-up">
+		              <div class="col-md-12 text-center">
+		                <div class="site-block-27">
+		                  <ul>
+		                  <c:choose>
+							<c:when test="${startPage > 10 }">
+								<li><a href = "${cp }/board/noticeList.do?pageNum=$${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a>&lt;</a></li>
+							</c:otherwise>
+							</c:choose>
+								<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
+								<c:choose>
+									<c:when test="${pageNum == i }">
+										<li><a href = "${cp }//board/noticeList.do?pageNum=${i}">${i }</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href = "${cp }/board/noticeList.do?pageNum=${i}">${i }</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 							<c:choose>
-								<c:when test="${startPage>10 }">
-									<a href="${pageContext.request.contextPath }/board/noticeList.do?pageNum=${startPage-1 }">◀</a>
+								<c:when test="${endPage < pageCnt }">
+									<li><a href = "${cp }/board/noticeList.do?pageNum=${endPage+1 }">&gt;</a></li>
 								</c:when>
 								<c:otherwise>
-									◁
+									<li><a>&gt;</a></li>
 								</c:otherwise>
 							</c:choose>
-								<c:forEach var="i" begin="${startPage }" end="${endPage }">
-									<c:choose>
-										<c:when test="${i==pageNum }">
-											<a href="${pageContext.request.contextPath }/board/noticeList.do?pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
-										</c:when>
-										<c:otherwise>
-											<a href="${pageContext.request.contextPath }/board/noticeList.do?pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-							<c:choose>
-								<c:when test="${endPage<pageCount}">
-									<a href="${pageContext.request.contextPath }/board/noticeList.do?pageNum=${endPage+1 }">▶</a>
-								</c:when>
-								<c:otherwise>
-									▷
-								</c:otherwise>
-							</c:choose>
-						</div> <!-- // noticePageNum -->
-                    </div> <!-- // div -->
-   				</div> <!-- //row  -->
-   				<!-- // 페이징처리 -->
+		                  </ul>
+		                </div>
+		              </div>
+		            </div>
+	            </c:when>
+            </c:choose>
+   		<!-- // 페이징처리 -->
    				
 			</div>
 		</div>
