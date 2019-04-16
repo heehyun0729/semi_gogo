@@ -120,7 +120,7 @@
 		                  <ul>
 		                  <c:choose>
 							<c:when test="${startPage > 10 }">
-								<li><a href = "${cp }/board/noticeList.do?pageNum=$${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
+								<li><a href = "${cp }/board/noticeList.do?pageNum=${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a>&lt;</a></li>
@@ -129,16 +129,16 @@
 								<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
 								<c:choose>
 									<c:when test="${pageNum == i }">
-										<li><a href = "${cp }/board/noticeList.do?pageNum=${i}">${i }</a></li>
+										<li><a href = "${cp }/board/noticeList.do?menu_num=${menu_num }&pageNum=${i}">${i }</a></li>
 									</c:when>
 									<c:otherwise>
-										<li><a href = "${cp }/board/noticeList.do?pageNum=${i}">${i }</a></li>
+										<li><a href = "${cp }/board/noticeList.do?menu_num=${menu_num }&pageNum=${i}">${i }</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
 							<c:choose>
 								<c:when test="${endPage < pageCnt }">
-									<li><a href = "${cp }/board/noticeList.do?pageNum=${endPage+1 }">&gt;</a></li>
+									<li><a href = "${cp }/board/noticeList.do?menu_num=${menu_num }&pageNum=${endPage+1 }">&gt;</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a>&gt;</a></li>
