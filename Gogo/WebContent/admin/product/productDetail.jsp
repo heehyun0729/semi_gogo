@@ -2,56 +2,110 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div id="board">
+<div class="bg-light py-3">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a> 
+       	<c:if test="${menu_num > 0 }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${cate_name }</strong>
+       	</c:if> 
+       	<c:if test = "${!empty menu_num }">
+       		<span class="mx-2 mb-0">/</span> <strong class="text-black">${menu_name }</strong>
+       	</c:if>
+       	 <span class="mx-2 mb-0">/</span> <strong class="text-black">${pvo.prod_name }</strong>
+      </div>
+    </div>
+  </div>
+</div>  
 
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+	    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	      <ol class="carousel-indicators">
+	      	<c:set var = "i" value = "1"/>
+	      	<c:forEach var = "vo" items = "${ilist }">
+	      		<c:choose>
+		    		<c:when test="${i == 1 }">
+		    			<li data-target="#carouselExampleIndicators" data-slide-to="${i }" class="active"></li>
+		    		</c:when>
+		    		<c:otherwise>
+		    			<li data-target="#carouselExampleIndicators" data-slide-to="${i }"></li>
+		    		</c:otherwise>
+		    	</c:choose>
+	      		<c:set var = "i" value = "${i + 1 }"/>
+			</c:forEach>
+		  </ol>
+		  
+		  <c:set var = "i" value = "1"/>
+		  <div class="carousel-inner">
+		    <c:forEach var = "vo" items = "${ilist }">
+		    	<c:choose>
+		    		<c:when test="${i == 1 }">
+		    			<div class="carousel-item active">
+		     				 <img class="d-block w-100" src="${cp }/upload/product/${vo.img_saveImg}">
+		    			</div>
+		    		</c:when>
+		    		<c:otherwise>
+		    			<div class="carousel-item">
+		     				 <img class="d-block w-100" src="${cp }/upload/product/${vo.img_saveImg}">
+		    			</div>
+		    		</c:otherwise>
+		    	</c:choose>
+		    	<c:set var = "i" value = "${i + 1 }"/>
+			</c:forEach>
+		  </div>
+		  
+		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+      </div>
+      
+	<div class="col-md-6">
+	<form method="post">
+		<input type = "hidden" name = "prod_num" value = "${pvo.prod_num }">
+		<input type = "hidden" name = "op_num" value = "${opvo.op_num }">
+		<h2 class="text-black">${pvo.prod_name }</h2>
+		<p><strong class="text-primary h4" id="price">${pvo.prod_price}원</strong></p>
+		<div>
+			<strong class="text-block">${opvo.op_name}</strong>
+			<select class="form-control col-sm-7" id='option' onchange="addOp(this.selectedIndex)">
+				<option value='' selected>-[필수] 옵션을 선택해주세요-</option>
+			  	<c:forEach var = "vo1" items = "${doplist }">
+			  		<option id="${vo1.detailOp_name}" value="${vo1.detailOp_num }">${vo1.detailOp_name}/${vo1.detailOp_price}</option>
+			  	</c:forEach>
+			</select>
+			<div id="op"></div>
+			<span class="text-black">TOTAL: </span><div id="total" class="text-primary h4" style="display: inline-block;">0</div><span class="text-black">원</span>
+		</div>
+		<input type="submit" value="바로 구매하기" class="buy-now btn btn-sm btn-primary" onclick="javascript: form.action = '${cp}/order/buyInsert?select=one';">
+		<input type="submit" value="장바구니 담기" class="buy-now btn btn-sm" onclick="javascript: form.action = '${cp}/order/basketInsert.do';">
+		<input type="button" value="관심상품 담기" class="buy-now btn btn-sm" onclick="location.href='${cp }/mypage/interInsert.do?prod_num=${pvo.prod_num }'">
+		<br><br>
+		<div>
+			<input type="button" value="목록" class="buy-now btn btn-sm" onclick="location.href='${cp }/product/productList.do?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
+			<input type="button" value="수정" class="buy-now btn btn-sm" onclick="location.href='${cp }/admin/product/productUpdate?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
+			<input type="button" value="삭제" class="buy-now btn btn-sm" onclick="location.href='${cp }/admin/product/productDelete?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
+		</div>
+	</form>
+	</div>
+    </div>
+    <br><br>
 	<div>
-		<h1>상품 상세보기</h1>
+		<c:forEach var = "divo" items = "${dilist }">
+			<img src = "${cp }/upload/product/${divo.img_saveImg}" class="img-fluid">
+			<br>
+		</c:forEach>
 	</div>
-	
-	<div id="printArea">
-		<img src="${cp }/upload/product/${ilist.get(0).getImg_saveImg() }" id="img1" style="border:1px; width:300px;height:400px; float:left;">
-	</div>
-	
-	<div>
-		<table>
-			<tr>
-				<c:forEach var = "vo" items = "${ilist }">
-					<td colspan = "1">
-						<img src = "${cp }/upload/product/${vo.img_saveImg}" style = "width: 100px; height: 100px;" onmouseover="printImg(this.src)">
-					</td>
-				</c:forEach>
-			</tr>
-		</table>
-	</div>
+  </div>
 </div>
-
-<form method="post">
-	<input type = "hidden" name = "prod_num" value = "${pvo.prod_num }">
-	<input type = "hidden" name = "op_num" value = "${opvo.op_num }">
-	<div>
-		<table>
-			<tr>
-				<td>${pvo.prod_name }</td><td><span id="price">${pvo.prod_price}</span></td>
-			</tr>
-			<tr>
-				<td>${opvo.op_name}</td>
-				<td>
-					<select id='option' onchange="addOp(this.selectedIndex)">
-						<option value='' selected>-[필수] 옵션을 선택해주세요-</option>
-					  	<c:forEach var = "vo1" items = "${doplist }">
-					  		<option id="${vo1.detailOp_name}" value="${vo1.detailOp_num }">${vo1.detailOp_name}/${vo1.detailOp_price}</option>
-					  	</c:forEach>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<div id="op"></div>
-		<div id="total">0</div>
-	</div>
-		<input type="submit" value="바로 구매하기" onclick="javascript: form.action = '${cp}/order/buyInsert?select=one';">
-		<input type="submit" value="장바구니 담기" onclick="javascript: form.action = '${cp}/order/basketInsert.do';">
-		<input type="button" value="관심상품 담기" onclick="location.href='${cp }/mypage/interInsert.do?prod_num=${pvo.prod_num }'">
-</form>
 <script type="text/javascript">
 	var total=document.getElementById("total");
 	var total_value=parseInt(total.innerHTML);
@@ -161,14 +215,3 @@
 		}
 	}
 </script>
-<br>
-<div>
-	<c:forEach var = "divo" items = "${dilist }">
-		<img src = "${cp }/upload/product/${divo.img_saveImg}" style = "width: 200px; height: 200px;">
-	</c:forEach>
-</div>
-<div>
-	<input type="button" value="목록" onclick="location.href='${cp }/product/productList.do?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-	<input type="button" value="수정" onclick="location.href='${cp }/admin/product/productUpdate?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-	<input type="button" value="삭제" onclick="location.href='${cp }/admin/product/productDelete?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-</div>

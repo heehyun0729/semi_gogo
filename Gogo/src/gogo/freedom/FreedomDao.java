@@ -129,6 +129,7 @@ public class FreedomDao {
 	}
 	
 	public int update(FreedomVo vo) {
+		
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		try {
