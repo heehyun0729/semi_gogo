@@ -6,11 +6,11 @@
    <h1>게시글 수정하기</h1>
 	</div>
  	<form method="post" action="${cp }/freedom/freedomUpdate.do" enctype="multipart/form-data">
- 		<input type="hidden" name="freedom_num" value="${freedom_num }" disabled="disabled">
- 		<input type="hidden" name="freedom_title" value="${freedom_title }">
- 		<input type="hidden" name="freedom_content" value="${freedom_content }">
- 		<input type="hidden" name="freedom_wdate" value="${freedom_wdate }" disabled="disabled">
- 		<input type="hidden" name="freedom_hit" value="${freedom_hit }" disabled="disabled">
+ 		번호<input type="hidden" name="freedom_num" value="${vo.freedom_num }" disabled="disabled">
+ 		제목<input type="hidden" name="freedom_title" value="${vo.freedom_title }">
+ 		내용<input type="hidden" name="freedom_content" value="${vo.freedom_content }">
+ 		날짜<input type="hidden" name="freedom_wdate" value="${vo.freedom_wdate }" disabled="disabled">
+ 		조회수<input type="hidden" name="freedom_hit" value="${vo.freedom_hit }" disabled="disabled">
  		<table border = "1" style="width: 500px;">
  	
  			<tr>
@@ -20,15 +20,7 @@
  			<tr>
  				<td>내용</td>
  				<td colspan="2">내용<textarea rows="10" cols="80" name="freedom_content"></textarea></td>
- 			</tr>
- 			<tr>
-				<td>첨부파일1</td>
-				<td><input type = "file" name = "file1"></td>
-			</tr>
-			<tr>
-				<td>첨부파일2</td>
-				<td><input type = "file" name = "file2"></td>
-			</tr>
+ 			
 			<tr>	
 			<td colspan = "2">
 					<input type = "submit" value = "수정">
