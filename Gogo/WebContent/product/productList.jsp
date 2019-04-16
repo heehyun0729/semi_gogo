@@ -36,7 +36,7 @@
 	                  <div class="block-4-text p-4">
 	                    <h3><a href="${cp }/product/productDetail.do?prod_num=${vo.prod_num}&menu_num=${vo.menu_num }">${vo.prod_name}</a></h3>
 	                    <br>
-	                    <p class="text-primary font-weight-bold">${vo.prod_price }</p>
+	                    <p class="text-primary font-weight-bold">${vo.prod_price }원</p>
 	                  </div>
 	                </div>
 	              </div>
