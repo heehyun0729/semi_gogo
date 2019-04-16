@@ -4,20 +4,25 @@
 <div class="bg-light py-3">
 	<div class="container">
 		<div class="col-md-12 mb-0">
-			<a href="${cp }/admin/home">Home</a>
+			<a href="${cp }/home">Home</a>
 			<span class="mx-2 mb-0">/</span>
-			<strong class="text-black">List</strong>
+			<strong class="text-black">community</strong>
 			<span class="mx-2 mb-0">/</span>
-			<strong class="text-black">글목록</strong>
+			<strong class="text-black">자유게시판</strong>
 		</div>
 	</div>
 </div>			
-	
-	
-	
+<div class="site-section" style = "padding-bottom: 20px;">
+	<div class="container">
+		<!-- 해당 사이트 제목 -->
+		<div class="col-md-12 mb-5">
+		   <div class="float-md-left mb-4"><h2 class="text-black h5">자유게시판</h2></div>
+		</div>
+		<!-- // 해당 사이트 제목 -->
+  </div> <!-- // container -->
+</div> <!-- //site-section -->	
 <div>
-	<input class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/freedom/freedomInsert.do' " style="float: right;margin-bottom: 20px;margin-left: 5px;margin-right: 15%;">
-	<input class="btn btn-primary" type="button" value="목록"  onclick="location.href='${cp}/freedom/freedomList.do?menu_num=${menu_num}&freedom_num=${vo.freedom_num}'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
+	<input class="btn btn-sm btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/freedom/freedomInsert.do' " style="float: right;margin-bottom: 20px;margin-left: 5px;margin-right: 15%;">
 </div>
 
 <div>
@@ -99,7 +104,7 @@
 				</select>
 		
 				<input type="text" name="keyword" class="form-control col-sm-5" style="display: inline-block;">
-				<input type="submit" value="검색" class="btn btn-primary">
+				<input type="submit" value="검색" class="btn btn-sm btn-primary">
 			</form>	
 	 	</div>
 	 </div>

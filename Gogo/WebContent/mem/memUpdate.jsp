@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!-- 카테고리명 -->
+	pageEncoding="UTF-8"%>=
 <!-- 카테고리명 -->
 <div class="bg-light py-3">
      <div class="container">
@@ -12,7 +11,6 @@
        </div>
      </div>
    </div>
-<!-- // 카테고리명 -->
 <!-- // 카테고리명 -->
 <div class="site-section" style = "padding-bottom: 20px;">
 	<div class="container">

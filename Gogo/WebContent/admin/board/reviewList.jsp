@@ -28,7 +28,7 @@
 		            <!-- // 해당 사이트 제목 -->
 		            <form class = "col-md-12" method="post" action="${cp }/board/reviewDelete?select=ck&menu_num=${menu_num}">
 		            <div style = "width: 100%;">
-			            <input type = "submit" value = "삭제" class="btn btn-primary" style = "float: right;margin-bottom: 20px;">
+			            <input type = "submit" value = "삭제" class="btn btn-sm btn-primary" style = "float: right;margin-bottom: 20px;">
 		            </div>
 		            <!-- 테이블 -->
 		            <table class="table table-hover">
@@ -80,7 +80,7 @@
 		                    	<form method="post" action="${cp }/board/review?menu_num=${menu_num}">
 									<strong class = "text-black">상품명   </strong>
 									<input type = "text" name = "keyword" value = "${keyword }" class="form-control col-sm-5" style = "display: inline-block;">
-									<input type = "submit" class="btn btn-primary" value = "조회">
+									<input type = "submit" class="btn btn-sm btn-primary" value = "조회">
 								</form>
 							</div>
 	                    </div>

@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- 카테고리명 -->
+<div class="bg-light py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+      	<span class="mx-2 mb-0">/</span> <strong class="text-black">회원가입</strong>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // 카테고리명 -->
 <div class="content_wrap" style="padding-top: 5%; padding-bottom: 5%">
-	<div id="box" style="width: 40%; height: 50%; margin: auto;">
+	<div id="box" style="width: 50%; margin: auto;">
 		<h2 style="text-align: center; font-weight: bold;">회원가입</h2>
 		<br>
 		<div id="input" style="width: 50%; margin: auto;">
@@ -47,7 +58,7 @@
 				<br>
 				<div id="msg" style="color: red; font-size: 12px;"></div>
 				<div id="button" style="text-align: center">
-					<input class="btn btn-primary signup" type="submit" value="가입">
+					<input class="btn btn-sm btn-primary signup" type="submit" value="가입">
 				</div>
 			</form>
 		</div>
