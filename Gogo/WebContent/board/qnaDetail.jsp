@@ -24,40 +24,63 @@
 					<div class="col-md-12 mb-5">
 		                <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 	          		</div>
-	          		<div style = "width: 100%; text-align: center;">
-	          		<table class="site-blocks-table">
+	          		<table class="table table-bordered">
 		          		<colgroup>
+		          			<col width=25%;></col>
+		          			<col width=25%;></col>
 		          			<col width=25%;></col>
 		          			<col width=25%;></col>
 		          		</colgroup>
 					 	<tbody>
 					 		<tr class="text-center">
-					 			<td class = "text-primary">제목</td>
-								<td>${qvo.qna_title }</td>
+					 			<td class = "text-primary">번호</td>
+								<td>${qvo.qna_num }</td>
+								<td class = "text-primary">카테고리</td>
+								<td>
+									<c:choose>
+										<c:when test="${qvo.qna_cate == 'prod' }">
+											상품
+										</c:when>
+										<c:when test="${qvo.qna_cate == 'ship' }">
+											배송
+										</c:when>
+										<c:when test="${qvo.qna_cate == 'cancel' }">
+											교환/반품
+										</c:when>
+										<c:when test="${qvo.qna_cate == 'pay' }">
+											결제
+										</c:when>
+										<c:when test="${qvo.qna_cate == 'etc' }">
+											기타
+										</c:when>
+									</c:choose>
+								</td>
 					 		</tr>
 					 		<tr class="text-center">
 								<td class = "text-primary">작성자</td>
 								<td>${qvo.mem_id }</td>
-					 		</tr>
-					 		<tr class="text-center">
 								<td class = "text-primary">작성일</td>
 								<td>${qvo.qna_wdate }</td>
 					 		</tr>
-					 		<tr>
-					 			<td colspan = "2"><textarea class="form-control" style="width:100%;" rows = "10" cols = "80" readonly="readonly">${qvo.qna_content }</textarea></td>
+					 		<tr class="text-center">
+					 			<td colspan="1" class = "text-primary">제목</td>
+								<td colspan="3">${qvo.qna_title }</td>
+							</tr>
+					 		<tr class="text-center">
+					 			<td colspan="1" class="text-primary">내용</td>
+					 			<td colspan = "3">${qvo.qna_content }</td>
 					 		</tr>
 					 		<c:if test="${!empty ilist }">
-								<tr>
-									<td colspan = "2">
+								<tr class="text-center">
+									<td colspan = "4">
 										<c:forEach var = "vo" items = "${ilist }">
-											<img src = "${cp }/upload/qna/${vo.img_saveImg}" class="img-fluid" style="max-width: 300px;">
+											<img src = "${cp }/upload/qna/${vo.img_saveImg}" class="img-fluid" style="max-width: 500px;">
 										</c:forEach>
 									</td>
 								</tr>
 							</c:if>
 					 	</tbody>
 	          		</table>
-	          		</div>
 	          		<div class="row text-center" style="width: 100%;margin-top:50px;">
 	                    <div style="width: 30%; float:none; margin:0 auto" >
 	                    	<a class="btn btn-primary" href = "javascript:history.go(-2)">목록</a>
