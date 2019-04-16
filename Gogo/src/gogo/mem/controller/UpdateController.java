@@ -33,12 +33,12 @@ public class UpdateController extends HttpServlet{
 		String mem_phone=req.getParameter("mem_phone");
 		String mem_email=req.getParameter("mem_email");
 		String mem_addr=req.getParameter("mem_addr");
-		System.out.println("mem_pwd:"+mem_pwd+"mem_name:"+mem_name+"mem_phone:"+mem_phone+"mem_email:"+mem_email+"mem_addr:"+mem_addr);
+		System.out.println("mem_pwd: "+mem_pwd+"mem_name: "+mem_name+"mem_phone: "+mem_phone+"mem_email: "+mem_email+"mem_addr: "+mem_addr);
 		MemVo vo=new MemVo(null,mem_pwd, mem_name, mem_phone, mem_email, mem_addr,0);
 		MemDao dao=new MemDao();
 		int n=dao.update(vo);
 		if(n>0) {
-			req.setAttribute("spage","/mem/memUpdate" );
+			req.setAttribute("spage","/mypage/mypage.jsp" );
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}else {
 			System.out.println("회원정보 수정 실패");

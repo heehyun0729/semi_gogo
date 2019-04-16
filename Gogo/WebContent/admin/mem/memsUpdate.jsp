@@ -20,14 +20,6 @@
 		<tr>
 			<th>주소</th><td><input type="text" name="mem_addr" value=${vo.mem_addr }></td>
 		</tr>
-		<tr>
-			<th>적립금</th><td><input type="text" name="mem_point" value=${vo.mem_point }></td>
-		</tr>
-		<tr>
-			<th>회원등급</th><td><input type="text" name="mem_grade" value=${vo.mem_grade }></td>
-			<!-- 회원상태<td><input type="hidden" name="mem_stat" value=${vo.mem_stat }></td> -->
-		</tr>
-		<tr></tr>
 	</table>
 	</form>
 </div>
