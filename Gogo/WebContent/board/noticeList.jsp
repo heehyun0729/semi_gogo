@@ -129,7 +129,7 @@
 								<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
 								<c:choose>
 									<c:when test="${pageNum == i }">
-										<li><a href = "${cp }//board/noticeList.do?pageNum=${i}">${i }</a></li>
+										<li><a href = "${cp }/board/noticeList.do?pageNum=${i}">${i }</a></li>
 									</c:when>
 									<c:otherwise>
 										<li><a href = "${cp }/board/noticeList.do?pageNum=${i}">${i }</a></li>

@@ -29,8 +29,7 @@
 		               <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 		            </div>
 		            <!-- // 해당 사이트 제목 -->
-		            
-		            <select name = "cate" onchange="getQnaList(this.value)">
+		            <select name = "cate" onchange="getQnaList(this.value)" class="form-control col-sm-2" >
 						<option value = "">전체</option>
 						<option value = "prod"
 							<c:if test = "${cate == 'prod'}">
@@ -59,11 +58,8 @@
 							</c:if>
 						>기타</option>
 					</select>
-		            
-		            &nbsp;
-		            
-		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}">글쓰기</a>
-		            
+		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "margin-bottom: 20px;margin-left: 5px;">글쓰기</a>
+		            <br>
 		            <!-- 테이블 -->
 		            <table class="table table-hover">
 					 	<thead>
@@ -127,7 +123,7 @@
 	                    <div style="width: 50%; float:none; margin:0 auto" >
 		                    <div id = "search">
 								<form method="post" action="${cp }/board/qna?menu_num=${param.menu_num}">
-									<select name = "field">
+									<select name = "field" class="form-control col-sm-3" style = "display: inline-block;">
 										<option value = "all"
 											<c:if test = "${field == 'all' }">
 												selected = "selected"
@@ -149,7 +145,7 @@
 											</c:if>
 										>작성자</option>
 									</select>
-									<input type = "text" name = "keyword" value = "${keyword }">
+									<input type = "text" name = "keyword" value = "${keyword }" class="form-control col-sm-5" style = "display: inline-block;">
 									<input type = "submit" class="btn btn-primary" value = "검색">
 								</form>
 							</div>
@@ -158,49 +154,54 @@
 	                <!-- //검색창 -->
 	                
 	                <!-- 페이징처리 -->
-	                <div class="row text-center" style="width: 100%">
-	                    <div style="width: 50%; float:none; margin:0 auto" >
-		                    <div id = "pages">
-								<c:choose>
-									<c:when test="${startPage > 10 }">
-										<a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${startPage - 1}">◀</a>
-									</c:when>
-									<c:otherwise>
-										◀
-									</c:otherwise>
-								</c:choose>
+	                <c:choose>
+            	<c:when test="${startPage!=null}">
+		            <div class="row text-center" style="width: 100%;margin-top:50px;" data-aos="fade-up">
+		              <div class="col-md-12 text-center">
+		                <div class="site-block-27">
+		                  <ul>
+		                  <c:choose>
+							<c:when test="${startPage > 10 }">
+								<li><a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${startPage - 1}">&lt;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a>&lt;</a></li>
+							</c:otherwise>
+							</c:choose>
 								<c:forEach var = "i" begin = "${startPage }" end = "${endPage }">
-									<c:choose>
-										<c:when test="${pageNum == i }">
-											<a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: pink;">[${i }]</span></a>
-										</c:when>
-										<c:otherwise>
-											<a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${i}"><span style = "color: gray;">[${i }]</span></a>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
 								<c:choose>
-									<c:when test="${endPage < pageCnt }">
-										<a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${endPage + 1}">▶</a>
+									<c:when test="${pageNum == i }">
+										<li><a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${i}">${i }</a></li>
 									</c:when>
 									<c:otherwise>
-										▶
+										<li><a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${i}">${i }</a></li>
 									</c:otherwise>
 								</c:choose>
-							</div>          
-	                    </div>
-	                </div>
-	                <!-- // 페이징처리 -->
+							</c:forEach>
+							<c:choose>
+								<c:when test="${endPage < pageCnt }">
+									<li><a href = "${cp }/board/qna?menu_num=${param.menu_num}&pageNum=${endPage + 1}">&gt;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a>&gt;</a></li>
+								</c:otherwise>
+							</c:choose>
+		                  </ul>
+		                </div>
+		              </div>
+		            </div>
+	            </c:when>
+            </c:choose>	                
+	       <!-- // 페이징처리 -->
 
-		             
-		         </div> <!-- // row -->
-		     </div> <!-- // container -->
-		  </div> <!-- //site-section -->
+         </div> <!-- // row -->
+     </div> <!-- // container -->
+  </div> <!-- //site-section -->
 		  
-		  	<script type="text/javascript">
-				function getQnaList(value) {
-					location.href = "${cp}/board/qna?menu_num=10&cate=" + value + "&field=${field}&keyword=${keyword}";
-				}
-			</script>
+  	<script type="text/javascript">
+		function getQnaList(value) {
+			location.href = "${cp}/board/qna?menu_num=10&cate=" + value + "&field=${field}&keyword=${keyword}";
+		}
+	</script>
 	</body>
 </html>
