@@ -1,9 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="content_wrap" style="padding-top: 5%; padding-bottom: 5%">
+<!-- 카테고리명 -->
+<div class="bg-light py-3">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12 mb-0"><a href="${cp }/admin/home">Home</a>
+         	<span class="mx-2 mb-0">/</span> <strong class="text-black">회원관리</strong>
+         </div>
+       </div>
+     </div>
+   </div>
+<!-- // 카테고리명 -->
+<div class="site-section" style = "padding-bottom: 20px;">
+	<div class="container">
+		<!-- 해당 사이트 제목 -->
+		<div class="col-md-12 mb-5">
+		   <div class="float-md-left mb-4"><h2 class="text-black h5">회원관리</h2></div>
+		</div>
+		<!-- // 해당 사이트 제목 -->
+  </div> <!-- // container -->
+</div> <!-- //site-section -->
+<div class="content_wrap" style="padding-bottom: 5%">
 <div id="box" style="width: 50%; height: 50%; margin: auto;">
-<h3>GOGO's Member List</h3>
 <table class="table">
   <thead class="thead-dark">
     <tr>

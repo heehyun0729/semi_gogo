@@ -61,7 +61,7 @@
 				<div id="bnt" style="text-align: center">
 					<input class="btn btn-primary" type="submit" value="저장">
 					  <div id=remove style="text-align:right;">
-					  <a href="${cp }/mem/memDelete.jsp" class="btn btn-sm">회원탈퇴 </a>
+					  <a href="${cp }/mem/delete.do" class="btn btn-sm">회원탈퇴 </a>
 					  </div>
 				</div>
 			</form>

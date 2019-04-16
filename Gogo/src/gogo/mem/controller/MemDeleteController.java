@@ -24,7 +24,7 @@ public class MemDeleteController extends HttpServlet{
 			session.invalidate();
 			resp.sendRedirect(req.getContextPath() +"/home");
 		}else {
-			req.setAttribute("spage", "mem/memUpdate.jsp");
+			req.setAttribute("spage", "/mem/memDelete.jsp");
 			req.getRequestDispatcher("/home.jsp").forward(req, resp);
 		}
 	}

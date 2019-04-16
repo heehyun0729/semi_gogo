@@ -58,9 +58,9 @@
 			</tbody>
 		</table>
 	<div style = "row">
-		<input type = "submit" class = "buy-now btn btn-sm" value = "선택상품삭제" style = "float: left;margin-right: 5px;">
-		<input type = "submit" class = "buy-now btn btn-sm" value = "관심상품 비우기" onclick="javascript: form.action='${cp }/mypage/interDelete.do?select=all'" style = "float: right;margin-left: 5px;">
-		<input type = "button" class = "buy-now btn btn-sm btn-primary" onclick = "javascript:history.go(-1)" value = "쇼핑계속하기" style = "float: right;">
+		<input type = "submit" class = "ㅁbtn btn-sm" value = "선택상품삭제" style = "float: left;margin-right: 5px;">
+		<input type = "submit" class = "btn btn-sm" value = "관심상품 비우기" onclick="javascript: form.action='${cp }/mypage/interDelete.do?select=all'" style = "float: right;margin-left: 5px;">
+		<input type = "button" class = "btn btn-sm btn-outline-primary" onclick = "javascript:history.go(-1)" value = "쇼핑계속하기" style = "float: right;">
 	</div>
 	</form>
           <!-- // 테이블 -->
