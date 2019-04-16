@@ -22,8 +22,9 @@
 				<div class="col-md-12 mb-5">
 	                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
 	              </div>
+				  <div style = "width: 100%;">
 	              <form name="cate" method="post">
-						<select onchange="getCate(this.value)" class="form-control col-sm-12"> 
+						<select onchange="getCate(this.value)" class="form-control col-sm-2" style = "display: inline-block;float: left;"> 
 							<option value="">전체</option>
 							<option value="0"
 								<c:if test = "${cate == '0'}">
@@ -37,7 +38,9 @@
 							>이벤트</option>
 						</select>
 				  </form>
-				<br><br>
+					<input type="button" class="btn btn-sm btn-primary" value="글쓰기" onclick="location.href='${pageContext.request.contextPath }/board/noticeInsert.do' " style="float: right;margin-bottom: 20px;margin-left: 5px;">
+					<input type="button" class="btn btn-sm" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
+				</div>
 				<table class="table table-hover">
 				 	<thead>
 				 		<tr>
@@ -84,10 +87,7 @@
 						</c:forEach>
 				 	</tbody>
 				</table>
-				<div>
-					<input type="button" class="btn btn-primary" value="글쓰기" onclick="location.href='${pageContext.request.contextPath }/board/noticeInsert.do' ">
-					<input type="button" class="btn btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
-				</div>
+				
 				<!-- 검색창 -->
 				<div class="row text-center" style="width: 100%">
                     <div style="width: 50%; float:none; margin:0 auto" >
