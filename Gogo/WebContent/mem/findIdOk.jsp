@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <div id="board">
 	<div class="box" style="width:40%;height:50%;text-align:center;margin:auto;padding-top:5%;padding-bottom:5%;" >
-		<h5>Your Account is</h5>
-			<input class="form-control" type="text" name="mem_id" value="${result}" style="width:15%;margin:auto;text-align:center;color:black;font-weight:bold;">
-			<a href="${cp }/mem/login">Go to Login</a>
+		<h6>회원님의 아이디는</h6>
+			<div class="font" style="display:inline;">
+			<input class="form-control" type="text" name="mem_id" value="${result}" style="width:15%;margin:auto;text-align:center;color:black;font-weight:bold;">입니다.
+			</div><br><br>
+			<a href="${cp }/mem/login">로그인페이지</a>
 	</div>
 </div>

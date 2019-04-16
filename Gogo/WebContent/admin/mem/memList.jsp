@@ -12,7 +12,7 @@
       <th scope="col">연락처</th>
       <th scope="col">Email</th>
       <th scope="col">주소</th>
-      <th scope="col">회원상태(0:정상/1:탈퇴)</th>
+      <th scope="col">회원상태</th>
       <th scope="col">정보관리</th>
     </tr>
   </thead>
