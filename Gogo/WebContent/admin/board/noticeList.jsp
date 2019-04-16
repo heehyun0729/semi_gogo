@@ -159,6 +159,6 @@
 
 <script type="text/javascript">
 	function getCate(value){
-		location.href="${pageContext.request.contextPath }/board/noticeList.do?cate=" + value;
+		location.href="${pageContext.request.contextPath }/board/noticeList.do?menu_num=${menu_num }&cate=" + value;
 	}
 </script>

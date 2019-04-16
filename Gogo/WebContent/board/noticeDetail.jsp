@@ -71,7 +71,7 @@
          	</table>
          	<div class="row text-center" style="width: 100%">
                   <div style="width: 50%; float:none; margin:0 auto" >
-                  	<input type="button" class="btn btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do'">
+                  	<input type="button" class="btn btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num }'">
                   </div>
                </div>
      </div>
