@@ -21,7 +21,6 @@ public class NoticeListController extends HttpServlet{
 		String cate=req.getParameter("cate");
 		String field=req.getParameter("field");
 		String keyword=req.getParameter("keyword");
-		
 		int pageNum=1;
 		if(spageNum!=null) {
 			pageNum=Integer.parseInt(spageNum);
