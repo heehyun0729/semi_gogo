@@ -26,7 +26,7 @@
 		               </div>
 		            </div>
 		            <!-- // 해당 사이트 제목 -->
-		            <form class = "row" method="post" action="${cp }/board/reviewDelete?select=ck&menu_num=${menu_num}">
+		            <form class = "col-md-12" method="post" action="${cp }/board/reviewDelete?select=ck&menu_num=${menu_num}">
 		            <div style = "width: 100%;">
 			            <input type = "submit" value = "삭제" class="btn btn-primary" style = "float: right;margin-bottom: 20px;">
 		            </div>

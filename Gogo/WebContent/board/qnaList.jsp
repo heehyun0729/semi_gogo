@@ -133,11 +133,6 @@
 												selected = "selected"
 											</c:if>
 										>내용</option>
-										<option value = "mem_id"
-											<c:if test = "${field == 'mem_id' }">
-												selected = "selected"
-											</c:if>
-										>작성자</option>
 									</select>
 									<input type = "text" name = "keyword" value = "${keyword }" class="form-control col-sm-5" style = "display: inline-block;">
 									<input type = "submit" class="btn btn-primary" value = "검색">
