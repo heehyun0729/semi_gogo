@@ -7,6 +7,8 @@
 			<a href="${cp }/admin/home">Home</a>
 			<span class="mx-2 mb-0">/</span>
 			<strong class="text-black">List</strong>
+			<span class="mx-2 mb-0">/</span>
+			<strong class="text-black">글목록</strong>
 		</div>
 	</div>
 </div>			

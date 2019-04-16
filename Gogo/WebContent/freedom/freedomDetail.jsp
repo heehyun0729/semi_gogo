@@ -7,6 +7,8 @@
 			<a href="${cp }/home">Home</a>
 			<span class="mx-2 mb-0">/</span>
 			<strong class="text-black">Deteail</strong>
+			<span class="mx-2 mb-0">/</span>
+			<strong class="text-black">상세보기</strong>
 		</div>
 	</div>
 </div>			
