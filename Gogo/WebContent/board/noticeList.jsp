@@ -22,8 +22,9 @@
 				<div class="col-md-12 mb-5">
 	                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
 	              </div>
+	              <div style = "width: 100%;">
 	              <form name="cate" method="post">
-						<select onchange="getCate(this.value)" class="form-control col-sm-12"> 
+						<select onchange="getCate(this.value)" class="form-control col-sm-2"> 
 							<option value="">전체</option>
 							<option value="0"
 								<c:if test = "${cate == '0'}">
@@ -37,6 +38,7 @@
 							>이벤트</option>
 						</select>
 				  </form>
+				  </div>
 				<br><br>
 				<table class="table table-hover">
 				 	<thead>
