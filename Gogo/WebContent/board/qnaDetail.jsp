@@ -88,7 +88,7 @@
 	                    			<a class="btn btn-primary" href = "javascript:history.go(-1)">목록</a>
 	                    		</c:when>
 	                    		<c:otherwise>
-	                    			<a class="btn btn-primary" href = "javascript:history.go(-1)">목록</a>
+	                    			<a class="btn btn-primary" href = "javascript:history.go(-2)">목록</a>
 	                    		</c:otherwise>
 	                    	</c:choose>
 							<c:if test="${sessionScope.mem_id == qvo.mem_id }">
