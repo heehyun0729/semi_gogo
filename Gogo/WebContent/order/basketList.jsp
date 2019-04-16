@@ -87,7 +87,7 @@
 				<input type = "submit" class = "buy-now btn btn-sm btn-primary" value = "선택상품주문" onclick="javascript: form.action='${cp }/order/buyInsert?select=ck'" style = "float: left;margin-right: 5px;">
 				<input type = "submit" class = "buy-now btn btn-sm btn-primary" value = "전체상품주문" onclick="javascript: form.action='${cp }/order/buyInsert?select=all'" style = "float: left;">
 				<input type = "button" class = "buy-now btn btn-sm" onclick = "javascript:'${cp }/order/basketDelete.do?select=all'" value = "장바구니 비우기" style = "float: right;margin-left: 5px;">
-				<input type = "button" class = "buy-now btn btn-sm" onclick = "javascript:history.go(-1)" value = "쇼핑계속하기" style = "float: right;">
+				<input type = "button" class = "buy-now btn btn-sm btn-outline-primary" onclick = "javascript:history.go(-1)" value = "쇼핑계속하기" style = "float: right;">
 			</div>
 			</form>
             <!-- // 테이블 -->

@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-    		  <span class="mx-2 mb-0">/</span> <strong class="text-black">mypage</strong>
+    		  <span class="mx-2 mb-0">/</span><a href="${cp }/myoage/home">mypage</a>
       	<span class="mx-2 mb-0">/</span> <strong class="text-black">주문내역</strong>
       </div>
     </div>
