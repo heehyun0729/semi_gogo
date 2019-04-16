@@ -7,7 +7,7 @@
 		     <div class="container">
 		       <div class="row">
 		         <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-		       		  <span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
+		       		  <span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
 		         	<span class="mx-2 mb-0">/</span> <strong class="text-black">후기</strong>
 		         </div>
 		       </div>

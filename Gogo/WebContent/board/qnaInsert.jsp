@@ -32,11 +32,31 @@
                   <div class="col-md-6">
                     <label for="cate" class="text-black">카테고리 </label>
                     <select name = "cate" id = "cate" class="form-control">
-						<option value = "prod" selected="selected">상품</option>
-						<option value = "ship">배송</option>
-						<option value = "cancel">교환/반품</option>
-						<option value = "pay">결제</option>
-						<option value = "etc">기타</option>
+						<option value = "prod"
+							<c:if test = "${vo.qna_cate == 'prod'}">
+								selected = "selected"
+							</c:if>
+						>상품</option>
+						<option value = "ship"
+							<c:if test = "${vo.qna_cate == 'ship'}">
+								selected = "selected"
+							</c:if>
+						>배송</option>
+						<option value = "cancel"
+							<c:if test = "${vo.qna_cate == 'cancel'}">
+								selected = "selected"
+							</c:if>
+						>교환/반품</option>
+						<option value = "pay"
+							<c:if test = "${vo.qna_cate == 'pay'}">
+								selected = "selected"
+							</c:if>
+						>결제</option>
+						<option value = "etc"
+							<c:if test = "${vo.qna_cate == 'etc'}">
+								selected = "selected"
+							</c:if>
+						>기타</option>
 					</select>
                   </div>
                 </div>

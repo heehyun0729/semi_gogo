@@ -6,7 +6,7 @@
 		     <div class="container">
 		       <div class="row">
 		         <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-		         	<span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
+		         	<span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
 		         	<span class="mx-2 mb-0">/</span> <strong class="text-black">문의</strong>
 		         </div>
 		       </div>
@@ -93,7 +93,7 @@
 											<c:forEach var = "i" begin = "1" end = "${vo.qna_level }">
 												&nbsp;&nbsp;
 											</c:forEach>
-											[re]
+											<i class="far fa-hand-point-right"></i>
 										</c:if>
 										<a href = "${cp }/board/qnaDetail?menu_num=${param.menu_num}&qna_num=${vo.qna_num}">${vo.qna_title }</a>
 									</td>
