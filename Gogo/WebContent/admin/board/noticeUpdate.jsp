@@ -5,8 +5,8 @@
    <div class="container">
      <div class="row">
        <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-       	<span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
-       	<span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항 수정</strong>
+       	<span class="mx-2 mb-0">/</span> <strong class="text-black">community</strong>
+       	<span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong>
        </div>
      </div>
    </div>
@@ -16,7 +16,7 @@
 		<div class="row" >
 			<!-- 해당 사이트 제목 -->
 			<div class="col-md-12 mb-6">
-               <div class="float-md-left mb-4"><h2 class="text-black h5">공지수정</h2></div>
+               <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
             </div>
 			<!--// 해당 사이트 제목 -->
 			<div style="width: 70%;margin-left: 15%;margin-right: 15%;">
@@ -64,8 +64,8 @@
 						</tr>
 						<tr>
 							<td colspan = "2">
-								<input type = "submit" class="btn btn-primary" value = "등록" style="margin-left: 45%;">
-								<input type = "button" class="btn btn-primary" value = "취소" onclick="javascript:history.go(-1)">
+								<input type = "submit" class="btn btn-sm btn-primary" value = "등록" style="margin-left: 45%;">
+								<input type = "button" class="btn btn-sm btn-outline-primary" value = "취소" onclick="javascript:history.go(-1)">
 							</td>
 						</tr>
 					</table>

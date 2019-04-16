@@ -37,7 +37,7 @@
 					</select>
 			  </form>
 				<input type="button" class="btn btn-sm btn-primary" value="글쓰기" onclick="location.href='${pageContext.request.contextPath }/board/noticeInsert.do?menu_num=${menu_num }' " style="float: right;margin-bottom: 20px;margin-left: 5px;">
-				<input type="button" class="btn btn-sm btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
+				<input type="button" class="btn btn-sm btn-outline-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
 			</div>
 			<table class="table table-hover">
 			 	<thead>
@@ -105,7 +105,7 @@
 									>내용</option>
 							</select>
 							<input type="text" name="keyword" class="form-control col-sm-5" style = "display: inline-block;">
-							<input type="submit" value="검색" class="btn btn-primary">
+							<input type="submit" value="검색" class="btn btn-sm btn-primary">
 						</form>	
 					</div>
                    </div>

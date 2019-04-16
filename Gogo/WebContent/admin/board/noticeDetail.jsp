@@ -75,9 +75,9 @@
 	          	</table>
 	          	<div class="row text-center" style="width: 100%">
                     <div style="width: 50%; float:none; margin:0 auto" >
-                    	<input type="button" class="btn btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
-						<input type="button" class="btn btn-primary" value="수정" onclick="location.href='${cp }/board/noticeUpdate.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
-						<input type="button" class="btn btn-primary" value="삭제" onclick="location.href='${cp }/board/noticeDelete.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
+                    	<input type="button" class="btn btn-sm btn-outline-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
+						<input type="button" class="btn btn-sm btn-primary" value="수정" onclick="location.href='${cp }/board/noticeUpdate.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
+						<input type="button" class="btn btn-sm btn-primary" value="삭제" onclick="location.href='${cp }/board/noticeDelete.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'">
                     </div>
                  </div>
 	      </div>
