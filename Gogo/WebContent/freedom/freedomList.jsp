@@ -9,10 +9,10 @@
 	
 	<div>
   		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/freedom/freedomInsert.do' ">
-  		<input type="button" value="목록"  onclick="Locateion.href='${cp}/freedom/freedomDetail.do?menu_num=${menu_num}&freedom_num=${vo.freedom_num}'">
+  		<input type="button" value="목록"  onclick="location.href='${cp}/freedom/freedomList.do?menu_num=${menu_num}&freedom_num=${vo.freedom_num}'">
   	</div>
   <div id="freedomList">	
-<table border="1">
+<table class="table table-condensed" border="1">
 	<tr>
 		<td>글번호</td>
 		<td>제목</td>
