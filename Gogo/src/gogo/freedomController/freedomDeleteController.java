@@ -34,7 +34,7 @@ public class freedomDeleteController extends HttpServlet{
 		req.getRequestDispatcher("/home.jsp").forward(req, resp);
 	}
 
-	
+	//
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int freedom_num = Integer.parseInt(req.getParameter("freedom_num"));
