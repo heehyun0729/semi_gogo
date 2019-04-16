@@ -106,59 +106,6 @@
 	</div>
   </div>
 </div>
-
-
-<div id="board">
-
-	<div>
-		<h1>상품 상세보기</h1>
-	</div>
-	
-	<div id="printArea">
-		<img src="${cp }/upload/product/${ilist.get(0).getImg_saveImg() }" id="img1" style="border:1px; width:300px;height:400px; float:left;">
-	</div>
-	
-	<div>
-		<table>
-			<tr>
-				<c:forEach var = "vo" items = "${ilist }">
-					<td colspan = "1">
-						<img src = "${cp }/upload/product/${vo.img_saveImg}" style = "width: 100px; height: 100px;" onmouseover="printImg(this.src)">
-					</td>
-				</c:forEach>
-			</tr>
-		</table>
-	</div>
-</div>
-
-<form method="post">
-	<input type = "hidden" name = "prod_num" value = "${pvo.prod_num }">
-	<input type = "hidden" name = "op_num" value = "${opvo.op_num }">
-	<div>
-		<table>
-			<tr>
-				<td>${pvo.prod_name }</td><td><span id="price">${pvo.prod_price}</span></td>
-			</tr>
-			<tr>
-				<td>${opvo.op_name}</td>
-				<td>
-					<select id='option' onchange="addOp(this.selectedIndex)">
-						<option value='' selected>-[필수] 옵션을 선택해주세요-</option>
-					  	<c:forEach var = "vo1" items = "${doplist }">
-					  		<option id="${vo1.detailOp_name}" value="${vo1.detailOp_num }">${vo1.detailOp_name}/${vo1.detailOp_price}</option>
-					  	</c:forEach>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<div id="op"></div>
-		<div id="total">0</div>
-	</div>
-		<input type="submit" value="바로 구매하기" onclick="javascript: form.action = '${cp}/order/buyInsert?select=one';">
-		<input type="submit" value="장바구니 담기" onclick="javascript: form.action = '${cp}/order/basketInsert.do';">
-		<input type="button" value="관심상품 담기" onclick="location.href='${cp }/mypage/interInsert.do?prod_num=${pvo.prod_num }'">
-		
-</form>
 <script type="text/javascript">
 	var total=document.getElementById("total");
 	var total_value=parseInt(total.innerHTML);
@@ -268,14 +215,3 @@
 		}
 	}
 </script>
-<br>
-<div>
-	<c:forEach var = "divo" items = "${dilist }">
-		<img src = "${cp }/upload/product/${divo.img_saveImg}" style = "width: 200px; height: 200px;">
-	</c:forEach>
-</div>
-<div>
-	<input type="button" value="목록" onclick="location.href='${cp }/product/productList.do?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-	<input type="button" value="수정" onclick="location.href='${cp }/admin/product/productUpdate?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-	<input type="button" value="삭제" onclick="location.href='${cp }/admin/product/productDelete?menu_num=${menu_num}&prod_num=${pvo.prod_num }'">
-</div>
