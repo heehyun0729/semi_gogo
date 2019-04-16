@@ -14,7 +14,7 @@
 				<td><input type="password" name="mem_pwd"
 					value="${vo.mem_pwd }" id="pwd" onkeyup="pwdcheck()">(영문소문자/숫자,
 					8자~16자)</td>
-			</tr>
+			</tr> 
 			<tr>
 				<th>비밀번호 확인</th>
 				<td><input type="password" name="re_pwd" id="repwd"
