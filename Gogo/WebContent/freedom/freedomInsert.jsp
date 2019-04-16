@@ -12,9 +12,10 @@
 </div>
 
 <div id="board">
-	<div>
-    	<h1>글 작성</h1>
-    </div>
+	<div class="col-md-12 mb-5">
+        <div class="float-md-left mb-4" style="margin-left:25%"><h2 class="text-black h5">Insert</h2></div>
+      	</div>
+  	</div>
     <hr>
  	<div>
  		<form method="post" action="<%=request.getContextPath() %>/freedom/freedomInsert.do" enctype="multipart/form-data">
@@ -37,5 +38,4 @@
 					</div>		
  		</form>
  	</div>
-</div>
 <!--  --> 		

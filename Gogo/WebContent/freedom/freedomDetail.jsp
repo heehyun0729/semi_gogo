@@ -14,9 +14,9 @@
 
 <div id="board">
 	<div>
-		<div>
-			<h1>상세보기</h1>
-		</div>
+		<div class="col-md-12 mb-5">
+        	<div class="float-md-left mb-4" style="margin-left:25%"><h2 class="text-black h5">Detail</h2></div>
+      	</div>
 		<div>
 		<table class="table table-hover" style="width: 52%; margin-top: 3rem; margin-left: 25%; text-align:center">
 			<tr>

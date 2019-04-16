@@ -38,35 +38,47 @@
 		</c:forEach>
 	</table>
 </div>
-<div id="freedomPageNum"  style="float:none; margin-left:49%" >
+
+<c:choose>
+<c:when test="${startPage!=null}">
+<div class="row text-center" style="width: 100%;margin-top:50px;" data-aos="fade-up">
+	 <div class="col-md-12 text-center">
+	         <div class="site-block-27">
+	         	<ul>
 	<c:choose>
 		<c:when test="${startPage>10 }">
-			<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${startPage-1 }">◀</a>
+			<li><a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${startPage-1 }">&lt;</a></li>
 		</c:when>
 		<c:otherwise>
-			◀
+			<li><a>&lt;</a></li>
 		</c:otherwise>
 	</c:choose>
 	<c:forEach var = "i" begin="${startPage }" end ="${endPage }">
 		<c:choose>
-			<c:when test="${i==pageNum }">
-				<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:blue'>[${i }]</span></a>
+			<c:when test="${pageNum == i }">
+				<li><a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}">[${i }]</a></li>
 			</c:when>
 			<c:otherwise>
-				<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}"><span style='color:#999'>[${i }]</span></a>
+				<li><a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${i}">[${i }]</a></li>
 			</c:otherwise>
 	</c:choose>	
 	</c:forEach>
 	<c:choose>
 		<c:when test="${endPage < pageCount }">
-			<a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${endPage+1 }">▶</a>
+			<li><a href="${pageContext.request.contextPath }/freedom/freedomList.do?pageNum=${endPage+1 }">&gt;</a></li>
 		</c:when>
 		<c:otherwise>
-			▶
+			<li><a>&gt;</a></li>
 		</c:otherwise>
-	</c:choose>	
+	</c:choose>
+		</ul>
+	</div>
+	</div>
 </div>
-	
+</c:when>
+</c:choose>	
+
+
 <div class="row text-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto">
 		<div id="freedomFind">

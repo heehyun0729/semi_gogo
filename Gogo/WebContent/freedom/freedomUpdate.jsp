@@ -12,9 +12,9 @@
 </div>			
  
  <div id="board">
- 	<div>
-   <h1>수정하기</h1>
-	</div>
+ 	<div class="col-md-12 mb-5">
+        <div class="float-md-left mb-4" style="margin-left:25%"><h2 class="text-black h5">Update</h2></div>
+     </div>
  	<form method="post" action="${cp }/freedom/freedomUpdate.do">
  		<input type="hidden" name="freedom_num" value="${vo.freedom_num }">
  		
