@@ -36,8 +36,8 @@
 						>이벤트</option>
 					</select>
 			  </form>
-				<input type="button" class="btn btn-sm btn-primary" value="글쓰기" onclick="location.href='${pageContext.request.contextPath }/board/noticeInsert.do' " style="float: right;margin-bottom: 20px;margin-left: 5px;">
-				<input type="button" class="btn btn-sm" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
+				<input type="button" class="btn btn-sm btn-primary" value="글쓰기" onclick="location.href='${pageContext.request.contextPath }/board/noticeInsert.do?menu_num=${menu_num }' " style="float: right;margin-bottom: 20px;margin-left: 5px;">
+				<input type="button" class="btn btn-sm btn-primary" value="목록" onclick="location.href='${cp }/board/noticeList.do?menu_num=${menu_num}&notice_num=${nvo.notice_num }'" style="float: right;margin-bottom: 20px;margin-left: 5px;">
 			</div>
 			<table class="table table-hover">
 			 	<thead>
@@ -90,7 +90,7 @@
 			<div class="row text-center" style="width: 100%">
                    <div style="width: 50%; float:none; margin:0 auto" >
                    	<div id="noticeFind">
-						<form method="post" action="${cp }/board/noticeList.do">
+						<form method="post" action="${cp }/board/noticeList.do?menu_num=${menu_num}">
 							<select name="field" class="form-control col-sm-3" style = "display: inline-block;">
 								<option value="notice_all">제목+내용</option>
 							  	<option value="notice_title"
@@ -121,7 +121,7 @@
 	                  <ul>
 	                  <c:choose>
 						<c:when test="${startPage > 10 }">
-							<li><a href = "${cp }/board/noticeList.do?menu_num=${menu_num }&pageNum=${startPage - 1}&menu_num=${menu_num }">&lt;</a></li>
+							<li><a href = "${cp }/board/noticeList.do?menu_num=${menu_num }&pageNum=${startPage - 1}">&lt;</a></li>
 						</c:when>
 						<c:otherwise>
 							<li><a>&lt;</a></li>

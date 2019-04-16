@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="board">
 	<div>
 		<h1>글등록하기</h1>
 	</div>
 	<div>
-		<form method="post" action="${cp}/board/noticeInsert.do" enctype="multipart/form-data">
+		<form method="post" action="${cp}/board/noticeInsert.do?menu_num=${menu_num}" enctype="multipart/form-data">
 			<table border = "1" style="width: 500px;">
 				<tr>
 					<td>카테고리</td>
