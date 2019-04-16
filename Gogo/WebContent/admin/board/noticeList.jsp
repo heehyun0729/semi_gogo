@@ -4,7 +4,8 @@
 <div class="bg-light py-3">
      <div class="container">
        <div class="row">
-         <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
+         <div class="col-md-12 mb-0"><a href="${cp }/admin/home">Home</a>
+         	 <span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
          	<span class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong>
          </div>
        </div>
@@ -14,7 +15,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
+                <div class="float-md-left mb-4">
+	                <h2 class="text-black h5">공지사항</h2>
+	                <p style="margin-left: 0px;">관리자페이지<p>
+                </div>
               </div>
 			  <div style = "width: 100%;">
               <form name="cate" method="post">
