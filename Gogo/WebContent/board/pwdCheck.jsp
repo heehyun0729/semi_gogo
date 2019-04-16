@@ -12,7 +12,8 @@
 	      <div class="container">
 	        <div class="row">
 	          <div class="col-md-12 mb-0"><a href="${cp }/home">Home</a>
-	          	<span class="mx-2 mb-0">/</span> <strong class="text-black">비밀번호 체크</strong>
+	          	<span class="mx-2 mb-0">/</span> <strong class="text-black">COMMUNITY</strong>
+	          	<span class="mx-2 mb-0">/</span> <strong class="text-black">문의</strong>
 	          </div>
 	        </div>
 	      </div>
@@ -22,7 +23,7 @@
 			<div class="container">
 				<div class="row">
 					  <div class="col-md-12 mb-5">
-		                <div class="float-md-left mb-4"><h2 class="text-black h5">공지사항</h2></div>
+		                <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 		              </div>
 		              
 		              <div class="row text-center" style="width: 100%;margin-top:50px;">
