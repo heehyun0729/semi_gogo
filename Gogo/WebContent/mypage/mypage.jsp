@@ -26,7 +26,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-         <a href="${cp }/mypage/myInfo.do" class="btn btn-outline-primary">회원정보</a><br>
+         <a href="${cp }/mypage/myInfo.do" class="btn btn-outline-primary" style="margin-bottom: 10px;">회원정보</a><br>
         <p class="card-text">회원이신 고객님의 개인정보를 관리하는 공간입니다.</p>
       </div>
     </div>
@@ -34,18 +34,18 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <a href="${cp }/mypage/orderList" class="btn btn-outline-primary">주문내역</a><br>
+        <a href="${cp }/mypage/orderList" class="btn btn-outline-primary" style="margin-bottom: 10px;">주문내역</a><br>
         <p class="card-text">고객님께서 주문하신 상품의 주문내역을 확인하실 수 있습니다.</p>
       </div>
     </div>
   </div>
 </div>
-
+<br>
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-         <a href="${cp }/mypage/interList.do" class="btn btn-outline-primary">관심상품</a><br>
+         <a href="${cp }/mypage/interList.do" class="btn btn-outline-primary" style="margin-bottom: 10px;">관심상품</a><br>
         <p class="card-text">관심상품으로 등록하신 상품의 목록을 보여드립니다.</p>
       </div>
     </div>
@@ -53,8 +53,8 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body" style="display:inline;">
-      <a href="${cp }/mypage/myqna" class="btn btn-outline-primary">나의 문의</a>
-      <a href="${cp }/mypage/myreview" class="btn btn-outline-primary">나의 후기</a><br>
+      <a href="${cp }/mypage/myqna" class="btn btn-outline-primary" style="margin-bottom: 10px;">나의 문의</a>
+      <a href="${cp }/mypage/myreview" class="btn btn-outline-primary" style="margin-bottom: 10px;">나의 후기</a><br>
         <p class="card-text">고객님께서 작성하신 게시물을 관리하는 공간입니다.</p>
         </div>
     </div>
