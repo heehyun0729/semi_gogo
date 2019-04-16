@@ -10,6 +10,6 @@ function setLikeOk() {
 		var data = xhr.responseText;
 		var json = eval("(" + data + ")");
 		var span = document.getElementById("like");
-		span.innerHTML = "(" + json.review_like + ")";
+		span.innerHTML = json.review_like;
 	}
 }
