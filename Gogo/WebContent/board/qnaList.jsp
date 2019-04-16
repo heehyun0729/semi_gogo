@@ -29,7 +29,7 @@
 		               <div class="float-md-left mb-4"><h2 class="text-black h5">문의</h2></div>
 		            </div>
 		            <!-- // 해당 사이트 제목 -->
-		            <select name = "cate" onchange="getQnaList(this.value)" class="form-control col-sm-2" >
+		            <select name = "cate" onchange="getQnaList(this.value)" class="form-control col-sm-2" style = "display: inline-block;">
 						<option value = "">전체</option>
 						<option value = "prod"
 							<c:if test = "${cate == 'prod'}">
@@ -58,7 +58,9 @@
 							</c:if>
 						>기타</option>
 					</select>
+					<div style="width: 80%; text-align: right; display: inline-block;">
 		            <a class="btn btn-primary" href = "${cp }/board/qnaInsert?menu_num=${param.menu_num}" style = "margin-bottom: 20px;margin-left: 5px;">글쓰기</a>
+		            </div>
 		            <br>
 		            <!-- 테이블 -->
 		            <table class="table table-hover">
