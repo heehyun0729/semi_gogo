@@ -38,7 +38,7 @@
 			<tbody>
 			<c:forEach var = "vo" items = "${list }">
 				<tr class="text-center">
-					<td><input type = "checkbox" name = "check" value = "${vo.basket_num }" onclick="isChecked()"></td>
+					<td><input type = "checkbox" name = "check" value = "${vo.inter_num }" onclick="isChecked()"></td>
 					<td>
 						<a href = "${cp }/product/productDetail.do?menu_num=${vo.menu_num}&prod_num=${vo.prod_num}">
 							<img src = "${cp }/upload/product/${vo.img_saveImg}" style="width: 100px; height: 100px;">
@@ -58,7 +58,7 @@
 			</tbody>
 		</table>
 	<div style = "row">
-		<input type = "submit" class = "ㅁbtn btn-sm" value = "선택상품삭제" style = "float: left;margin-right: 5px;">
+		<input type = "submit" class = "btn btn-sm" value = "선택상품삭제" style = "float: left;margin-right: 5px;">
 		<input type = "submit" class = "btn btn-sm" value = "관심상품 비우기" onclick="javascript: form.action='${cp }/mypage/interDelete.do?select=all'" style = "float: right;margin-left: 5px;">
 		<input type = "button" class = "btn btn-sm btn-outline-primary" onclick = "javascript:history.go(-1)" value = "쇼핑계속하기" style = "float: right;">
 	</div>
