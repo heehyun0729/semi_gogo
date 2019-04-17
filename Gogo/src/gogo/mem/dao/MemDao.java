@@ -130,15 +130,14 @@ public class MemDao {
 		PreparedStatement pstmt=null;
 		try { 
 			con=JDBCUtil.getConn();
-			String sql="update members set mem_pwd=?,mem_name=?,mem_phone=?,mem_email=?,mem_addr=?,mem_stat=? where mem_id=?";
+			String sql="update members set mem_pwd=?,mem_name=?,mem_phone=?,mem_email=?,mem_addr=? where mem_id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, vo.getMem_pwd());
 			pstmt.setString(2, vo.getMem_name());
 			pstmt.setString(3, vo.getMem_phone());
 			pstmt.setString(4, vo.getMem_email());
 			pstmt.setString(5, vo.getMem_addr());
-			pstmt.setInt(6, vo.getMem_stat());
-			pstmt.setString(7, vo.getMem_id());
+			pstmt.setString(6, vo.getMem_id());
 			return pstmt.executeUpdate();
 		}catch(SQLException se) {
 			se.printStackTrace();

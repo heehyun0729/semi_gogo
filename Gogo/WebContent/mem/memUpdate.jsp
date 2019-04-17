@@ -25,6 +25,7 @@
 		<div id="box" style="width: 40%; height: 50%; margin: auto;">
 		<form method="post" action="${cp }/mypage/myInfo.do"
 			onsubmit="return validate();">
+			<input type = "hidden" name = "mem_id" value = "${param.mem_id }">
 			<table class="table table-striped">
 				<tr>
 					<th>비밀번호</th>
