@@ -22,7 +22,7 @@
   </div> <!-- // container -->
 </div> <!-- //site-section -->
 <div class="content_wrap" style="padding-bottom: 5%">
-<div id="box" style="width: 50%; height: 50%; margin: auto;">
+<div id="box" style="width: 60%; height: 50%; margin: auto;">
 <table class="table">
   <thead class="thead-dark">
     <tr>
