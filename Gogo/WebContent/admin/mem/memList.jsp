@@ -49,6 +49,7 @@
 		</c:forEach>
   </tbody>
 </table>
+<!-- 
 <div id="memPageNum" style="text-align:center;">
 	<c:choose>
 		<c:when test="${startPage>4 }">
@@ -77,5 +78,6 @@
 		</c:otherwise>
 	</c:choose>
 </div>
+ -->
 </div>
 </div>
